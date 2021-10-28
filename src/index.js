@@ -1,5 +1,5 @@
-import { ansibleOrder } from './constants.js';
-import { acquireProjectType, getExtends, getParser, getPlugins, schemaDefinitions} from './lib.js';
+const { ansibleOrder } = require('./constants.js');
+const { acquireProjectType, getExtends, getParser, getPlugins, schemaDefinitions} = require('./lib.js');
 
 const taskfile = acquireProjectType();
 
