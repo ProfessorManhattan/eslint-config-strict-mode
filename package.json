@@ -1,4 +1,5 @@
 {
+  "private": false,
   "name": "@megabytelabs/eslint-config",
   "version": "1.0.0",
   "description": "The Megabyte Labs ESLint configuration for linting TS, JS, JSON, YAML, and TOML",
