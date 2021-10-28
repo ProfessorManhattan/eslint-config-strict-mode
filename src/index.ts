@@ -110,7 +110,7 @@ export default {
         "json-schema-validator/no-invalid": [
           "error",
           {
-            "schemas": schemaDefinitions(taskfile.vars.REPOSITORY_TYPE, taskfile.vars.REPOSITORY_SUBTYPE),
+            "schemas": schemaDefinitions(),
             "useSchemastoreCatalog": true
           }
         ],
