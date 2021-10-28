@@ -110,11 +110,11 @@ export const schemaDefinitions = (type, subType) => {
     {
       "fileMatch": ["Taskfile.yml", "Taskfile-*.yml"],
       "schema": "https://json.schemastore.org/taskfile.json"
-    }
+    },
     {
       "fileMatch": ["tsconfig.json", "tsconfig.module.json"],
       "schema": "https://json.schemastore.org/tsconfig.json"
     },
   ];
-  return schemaDefinitions;
+  return schemas;
 }
