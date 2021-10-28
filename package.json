@@ -1,0 +1,153 @@
+{
+  "name": "@megabytelabs/eslint-config",
+  "version": "1.0.0",
+  "description": "The Megabyte Labs ESLint configuration for linting TS, JS, JSON, YAML, and TOML",
+  "license": "MIT",
+  "author": "Brian Zalewski <brian@megabyte.space> (https://megabyte.space)",
+  "homepage": "https://megabyte.space",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ProfessorManhattan/eslint-config.git"
+  },
+  "bugs": {
+    "email": "help@megabyte.space",
+    "url": "https://gitlab.com/megabyte-labs/npm/configs/eslint/-/issues"
+  },
+  "type": "module",
+  "main": "src/index.js",
+  "files": [
+    "src/"
+  ],
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.33.0",
+    "@typescript-eslint/eslint-plugin-tslint": "^4.33.0",
+    "@typescript-eslint/parser": "^4.33.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-formatter-pretty": "^4.1.0",
+    "eslint-plugin-editorconfig": "^3.0.2",
+    "eslint-plugin-eslint-comments": "^3.2.0",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-json-schema-validator": "^1.2.44",
+    "eslint-plugin-jsonc": "^1.6.0",
+    "eslint-plugin-no-secrets": "^0.8.9",
+    "eslint-plugin-prefer-arrow": "^1.2.3",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "eslint-plugin-regexp": "^1.1.0",
+    "eslint-plugin-rxjs": "^4.0.1",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "eslint-plugin-sort-class-members": "^1.11.0",
+    "eslint-plugin-sort-keys-fix": "^1.1.2",
+    "eslint-plugin-toml": "^0.2.0",
+    "eslint-plugin-tsdoc": "^0.2.14",
+    "eslint-plugin-typescript-sort-keys": "^2.0.0",
+    "eslint-plugin-unicorn": "^37.0.1",
+    "eslint-plugin-unused-imports": "^1.1.5",
+    "eslint-plugin-yml": "^0.10.1"
+  },
+  "devDependencies": {
+    "@commitlint/config-conventional": "^13.1.0",
+    "@megabytelabs/prettier-config": "^14.14.14",
+    "cz-conventional-changelog": "^3.3.0"
+  },
+  "peerDependencies": {
+    "eslint": "^8.1.0",
+    "prettier": "^2.4.1",
+    "typescript": "^4.4.4"
+  },
+  "keywords": [
+    "editorconfig",
+    "eslint",
+    "formatter",
+    "javascript",
+    "linter",
+    "megabytelabs",
+    "prettier",
+    "professormanhattan",
+    "schema",
+    "toml",
+    "tsdoc",
+    "typescript",
+    "typescript",
+    "yaml"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "blueprint": {
+    "description": "The Megabyte Labs ESLint configuration for linting TS, JS, JSON, YAML, and TOML",
+    "name": "ESLint Config",
+    "overview": "This [ESLint](https://eslint.org/) configuration package includes a whole slew of ESLint plugins and default settings that are meant to enforce strict design patterns among developers who code with TypeScript, JavaScript, JSON, YAML, and TOML.",
+    "repository": {
+      "github": "https://github.com/ProfessorManhattan/eslint-config",
+      "gitlab": "https://gitlab.com/megabyte-labs/npm/configs/eslint"
+    },
+    "slug": "eslint-config",
+    "title": "The Perfect ESLint Config"
+  },
+  "funding": [
+    {
+      "type": "opencollective",
+      "url": "https://opencollective.com/megabytelabs"
+    },
+    {
+      "type": "patreon",
+      "url": "https://www.patreon.com/ProfessorManhattan"
+    }
+  ],
+  "lint-staged": {
+    "**/*": [
+      "blocklint --wordlist blacklist,slave,whitelist",
+      "check-merge-conflict",
+      "check-added-large-files",
+      "check-symlinks",
+      "destroyed-symlinks"
+    ],
+    "**/*.(css|html|less|md|mjml|php|scss|sh|xml)": [
+      "task fix:prettier --"
+    ],
+    "**/*.json": [
+      "task fix:json --"
+    ],
+    "**/*.(js|jsx|ts)": [
+      "task fix:js --",
+      "task lint:js --"
+    ],
+    "**/*.sh": [
+      "task fix:shell --",
+      "task lint:shell --"
+    ],
+    "**/*.toml": [
+      "task lint:toml --"
+    ],
+    "**/*.xml": [
+      "task fix:xml --",
+      "task lint:xml --"
+    ],
+    "**/*.yml": [
+      "task fix:yaml --",
+      "task lint:yaml --"
+    ],
+    "**/*.(jpg|png)": [
+      "task image:compress --"
+    ],
+    "logo.png": [
+      "task image:resize -- 200 200",
+      "task image:compress --"
+    ],
+    "requirements.txt": [
+      "requirements-txt-fixer"
+    ]
+  },
+  "prettier": "@megabytelabs/prettier-config",
+  "standard-version": {
+    "scripts": {
+      "prerelease": "git add --all"
+    }
+  }
+}
