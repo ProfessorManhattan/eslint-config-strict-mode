@@ -1,6 +1,6 @@
 const fs = require('fs')
 const YAML = require('yaml')
-import { plugins, templates } from './constants';
+import { plugins, templates } from './constants.js';
 
 export const acquireProjectType = () => {
     if (fs.existsSync('./Taskfile.yml')) {
