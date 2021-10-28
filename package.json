@@ -24,9 +24,9 @@
     }
   },
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^4.33.0",
-    "@typescript-eslint/eslint-plugin-tslint": "^4.33.0",
-    "@typescript-eslint/parser": "^4.33.0",
+    "@typescript-eslint/eslint-plugin": "^5.2.0",
+    "@typescript-eslint/eslint-plugin-tslint": "^5.2.0",
+    "@typescript-eslint/parser": "^5.2.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-formatter-pretty": "^4.1.0",
     "eslint-plugin-editorconfig": "^3.0.2",
