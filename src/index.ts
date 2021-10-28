@@ -1,9 +1,9 @@
-import { ansibleOrder } from './constants.js';
-import { acquireProjectType, getExtends, getParser, getPlugins, schemaDefinitions} from './lib.js';
+import { ansibleOrder } from './constants';
+import { acquireProjectType, getExtends, getParser, getPlugins, schemaDefinitions} from './lib';
 
 const taskfile = acquireProjectType();
 
-module.exports = {
+export default {
   env: {
     browser: taskfile.vars.REPOSITORY_TYPE === 'angular',
     es6: true,
