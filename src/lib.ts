@@ -93,7 +93,7 @@ export const getPlugins = (type, subType) => {
 }
 
 // Automatically uses https://www.schemastore.org/api/json/catalog.json in addition to the below configurations
-export const schemaDefinitions = (type, subType) => {
+export const schemaDefinitions = () => {
   const schemas = [
     {
       "fileMatch": [".commitlint.config.cjs"],
