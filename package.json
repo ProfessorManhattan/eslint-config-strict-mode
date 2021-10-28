@@ -13,9 +13,9 @@
     "email": "help@megabyte.space",
     "url": "https://gitlab.com/megabyte-labs/npm/configs/eslint/-/issues"
   },
-  "main": "src/index.js",
+  "main": "build/main/index.js",
   "files": [
-    "src/"
+    "build/main/"
   ],
   "scripts": {
     "build:main": "tsc -p tsconfig.json",
