@@ -17,6 +17,10 @@
   "files": [
     "src/"
   ],
+  "scripts": {
+    "build:main": "tsc -p tsconfig.json",
+    "build:module": "tsc -p tsconfig.module.json",
+  },
   "config": {
     "commitizen": {
       "path": "cz-conventional-changelog"
