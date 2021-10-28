@@ -13,7 +13,6 @@
     "email": "help@megabyte.space",
     "url": "https://gitlab.com/megabyte-labs/npm/configs/eslint/-/issues"
   },
-  "type": "module",
   "main": "src/index.js",
   "files": [
     "src/"
