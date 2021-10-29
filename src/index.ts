@@ -1,10 +1,5 @@
-import { ansibleOrder } from './constants'
+import { ansibleOrder, maxClassesPerFile, maxLines } from './constants'
 import { acquireProjectType, getExtends, getParser, getPlugins, schemaDefinitions } from './lib'
-
-// Maximum number of classes to allow in
-const maxClassesPerFile = 4
-// Maximum number of lines of code in any given file
-const maxLines = 500
 
 const taskfile = acquireProjectType()
 
