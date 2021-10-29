@@ -1,7 +1,12 @@
-import { ansibleOrder } from './constants';
-import { acquireProjectType, getExtends, getParser, getPlugins, schemaDefinitions} from './lib';
+import { ansibleOrder } from './constants'
+import { acquireProjectType, getExtends, getParser, getPlugins, schemaDefinitions } from './lib'
 
-const taskfile = acquireProjectType();
+// Maximum number of classes to allow in
+const maxClassesPerFile = 4
+// Maximum number of lines of code in any given file
+const maxLines = 500
+
+const taskfile = acquireProjectType()
 
 export default {
   env: {
@@ -9,14 +14,8 @@ export default {
     es6: true,
     node: true
   },
-  parser: getParser(taskfile.vars.REPOSITORY_TYPE, taskfile.vars.REPOSITORY_SUBTYPE),
-  parserOptions: {
-    project: 'tsconfig.json',
-    sourceType: 'module'
-  },
-  ignorePatterns: ['ansible_variables.json', 'package.json', 'package-lock.json', 'pnpm-lock.yaml'],
   extends: getExtends(taskfile.vars.REPOSITORY_TYPE, taskfile.vars.REPOSITORY_SUBTYPE),
-  plugins: getPlugins(taskfile.vars.REPOSITORY_TYPE, taskfile.vars.REPOSITORY_SUBTYPE),
+  ignorePatterns: ['ansible_variables.json', 'package.json', 'package-lock.json', 'pnpm-lock.yaml'],
   overrides: [
     {
       files: ['*.json', '*.json5'],
@@ -25,8 +24,8 @@ export default {
         'jsonc/sort-keys': [
           'error',
           {
-            pathPattern: '.*',
-            order: { type: 'asc' }
+            order: { type: 'asc' },
+            pathPattern: '.*'
           }
         ]
       }
@@ -46,18 +45,18 @@ export default {
         ],
         '@typescript-eslint/class-literal-property-style': ['error', 'fields'],
         '@typescript-eslint/explicit-member-accessibility': [
-                    'error',
-                    {
-                        accessibility: 'explicit',
-                        overrides: {
-                            accessors: 'explicit',
-                            constructors: 'no-public',
-                            methods: 'explicit',
-                            properties: 'explicit',
-                            parameterProperties: 'explicit'
-                        }
-                    }
-                ],
+          'error',
+          {
+            accessibility: 'explicit',
+            overrides: {
+              accessors: 'explicit',
+              constructors: 'no-public',
+              methods: 'explicit',
+              parameterProperties: 'explicit',
+              properties: 'explicit'
+            }
+          }
+        ],
         '@typescript-eslint/member-delimiter-style': [
           'error',
           {
@@ -86,142 +85,11 @@ export default {
         '@typescript-eslint/triple-slash-reference': [
           'error',
           {
+            lib: 'always',
             path: 'always',
-            types: 'prefer-import',
-            lib: 'always'
+            types: 'prefer-import'
           }
         ],
-        'no-useless-constructor': 'off',
-        'no-empty-function': ["error", { "allow": ["constructors"]}],
-        'arrow-parens': ['off', 'always'],
-        'brace-style': ['error', '1tbs'],
-        'capitalized-comments': 'off',
-        'comma-dangle': 'off',
-        eqeqeq: ['error', 'always'],
-        'id-blacklist': [
-          'error',
-          'any',
-          'Number',
-          'number',
-          'String',
-          'string',
-          'Boolean',
-          'boolean',
-          'Undefined',
-          'undefined'
-        ],
-        "import/no-extraneous-dependencies": ["error", {"devDependencies": false, "optionalDependencies": false, "peerDependencies": false}],
-        "json-schema-validator/no-invalid": [
-          "error",
-          {
-            "schemas": schemaDefinitions(),
-            "useSchemastoreCatalog": true
-          }
-        ],
-        'linebreak-style': ['error', 'unix'],
-        'max-classes-per-file': ['error', 5],
-        'max-len': [
-          'error',
-          {
-            code: 120
-          }
-        ],
-        'newline-per-chained-call': 'off',
-        'no-console': [
-          'error',
-          {
-            allow: [
-              'warn',
-              'dir',
-              'time',
-              'timeEnd',
-              'timeLog',
-              'trace',
-              'assert',
-              'clear',
-              'count',
-              'countReset',
-              'group',
-              'groupEnd',
-              'table',
-              'debug',
-              'info',
-              'dirxml',
-              'groupCollapsed',
-              'Console',
-              'profile',
-              'profileEnd',
-              'timeStamp',
-              'context'
-            ]
-          }
-        ],
-        'new-cap': 1,
-        'sort-imports': 'off',
-        'no-loops/no-loops': 2,
-        'no-magic-numbers': [
-          'error',
-          {
-            ignoreArrayIndexes: true
-          }
-        ],
-        'no-multiple-empty-lines': [
-          'error',
-          {
-            max: 2
-          }
-        ],
-        'no-plusplus': [
-          'error',
-          {
-            allowForLoopAfterthoughts: true
-          }
-        ],
-        'no-restricted-syntax': ['error', 'ForInStatement'],
-        'no-shadow': 'off',
-        'one-var': ['error', 'never'],
-        'padding-line-between-statements': [
-          'error',
-          {
-            blankLine: 'always',
-            prev: '*',
-            next: 'return'
-          }
-        ],
-        'func-style': ["error", "declaration", { "allowArrowFunctions": true }],
-        'prefer-arrow/prefer-arrow-functions': [
-          'warn',
-          {
-            disallowPrototype: true,
-            singleReturnOnly: false,
-            classPropertiesAllowed: false,
-            allowStandaloneDeclarations: true
-          }
-        ],
-        'quote-props': ['error', 'as-needed'],
-        "require-jsdoc": ["error", {
-          "require": {
-            "FunctionDeclaration": true,
-            "MethodDefinition": true,
-            "ClassDeclaration": true,
-            "ArrowFunctionExpression": true,
-            "FunctionExpression": true
-          }
-        }],
-        semi: 'off',
-        'space-before-function-paren': 'off',
-        'space-in-parens': ['off', 'never'],
-        'spaced-comment': [
-          'error',
-          'always',
-          {
-            markers: ['/']
-          }
-        ],
-        'sort-keys': 'off',
-        'sort-keys-fix/sort-keys-fix': 'error',
-        'tsdoc/syntax': 'error',
-        'unused-imports/no-unused-imports': 'error',
         '@typescript-eslint/tslint/config': [
           'error',
           {
@@ -268,13 +136,150 @@ export default {
               'unnecessary-else': true
             }
           }
-        ]
+        ],
+        'arrow-parens': ['off', 'always'],
+        'brace-style': ['error', '1tbs'],
+        'capitalized-comments': 'off',
+        'comma-dangle': 'off',
+        eqeqeq: ['error', 'always'],
+        'func-style': ['error', 'declaration', { allowArrowFunctions: true }],
+        'id-blacklist': [
+          'error',
+          'any',
+          'Number',
+          'number',
+          'String',
+          'string',
+          'Boolean',
+          'boolean',
+          'Undefined',
+          'undefined'
+        ],
+        'import/no-extraneous-dependencies': [
+          'error',
+          { devDependencies: false, optionalDependencies: false, peerDependencies: false }
+        ],
+        'json-schema-validator/no-invalid': [
+          'error',
+          {
+            schemas: schemaDefinitions(),
+            useSchemastoreCatalog: true
+          }
+        ],
+        'linebreak-style': ['error', 'unix'],
+        'max-classes-per-file': ['error', maxClassesPerFile],
+        'max-len': [
+          'error',
+          {
+            code: 120
+          }
+        ],
+        'new-cap': 1,
+        'newline-per-chained-call': 'off',
+        'no-console': [
+          'error',
+          {
+            allow: [
+              'warn',
+              'dir',
+              'time',
+              'timeEnd',
+              'timeLog',
+              'trace',
+              'assert',
+              'clear',
+              'count',
+              'countReset',
+              'group',
+              'groupEnd',
+              'table',
+              'debug',
+              'info',
+              'dirxml',
+              'groupCollapsed',
+              'Console',
+              'profile',
+              'profileEnd',
+              'timeStamp',
+              'context'
+            ]
+          }
+        ],
+        'no-empty-function': ['error', { allow: ['constructors'] }],
+        'no-loops/no-loops': 2,
+        'no-magic-numbers': [
+          'error',
+          {
+            ignoreArrayIndexes: true
+          }
+        ],
+        'no-multiple-empty-lines': [
+          'error',
+          {
+            max: 2
+          }
+        ],
+        'no-plusplus': [
+          'error',
+          {
+            allowForLoopAfterthoughts: true
+          }
+        ],
+        'no-restricted-syntax': ['error', 'ForInStatement'],
+        'no-shadow': 'off',
+        'no-useless-constructor': 'off',
+        'one-var': ['error', 'never'],
+        'padding-line-between-statements': [
+          'error',
+          {
+            blankLine: 'always',
+            next: 'return',
+            prev: '*'
+          }
+        ],
+        'prefer-arrow/prefer-arrow-functions': [
+          'warn',
+          {
+            allowStandaloneDeclarations: true,
+            classPropertiesAllowed: false,
+            disallowPrototype: true,
+            singleReturnOnly: false
+          }
+        ],
+        'quote-props': ['error', 'as-needed'],
+        'require-jsdoc': [
+          'error',
+          {
+            require: {
+              ArrowFunctionExpression: true,
+              ClassDeclaration: true,
+              FunctionDeclaration: true,
+              FunctionExpression: true,
+              MethodDefinition: true
+            }
+          }
+        ],
+        semi: 'off',
+        'sort-imports': 'off',
+        'sort-keys': 'off',
+        'sort-keys-fix/sort-keys-fix': 'error',
+        'space-before-function-paren': 'off',
+        'space-in-parens': ['off', 'never'],
+        'spaced-comment': [
+          'error',
+          'always',
+          {
+            markers: ['/']
+          }
+        ],
+        'tsdoc/syntax': 'error',
+        'unused-imports/no-unused-imports': 'error'
       }
     },
     {
       files: ['*.spec.ts'],
       rules: {
-        "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
+        'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
         'init-declarations': 'off',
         'no-undef': 'off'
       }
@@ -305,8 +310,8 @@ export default {
         'yml/sort-keys': [
           'error',
           {
-            pathPattern: '.*',
-            order: { type: 'asc' }
+            order: { type: 'asc' },
+            pathPattern: '.*'
           }
         ]
       }
@@ -317,8 +322,8 @@ export default {
         'yml/sort-keys': [
           'error',
           {
-            pathPattern: '^.$',
-            order: ansibleOrder
+            order: ansibleOrder,
+            pathPattern: '^.$'
           }
         ]
       }
@@ -329,8 +334,8 @@ export default {
         'yml/sort-keys': [
           'error',
           {
-            pathPattern: '^.tasks.$', // TODO Add appropriate pathPattern so that arrays assigned to the key `tasks` get sorted with the ansibleOrder instead of the `{ type: 'asc' }` order
-            order: ansibleOrder
+            order: ansibleOrder,
+            pathPattern: '^.tasks.$'
           }
         ]
       }
@@ -341,8 +346,8 @@ export default {
         'yml/sort-keys': [
           'error',
           {
-            pathPattern: '^.([a-zA-Z0-9].+).$',
-            order: { type: 'asc' }
+            order: { type: 'asc' },
+            pathPattern: '^.([a-zA-Z0-9].+).$'
           }
         ]
       }
@@ -354,15 +359,14 @@ export default {
         'yml/sort-keys': [
           'error',
           {
-            pathPattern: '^$',
-            order: ['galaxy_info', 'dependencies']
+            order: ['galaxy_info', 'dependencies'],
+            pathPattern: '^$'
           },
           {
-            pathPattern: '^dependencies',
-            order: ['role', 'when']
+            order: ['role', 'when'],
+            pathPattern: '^dependencies'
           },
           {
-            pathPattern: '^galaxy_info$',
             order: [
               'role_name',
               'namespace',
@@ -374,7 +378,8 @@ export default {
               'min_ansible_version',
               'platforms',
               'galaxy_tags'
-            ]
+            ],
+            pathPattern: '^galaxy_info$'
           }
         ]
       }
@@ -385,19 +390,18 @@ export default {
         'yml/sort-keys': [
           'error',
           {
-            pathPattern: '^$',
-            order: ['version', 'includes', 'output', 'silent', 'method', 'vars', 'env', 'dotenv', 'tasks']
+            order: ['version', 'includes', 'output', 'silent', 'method', 'vars', 'env', 'dotenv', 'tasks'],
+            pathPattern: '^$'
           },
           {
-            pathPattern: '(?:deps|includes|log|env|vars)$',
-            order: { type: 'asc' }
+            order: { type: 'asc' },
+            pathPattern: '(?:deps|includes|log|env|vars)$'
           },
           {
-            pathPattern: '^tasks$',
-            order: { type: 'asc' }
+            order: { type: 'asc' },
+            pathPattern: '^tasks$'
           },
           {
-            pathPattern: '.*',
             order: [
               'cmd',
               'task',
@@ -421,14 +425,21 @@ export default {
               'preconditions',
               'sh',
               'msg'
-            ]
+            ],
+            pathPattern: '.*'
           }
         ]
       }
     }
   ],
+  parser: getParser(taskfile.vars.REPOSITORY_TYPE, taskfile.vars.REPOSITORY_SUBTYPE),
+  parserOptions: {
+    project: 'tsconfig.json',
+    sourceType: 'module'
+  },
+  plugins: getPlugins(taskfile.vars.REPOSITORY_TYPE, taskfile.vars.REPOSITORY_SUBTYPE),
   rules: {
-    'max-lines': ['error', 500],
+    'max-lines': ['error', maxLines],
     'no-secrets/no-secrets': 'error'
   }
 }
