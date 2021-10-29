@@ -46,11 +46,18 @@ export default {
         ],
         '@typescript-eslint/class-literal-property-style': ['error', 'fields'],
         '@typescript-eslint/explicit-member-accessibility': [
-          'error',
-          {
-            accessibility: 'explicit'
-          }
-        ],
+                    'error',
+                    {
+                        accessibility: 'explicit',
+                        overrides: {
+                            accessors: 'explicit',
+                            constructors: 'no-public',
+                            methods: 'explicit',
+                            properties: 'explicit',
+                            parameterProperties: 'explicit'
+                        }
+                    }
+                ],
         '@typescript-eslint/member-delimiter-style': [
           'error',
           {
@@ -74,7 +81,7 @@ export default {
             avoidEscape: true
           }
         ],
-        '@typescript-eslint/semi': ['error', 'always'],
+        '@typescript-eslint/semi': 'off',
         '@typescript-eslint/strict-boolean-expressions': 'off',
         '@typescript-eslint/triple-slash-reference': [
           'error',
@@ -84,6 +91,8 @@ export default {
             lib: 'always'
           }
         ],
+        'no-useless-constructor': 'off',
+        'no-empty-function': ["error", { "allow": ["constructors"]}],
         'arrow-parens': ['off', 'always'],
         'brace-style': ['error', '1tbs'],
         'capitalized-comments': 'off',
@@ -101,12 +110,7 @@ export default {
           'Undefined',
           'undefined'
         ],
-        'import/no-extraneous-dependencies': [
-          'error',
-          {
-            devDependencies: false
-          }
-        ],
+        "import/no-extraneous-dependencies": ["error", {"devDependencies": false, "optionalDependencies": false, "peerDependencies": false}],
         "json-schema-validator/no-invalid": [
           "error",
           {
@@ -152,6 +156,8 @@ export default {
             ]
           }
         ],
+        'new-cap': 1,
+        'sort-imports': 'off',
         'no-loops/no-loops': 2,
         'no-magic-numbers': [
           'error',
@@ -165,7 +171,6 @@ export default {
             max: 2
           }
         ],
-        'immutable/no-mutation': 2,
         'no-plusplus': [
           'error',
           {
@@ -183,12 +188,14 @@ export default {
             next: 'return'
           }
         ],
+        'func-style': ["error", "declaration", { "allowArrowFunctions": true }],
         'prefer-arrow/prefer-arrow-functions': [
           'warn',
           {
             disallowPrototype: true,
             singleReturnOnly: false,
-            classPropertiesAllowed: false
+            classPropertiesAllowed: false,
+            allowStandaloneDeclarations: true
           }
         ],
         'quote-props': ['error', 'as-needed'],
@@ -202,8 +209,6 @@ export default {
           }
         }],
         semi: 'off',
-        'simple-import-sort/imports': 'error',
-        'simple-import-sort/exports': 'error',
         'space-before-function-paren': 'off',
         'space-in-parens': ['off', 'never'],
         'spaced-comment': [
@@ -213,22 +218,8 @@ export default {
             markers: ['/']
           }
         ],
-        'sort-class-members/sort-class-members': [
-          2,
-          {
-            order: [
-              '[static-properties]',
-              '[static-methods]',
-              '[properties]',
-              '[conventional-private-properties]',
-              'constructor',
-              '[methods]',
-              '[conventional-private-methods]'
-            ],
-            accessorPairPositioning: 'getThenSet'
-          }
-        ],
-        'sort-keys-fix/sort-keys-fix': 'warn',
+        'sort-keys': 'off',
+        'sort-keys-fix/sort-keys-fix': 'error',
         'tsdoc/syntax': 'error',
         'unused-imports/no-unused-imports': 'error',
         '@typescript-eslint/tslint/config': [
@@ -281,10 +272,17 @@ export default {
       }
     },
     {
+      files: ['*.spec.ts'],
+      rules: {
+        "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
+        'init-declarations': 'off',
+        'no-undef': 'off'
+      }
+    },
+    {
       files: ['*.js', '*.jsx'],
       rules: {
         '@typescript-eslint/no-shadow': ['error'],
-        '@typescript-eslint/semi': 'off',
         'no-shadow': ['error'],
         semi: ['error']
       }
