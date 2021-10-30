@@ -7,7 +7,7 @@ export default {
   env: {
     browser: taskfile.vars.REPOSITORY_TYPE === 'angular',
     es6: true,
-    node: true
+    node: taskfile.vars.REPOSITORY_TYPE === 'npm'
   },
   extends: getExtends(taskfile.vars.REPOSITORY_TYPE, taskfile.vars.REPOSITORY_SUBTYPE),
   ignorePatterns: ['ansible_variables.json', 'package.json', 'package-lock.json', 'pnpm-lock.yaml'],
@@ -273,6 +273,9 @@ export default {
     },
     {
       files: ['*.spec.ts'],
+      env: {
+        jest: true
+      },
       rules: {
         'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
         'init-declarations': 'off',
