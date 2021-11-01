@@ -1,5 +1,5 @@
-import fs from 'fs';
-import YAML from 'yaml';
+import * as fs from 'fs';
+import * as YAML from 'yaml';
 import { plugins, templates } from './constants';
 
 export const acquireProjectType = () => {
@@ -15,7 +15,7 @@ export const acquireProjectType = () => {
     }
 };
 
-export const getExtends = (type, subType) => {
+export const getExtends = (type: string, subType: string) => {
   switch (type + '-' + subType) {
     case 'angular-app':
       return [
@@ -62,7 +62,7 @@ export const getExtends = (type, subType) => {
   }
 }
 
-export const getParser = (type, subType) => {
+export const getParser = (type: string, subType: string) => {
   switch (type + '-' + subType) {
     case 'angular-app':
       return '@typescript-eslint/parser'
@@ -77,7 +77,7 @@ export const getParser = (type, subType) => {
   }
 }
 
-export const getPlugins = (type, subType) => {
+export const getPlugins = (type: string, subType: string) => {
   switch (type + '-' + subType) {
     case 'angular-app':
       return [...plugins.eslint, ...plugins.html, ...plugins.prettier, ...plugins.typescript]

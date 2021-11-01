@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@megabytelabs/eslint-config",
-  "version": "1.0.0",
+  "version": "1.0.6",
   "description": "The Megabyte Labs ESLint configuration for linting TS, JS, JSON, YAML, and TOML",
   "license": "MIT",
   "author": "Brian Zalewski <brian@megabyte.space> (https://megabyte.space)",
@@ -14,13 +14,13 @@
     "email": "help@megabyte.space",
     "url": "https://gitlab.com/megabyte-labs/npm/configs/eslint/-/issues"
   },
-  "main": "build/main/index.js",
+  "main": "dist/index.js",
   "files": [
-    "build/main/"
+    "dist/",
+    "README.md"
   ],
   "scripts": {
-    "build:main": "tsc -p tsconfig.json",
-    "build:module": "tsc -p tsconfig.module.json"
+    "build": "tsc -p tsconfig.json"
   },
   "config": {
     "commitizen": {

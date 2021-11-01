@@ -1,0 +1,6 @@
+---
+version: '3'
+
+vars:
+  REPOSITORY_TYPE: npm
+  REPOSITORY_SUBTYPE: library

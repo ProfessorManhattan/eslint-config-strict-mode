@@ -3,7 +3,7 @@ import { acquireProjectType, getExtends, getParser, getPlugins, schemaDefinition
 
 const taskfile = acquireProjectType()
 
-export default {
+module.exports = {
   env: {
     browser: taskfile.vars.REPOSITORY_TYPE === 'angular',
     es6: true,
@@ -65,6 +65,7 @@ export default {
             }
           }
         ],
+        'jest/prefer-lowercase-title': ["error", { "ignoreTopLevelDescribe": true }],
         '@typescript-eslint/no-extraneous-class': 'off',
         '@typescript-eslint/no-inferrable-types': 'off',
         '@typescript-eslint/no-shadow': ['error'],
