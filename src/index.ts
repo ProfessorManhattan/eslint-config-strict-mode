@@ -161,7 +161,7 @@ export default {
             ignoreTrailingComments: true
           }
         ],
-        'new-cap': 1,
+        'new-cap': 0, // TODO: Figure out how to ignore decorators for this rule and then re-enable it
         'newline-per-chained-call': 'off',
         'no-console': [
           'error',
