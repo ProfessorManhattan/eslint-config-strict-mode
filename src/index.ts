@@ -147,6 +147,8 @@ export default {
           'error',
           { devDependencies: false, optionalDependencies: false, peerDependencies: false }
         ],
+        'no-array-constructor': 'error',
+        'unicorn/no-new-array': 'off',
         'json-schema-validator/no-invalid': [
           'error',
           {
