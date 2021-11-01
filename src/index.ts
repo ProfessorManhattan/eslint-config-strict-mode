@@ -54,6 +54,14 @@ module.exports = {
             }
           }
         ],
+        'import/no-unresolved': [
+                    2,
+                    {
+                        ignore: [
+                            '@megabytelabs/nestjs-common'
+                        ]
+                    }
+        ],
         'unicorn/prefer-module': repoType === 'npm' && repoSubType === 'library' ? 0 : 2,
         '@typescript-eslint/member-delimiter-style': [
           'error',
