@@ -1,12 +1,12 @@
 /**
  * Maximum number of classes to allow in
  */
-const maxClassesPerFile = 4
+export const maxClassesPerFile = 4
 
 /**
  * Maximum number of lines of code in any given file
  */
-const maxLines = 500
+export const maxLines = 500
 
 /**
  * Order used for sorting Ansible YML files
