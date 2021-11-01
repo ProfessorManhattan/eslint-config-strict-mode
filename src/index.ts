@@ -94,13 +94,8 @@ export default {
               encoding: true,
               'import-spacing': true,
               'invalid-void': true,
-              'no-delete': true,
               'no-inferred-empty-object-type': true,
-              'no-let': true,
               'no-mergeable-namespace': true,
-              'no-method-signature': true,
-              'no-mixed-interface': true,
-              'no-object-mutation': true,
               'no-promise-as-boolean': true,
               'no-tautology-expression': true,
               'no-unnecessary-callback-wrapper': true,
@@ -120,8 +115,6 @@ export default {
                   'min-cases': 4
                 }
               ],
-              'readonly-array': true,
-              'readonly-keyword': true,
               'return-undefined': true,
               'static-this': true,
               'strict-comparisons': true,
@@ -166,7 +159,9 @@ export default {
         'max-len': [
           'error',
           {
-            code: 120
+            code: 120,
+            ignoreComments: true,
+            ignoreTrailingComments: true
           }
         ],
         'new-cap': 1,
@@ -295,7 +290,11 @@ export default {
       parser: 'yaml-eslint-parser',
       rules: {
         'capitalized-comments': 'off',
-        'max-len': ['error', { code: 160 }],
+        'max-len': ['error', {
+          code: 160,
+          ignoreComments: true,
+          ignoreTrailingComments: true
+        }],
         'no-inline-comments': 'off',
         'unicorn/filename-case': 'off'
       }
