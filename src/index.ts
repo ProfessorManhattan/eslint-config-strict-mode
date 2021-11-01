@@ -105,13 +105,7 @@ export default {
               'no-tautology-expression': true,
               'no-unnecessary-callback-wrapper': true,
               'number-literal-format': true,
-              'object-literal-sort-keys': [
-                true,
-                'ignore-case',
-                'locale-compare',
-                'match-declaration-order',
-                'shorthand-first'
-              ],
+              'object-literal-sort-keys': false,
               'prefer-conditional-expression': true,
               'prefer-method-signature': true,
               'prefer-switch': [
@@ -137,6 +131,7 @@ export default {
         'capitalized-comments': 'off',
         'comma-dangle': 'off',
         eqeqeq: ['error', 'always'],
+        'max-statements': ["error", 10, { "ignoreTopLevelFunctions": true }],
         'func-style': ['error', 'declaration', { allowArrowFunctions: true }],
         'id-blacklist': [
           'error',
@@ -224,6 +219,18 @@ export default {
         'no-shadow': 'off',
         'no-useless-constructor': 'off',
         'one-var': ['error', 'never'],
+        'require-jsdoc': [
+          'error',
+          {
+            require: {
+              ArrowFunctionExpression: true,
+              ClassDeclaration: true,
+              FunctionDeclaration: true,
+              FunctionExpression: true,
+              MethodDefinition: true
+            }
+          }
+        ],
         'padding-line-between-statements': [
           'error',
           {
@@ -242,18 +249,6 @@ export default {
           }
         ],
         'quote-props': ['error', 'as-needed'],
-        'require-jsdoc': [
-          'error',
-          {
-            require: {
-              ArrowFunctionExpression: true,
-              ClassDeclaration: true,
-              FunctionDeclaration: true,
-              FunctionExpression: true,
-              MethodDefinition: true
-            }
-          }
-        ],
         semi: 'off',
         'sort-imports': 'off',
         'sort-keys': 'off',
@@ -277,8 +272,16 @@ export default {
         jest: true
       },
       rules: {
+        'max-lines-per-function': 'off',
         'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
         'init-declarations': 'off',
+        'jest/no-hooks': 'off',
+        'jest/unbound-method': 'off',
+        'jest/prefer-expect-assertions': [
+          'warn',
+          { 'onlyFunctionsWithAsyncKeyword': true }
+        ],
+        'no-magic-numbers': 'off',
         'no-undef': 'off'
       }
     },
@@ -288,6 +291,13 @@ export default {
         '@typescript-eslint/no-shadow': ['error'],
         'no-shadow': ['error'],
         semi: ['error']
+      }
+    },
+    {
+      files: ['*.ts'],
+      rules: {
+        'require-jsdoc': 'off',
+        'class-methods-use-this': 'off'
       }
     },
     {
