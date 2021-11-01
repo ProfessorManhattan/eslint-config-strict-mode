@@ -2,14 +2,16 @@ import { ansibleOrder, maxClassesPerFile, maxLines } from './constants'
 import { acquireProjectType, getExtends, getParser, getPlugins, schemaDefinitions } from './lib'
 
 const taskfile = acquireProjectType()
+const repoType = taskfile.vars.REPOSITORY_TYPE
+const repoSubType = taskfile.vars.REPOSITORY_SUBTYPE
 
 module.exports = {
   env: {
-    browser: taskfile.vars.REPOSITORY_TYPE === 'angular',
+    browser: repoType === 'angular',
     es6: true,
-    node: taskfile.vars.REPOSITORY_TYPE === 'npm'
+    node: repoType === 'npm'
   },
-  extends: getExtends(taskfile.vars.REPOSITORY_TYPE, taskfile.vars.REPOSITORY_SUBTYPE),
+  extends: getExtends(repoType, repoSubType),
   ignorePatterns: ['ansible_variables.json', 'package.json', 'package-lock.json', 'pnpm-lock.yaml'],
   overrides: [
     {
@@ -52,6 +54,7 @@ module.exports = {
             }
           }
         ],
+        'unicorn/prefer-module': repoType === 'npm' && repoSubType === 'library' ? 0 : 2,
         '@typescript-eslint/member-delimiter-style': [
           'error',
           {
@@ -442,12 +445,12 @@ module.exports = {
       }
     }
   ],
-  parser: getParser(taskfile.vars.REPOSITORY_TYPE, taskfile.vars.REPOSITORY_SUBTYPE),
+  parser: getParser(repoType, repoSubType),
   parserOptions: {
     project: 'tsconfig.json',
     sourceType: 'module'
   },
-  plugins: getPlugins(taskfile.vars.REPOSITORY_TYPE, taskfile.vars.REPOSITORY_SUBTYPE),
+  plugins: getPlugins(repoType, repoSubType),
   rules: {
     'max-lines': ['error', maxLines],
     'no-secrets/no-secrets': 'error'
