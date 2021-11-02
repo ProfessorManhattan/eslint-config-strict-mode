@@ -200,17 +200,6 @@
     ],
     "name": "ESLint Config",
     "overview": "This [ESLint](https://eslint.org/) configuration package includes a whole slew of ESLint plugins and default settings that are meant to enforce strict design patterns among developers who code with TypeScript, JavaScript, JSON, YAML, and TOML.",
-    "files": {
-      "package.json": {
-        "files": [
-          "jest.config.js",
-          "jest.config.js.map",
-          "README.md"
-        ],
-        "main": "jest.config.js",
-        "type": "module"
-      }
-    },
     "repository": {
       "github": "https://github.com/ProfessorManhattan/eslint-config",
       "gitlab": "https://gitlab.com/megabyte-labs/npm/configs/eslint"
