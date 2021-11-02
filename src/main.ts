@@ -58,7 +58,18 @@ module.exports = {
       plugins: getPlugins('toml', repoType, repoSubType)
     },
     {
-      extends: getExtends('script', repoType, repoSubType),
+      extends: getExtends('typescript', repoType, repoSubType),
+      files: ['*.ts', '*.tsx'],
+      parserOptions: {
+        project: 'tsconfig.json',
+        sourceType: 'module'
+      }
+    },
+    {
+      extends: getExtends('javascript', repoType, repoSubType),
+      files: ['*.js', '*.ts']
+    },
+    {
       files: ['*.js', '*.jsx', '*.ts', '*.tsx'],
       parser: '@typescript-eslint/parser',
       parserOptions: {

@@ -55,28 +55,26 @@ export const plugins = {
 export const templates = {
   angular: ['plugin:compat/recommended', 'plugin:no-unsanitized/DOM'],
   eslint: ['eslint:all', 'plugin:eslint-comments/recommended', 'plugin:editorconfig/all'],
-  jest: ['plugin:jest/all', 'plugin:jest-dom/recommended', 'plugin:jest-formatting/recommended'],
-  json: ['plugin:jsonc/recommended-with-json', 'plugin:json-schema-validator/recommended', 'plugin:jsonc/prettier'],
-  node: ['plugin:node/recommended'],
-  prettier: ['prettier', 'plugin:prettier/recommended'],
-  toml: ['plugin:toml/standard'],
-  typescript: [
+  javascript: [
     'plugin:array-func/recommended',
     'plugin:etc/recommended',
     'plugin:fp/recommended',
     'plugin:functional/recommended',
     'plugin:import/recommended',
-    'plugin:import/typescript',
     'plugin:no-use-extend-native/recommended',
     'plugin:optimize-regex/recommended',
     'plugin:promise/recommended',
     'plugin:regexp/recommended',
-    'plugin:rxjs/recommended',
     'plugin:security/recommended',
     'plugin:sonarjs/recommended',
     'plugin:switch-case/recommended',
-    'plugin:typescript-sort-keys/recommended',
     'plugin:unicorn/recommended'
   ],
+  jest: ['plugin:jest/all', 'plugin:jest-dom/recommended', 'plugin:jest-formatting/recommended'],
+  json: ['plugin:jsonc/recommended-with-json', 'plugin:json-schema-validator/recommended', 'plugin:jsonc/prettier'],
+  node: ['plugin:node/recommended'],
+  prettier: ['prettier', 'plugin:prettier/recommended'],
+  toml: ['plugin:toml/standard'],
+  typescript: ['plugin:import/typescript', 'plugin:rxjs/recommended', 'plugin:typescript-sort-keys/recommended'],
   yml: ['plugin:yml/standard', 'plugin:yml/prettier']
 }

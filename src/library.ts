@@ -19,10 +19,14 @@ export const acquireProjectType = (): {
 }
 
 // eslint-disable-next-line fp/no-nil
-const getScriptsExtends = (type: string, subType: string) => {
-  const base = [...templates.eslint, ...templates.typescript, ...templates.prettier]
+const getScriptsExtends = (type: string, subType: string, isTypeScript: boolean = true) => {
+  const base = isTypeScript
+    ? [...templates.eslint, ...templates.javascript, ...templates.typescript, ...templates.prettier]
+    : [...templates.eslint, ...templates.javascript, ...templates.prettier]
   switch (`${type}-${subType}`) {
-    case 'angular':
+    case 'angular-app':
+      return [...templates.angular, ...templates.jest, ...base]
+    case 'angular-website':
       return [...templates.angular, ...templates.jest, ...base]
     case 'npm-cli':
       return [...templates.jest, ...templates.node, ...base]
@@ -31,23 +35,25 @@ const getScriptsExtends = (type: string, subType: string) => {
     case 'npm-library':
       return [...templates.jest, ...templates.node, ...base]
     default:
-      return []
+      return [...templates.node, ...base]
   }
 }
 
 // eslint-disable-next-line fp/no-nil
 export const getExtends = (
-  extension: 'json' | 'script' | 'toml' | 'yml',
+  extension: 'javascript' | 'json' | 'toml' | 'typescript' | 'yml',
   type: string,
   subType: string
 ): readonly string[] => {
   switch (extension) {
     case 'json':
       return [...templates.eslint, ...templates.json, ...templates.prettier]
-    case 'script':
-      return getScriptsExtends(type, subType)
+    case 'javascript':
+      return getScriptsExtends(type, subType, false)
     case 'toml':
       return [...templates.eslint, ...templates.toml, ...templates.prettier]
+    case 'typescript':
+      return getScriptsExtends(type, subType)
     case 'yml':
       return [...templates.eslint, ...templates.yml, ...templates.prettier]
     default:
@@ -59,7 +65,9 @@ export const getExtends = (
 const getScriptsPlugins = (type: string, subType: string) => {
   const base = [...plugins.eslint, ...plugins.typescript, ...plugins.prettier]
   switch (`${type}-${subType}`) {
-    case 'angular':
+    case 'angular-app':
+      return [...plugins.html, ...plugins.jest, ...base]
+    case 'angular-website':
       return [...plugins.html, ...plugins.jest, ...base]
     case 'npm-cli':
       return [...plugins.jest, ...base]
