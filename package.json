@@ -1,11 +1,11 @@
 {
   "name": "@megabytelabs/eslint-config",
-  "version": "1.0.22",
+  "version": "1.0.23",
   "private": false,
   "publishConfig": {
     "access": "public"
   },
-  "description": "Provides an ESLint configuration for linting TS, JS, JSON, YAML, and TOML",
+  "description": "ESLint configuration for linting TS, JS, JSON, YAML, and TOML",
   "license": "MIT",
   "repository": {
     "type": "git",
