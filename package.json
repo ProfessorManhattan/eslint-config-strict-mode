@@ -202,7 +202,7 @@
       "gitlab": "https://gitlab.com/megabyte-labs/npm/configs/eslint"
     },
     "slug": "eslint-config",
-    "title": "Shared ESLint Config"
+    "title": "An Awesome Shared ESLint Config"
   },
   "config": {
     "commitizen": {
