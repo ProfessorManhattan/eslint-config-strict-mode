@@ -67,15 +67,10 @@ module.exports = {
     },
     {
       extends: getExtends('javascript', repoType, repoSubType),
-      files: ['*.js', '*.ts']
+      files: ['*.js', '*.jsx']
     },
     {
       files: ['*.js', '*.jsx', '*.ts', '*.tsx'],
-      parser: '@typescript-eslint/parser',
-      parserOptions: {
-        project: 'tsconfig.json',
-        sourceType: 'module'
-      },
       plugins: getPlugins('script', repoType, repoSubType),
       rules: baseRules(repoType, repoSubType)
     },

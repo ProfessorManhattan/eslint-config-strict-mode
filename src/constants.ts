@@ -56,8 +56,7 @@ export const templates = {
   angular: ['plugin:compat/recommended', 'plugin:no-unsanitized/DOM'],
   eslint: ['eslint:all', 'plugin:eslint-comments/recommended', 'plugin:editorconfig/all'],
   javascript: [
-    'plugin:array-func/recommended',
-    'plugin:etc/recommended',
+    'plugin:array-func/all',
     'plugin:fp/recommended',
     'plugin:functional/recommended',
     'plugin:import/recommended',
@@ -75,6 +74,11 @@ export const templates = {
   node: ['plugin:node/recommended'],
   prettier: ['prettier', 'plugin:prettier/recommended'],
   toml: ['plugin:toml/standard'],
-  typescript: ['plugin:import/typescript', 'plugin:rxjs/recommended', 'plugin:typescript-sort-keys/recommended'],
+  typescript: [
+    'plugin:etc/recommended',
+    'plugin:import/typescript',
+    'plugin:rxjs/recommended',
+    'plugin:typescript-sort-keys/recommended'
+  ],
   yml: ['plugin:yml/standard', 'plugin:yml/prettier']
 }
