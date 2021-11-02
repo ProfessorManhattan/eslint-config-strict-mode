@@ -41,9 +41,6 @@
     "typescript",
     "yaml"
   ],
-  "peerDependencies": {
-    "typescript": "^4.4.4"
-  },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^5.2.0",
     "@typescript-eslint/eslint-plugin-tslint": "^5.2.0",
@@ -79,7 +76,8 @@
     "@commitlint/config-conventional": "^13.1.0",
     "@megabytelabs/prettier-config": "^14.14.14",
     "@types/node": "^16.11.6",
-    "cz-conventional-changelog": "^3.3.0"
+    "cz-conventional-changelog": "^3.3.0",
+    "typescript": "^4.4.4"
   },
   "blueprint": {
     "description": "Provides an ESLint configuration for linting TS, JS, JSON, YAML, and TOML",
