@@ -199,7 +199,7 @@
       ]
     ],
     "name": "ESLint Config",
-    "overview": "This [ESLint](https://eslint.org/) configuration package includes a whole slew of ESLint plugins and default settings that are meant to enforce strict design patterns among developers who code with TypeScript, JavaScript, JSON, YAML, and TOML.",
+    "overview": "This [ESLint](https://eslint.org/) configuration package includes a whole slew of ESLint plugins and default settings that are meant to enforce strict design patterns among developers who code with TypeScript, JavaScript, JSON, YAML, and TOML. You can use this configuration as is or customize it to your liking so you can have your own shared ESLint configuration package!",
     "repository": {
       "github": "https://github.com/ProfessorManhattan/eslint-config",
       "gitlab": "https://gitlab.com/megabyte-labs/npm/configs/eslint"

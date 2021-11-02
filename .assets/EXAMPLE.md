@@ -19,4 +19,7 @@ With the configuration in place, you can run ESLint by running:
 
 ```shell
 npx eslint './src/**/*.ts'
+
+# Or run the following to automatically fix errors
+npx eslint --fix './src/**/*.ts'
 ```
