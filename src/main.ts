@@ -60,6 +60,7 @@ module.exports = {
     {
       extends: getExtends('typescript', repoType, repoSubType),
       files: ['*.ts', '*.tsx'],
+      parser: '@typescript-eslint/parser',
       parserOptions: {
         project: 'tsconfig.json',
         sourceType: 'module'
