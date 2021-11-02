@@ -2,5 +2,5 @@
 version: '3'
 
 vars:
+  REPOSITORY_SUBTYPE: config
   REPOSITORY_TYPE: npm
-  REPOSITORY_SUBTYPE: library
