@@ -14,7 +14,7 @@
     "email": "help@megabyte.space",
     "url": "https://gitlab.com/megabyte-labs/npm/configs/eslint/-/issues"
   },
-  "main": "dist/index.js",
+  "main": "dist/main.js",
   "engines": {
     "node": ">=10"
   },
