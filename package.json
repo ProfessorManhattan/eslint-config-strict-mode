@@ -1,31 +1,50 @@
 {
-  "private": false,
   "name": "@megabytelabs/eslint-config",
   "version": "1.0.7",
-  "description": "The Megabyte Labs ESLint configuration for linting TS, JS, JSON, YAML, and TOML",
+  "private": false,
+  "description": "Provides an ESLint configuration for linting TS, JS, JSON, YAML, and TOML",
   "license": "MIT",
-  "author": "Brian Zalewski <brian@megabyte.space> (https://megabyte.space)",
-  "homepage": "https://megabyte.space",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ProfessorManhattan/eslint-config.git"
   },
+  "author": "Brian Zalewski <brian@megabyte.space> (https://megabyte.space)",
+  "homepage": "https://megabyte.space",
   "bugs": {
     "email": "help@megabyte.space",
     "url": "https://gitlab.com/megabyte-labs/npm/configs/eslint/-/issues"
   },
   "main": "dist/index.js",
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json"
+  },
   "files": [
     "dist/",
     "README.md"
   ],
-  "scripts": {
-    "build": "tsc -p tsconfig.json"
-  },
-  "config": {
-    "commitizen": {
-      "path": "cz-conventional-changelog"
-    }
+  "keywords": [
+    "editorconfig",
+    "eslint",
+    "formatter",
+    "javascript",
+    "linter",
+    "megabytelabs",
+    "prettier",
+    "professormanhattan",
+    "schema",
+    "toml",
+    "tsdoc",
+    "typescript",
+    "typescript",
+    "yaml"
+  ],
+  "peerDependencies": {
+    "eslint": "^8.1.0",
+    "prettier": "^2.4.1",
+    "typescript": "^4.4.4"
   },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^5.2.0",
@@ -57,46 +76,152 @@
     "eslint-plugin-yml": "^0.10.1",
     "yaml": "^1.10.2"
   },
-  "peerDependencies": {
-    "eslint": "^8.1.0",
-    "prettier": "^2.4.1",
-    "typescript": "^4.4.4"
-  },
   "devDependencies": {
     "@commitlint/config-conventional": "^13.1.0",
     "@megabytelabs/prettier-config": "^14.14.14",
     "@types/node": "^16.11.6",
     "cz-conventional-changelog": "^3.3.0"
   },
-  "keywords": [
-    "editorconfig",
-    "eslint",
-    "formatter",
-    "javascript",
-    "linter",
-    "megabytelabs",
-    "prettier",
-    "professormanhattan",
-    "schema",
-    "toml",
-    "tsdoc",
-    "typescript",
-    "typescript",
-    "yaml"
-  ],
-  "engines": {
-    "node": ">=10"
-  },
   "blueprint": {
-    "description": "The Megabyte Labs ESLint configuration for linting TS, JS, JSON, YAML, and TOML",
+    "description": "Provides an ESLint configuration for linting TS, JS, JSON, YAML, and TOML",
+    "eslint_dependencies": [
+      [
+        "[`@typescript-eslint/eslint-plugin`](https://npmjs.com/package/@typescript-eslint/eslint-plugin)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
+      [
+        "[`@typescript-eslint/eslint-plugin-tslint`](https://npmjs.com/package/@typescript-eslint/eslint-plugin-tslint)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
+      [
+        "[`@typescript-eslint/parser`](https://npmjs.com/package/@typescript-eslint/parser)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
+      [
+        "[`@typescript-eslint/parser`](https://npmjs.com/package/@typescript-eslint/parser)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
+      [
+        "[`eslint-config-prettier`](https://npmjs.com/package/eslint-config-prettier)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
+      [
+        "[`eslint-formatter-pretty`](https://npmjs.com/package/eslint-formatter-pretty)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
+      [
+        "[`eslint-plugin-editorconfig`](https://npmjs.com/package/eslint-plugin-editorconfig)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
+      [
+        "[`eslint-plugin-eslint-comments`](https://npmjs.com/package/eslint-plugin-eslint-comments)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
+      [
+        "[`eslint-plugin-import`](https://npmjs.com/package/eslint-plugin-import)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
+      [
+        "[`eslint-plugin-jest`](https://npmjs.com/package/eslint-plugin-jest)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
+      [
+        "[`eslint-plugin-json-schema-validator`](https://npmjs.com/package/eslint-plugin-json-schema-validator)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
+      [
+        "[`eslint-plugin-jsonc`](https://npmjs.com/package/eslint-plugin-jsonc)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
+      [
+        "[`eslint-plugin-no-loops`](https://npmjs.com/package/eslint-plugin-no-loops)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
+      [
+        "[`eslint-plugin-no-secrets`](https://npmjs.com/package/eslint-plugin-no-secrets)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
+      [
+        "[`eslint-plugin-prefer-arrow`](https://npmjs.com/package/eslint-plugin-prefer-arrow)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
+      [
+        "[`eslint-plugin-prettier`](https://npmjs.com/package/eslint-plugin-prettier)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
+      [
+        "[`eslint-plugin-promise`](https://npmjs.com/package/eslint-plugin-promise)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
+      [
+        "[`eslint-plugin-regexp`](https://npmjs.com/package/eslint-plugin-regexp)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
+      [
+        "[`eslint-plugin-rxjs`](https://npmjs.com/package/eslint-plugin-rxjs)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
+      [
+        "[`eslint-plugin-security`](https://npmjs.com/package/eslint-plugin-security)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
+      [
+        "[`eslint-plugin-sonarjs`](https://npmjs.com/package/eslint-plugin-sonarjs)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
+      [
+        "[`eslint-plugin-sort-keys-fix`](https://npmjs.com/package/eslint-plugin-sort-keys-fix)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
+      [
+        "[`eslint-plugin-toml`](https://npmjs.com/package/eslint-plugin-toml)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
+      [
+        "[`eslint-plugin-tsdoc`](https://npmjs.com/package/eslint-plugin-tsdoc)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
+      [
+        "[`eslint-plugin-typescript-sort-keys`](https://npmjs.com/package/eslint-plugin-typescript-sort-keys)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
+      [
+        "[`eslint-plugin-unicorn`](https://npmjs.com/package/eslint-plugin-unicorn)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
+      [
+        "[`eslint-plugin-unused-imports`](https://npmjs.com/package/eslint-plugin-unused-imports)",
+        "INSERT_DESCRIPTION_HERE"
+      ],
+      [
+        "[`eslint-plugin-yml`](https://npmjs.com/package/eslint-plugin-yml)",
+        "INSERT_DESCRIPTION_HERE"
+      ]
+    ],
     "name": "ESLint Config",
     "overview": "This [ESLint](https://eslint.org/) configuration package includes a whole slew of ESLint plugins and default settings that are meant to enforce strict design patterns among developers who code with TypeScript, JavaScript, JSON, YAML, and TOML.",
+    "files": {
+      "package.json": {
+        "files": [
+          "jest.config.js",
+          "jest.config.js.map",
+          "README.md"
+        ],
+        "main": "jest.config.js",
+        "type": "module"
+      }
+    },
     "repository": {
       "github": "https://github.com/ProfessorManhattan/eslint-config",
       "gitlab": "https://gitlab.com/megabyte-labs/npm/configs/eslint"
     },
     "slug": "eslint-config",
     "title": "Shared ESLint Config"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
   },
   "funding": [
     {
