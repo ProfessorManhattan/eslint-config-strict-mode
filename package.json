@@ -1,6 +1,6 @@
 {
   "name": "@megabytelabs/eslint-config",
-  "version": "1.0.32",
+  "version": "1.0.33",
   "private": false,
   "publishConfig": {
     "access": "public"
@@ -181,10 +181,5 @@
       "requirements-txt-fixer"
     ]
   },
-  "prettier": "@megabytelabs/prettier-config",
-  "standard-version": {
-    "scripts": {
-      "prerelease": "git add --all"
-    }
-  }
+  "prettier": "@megabytelabs/prettier-config"
 }
