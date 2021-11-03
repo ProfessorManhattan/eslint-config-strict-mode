@@ -1,6 +1,6 @@
 {
   "name": "@megabytelabs/eslint-config",
-  "version": "1.0.27",
+  "version": "1.0.31",
   "private": false,
   "publishConfig": {
     "access": "public"
@@ -67,6 +67,7 @@
     "eslint-plugin-jest-async": "^1.0.3",
     "eslint-plugin-jest-dom": "^3.9.2",
     "eslint-plugin-jest-formatting": "^3.0.0",
+    "eslint-plugin-jsdoc": "^37.0.3",
     "eslint-plugin-json-schema-validator": "^1.2.44",
     "eslint-plugin-jsonc": "^1.6.0",
     "eslint-plugin-no-constructor-bind": "^2.0.4",
@@ -99,7 +100,7 @@
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^13.1.0",
-    "@megabytelabs/eslint-config": "^1.0.21",
+    "@megabytelabs/eslint-config": "^1.0.30",
     "@megabytelabs/prettier-config": "^14.14.14",
     "@types/node": "^16.11.6",
     "@types/parse-gitignore": "^1.0.0",
