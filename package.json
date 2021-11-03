@@ -1,6 +1,6 @@
 {
   "name": "@megabytelabs/eslint-config",
-  "version": "1.0.32",
+  "version": "1.0.31",
   "private": false,
   "publishConfig": {
     "access": "public"
@@ -19,10 +19,11 @@
   },
   "main": "dist/main.js",
   "engines": {
-    "node": ">=10"
+    "node": ">=16"
   },
   "scripts": {
-    "build": "tsc -p tsconfig.json"
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && standard-version && npm publish && npm install --save-dev ${npm_package_name}"
   },
   "files": [
     "dist/",
