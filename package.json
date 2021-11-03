@@ -54,7 +54,6 @@
     "eslint": "^8.1.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-formatter-gitlab": "^3.0.0",
-    "eslint-formatter-pretty": "^4.1.0",
     "eslint-plugin-array-func": "^3.1.7",
     "eslint-plugin-editorconfig": "^3.0.2",
     "eslint-plugin-eslint-comments": "^3.2.0",
