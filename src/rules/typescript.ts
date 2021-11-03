@@ -32,8 +32,6 @@ export const tsRules = {
       }
     }
   ],
-  '@typescript-eslint/no-extraneous-class': 'off',
-  '@typescript-eslint/no-inferrable-types': 'off',
   '@typescript-eslint/no-shadow': ['error'],
   '@typescript-eslint/quotes': [
     'error',
@@ -42,8 +40,6 @@ export const tsRules = {
       avoidEscape: true
     }
   ],
-  '@typescript-eslint/semi': 'off',
-  '@typescript-eslint/strict-boolean-expressions': 'off',
   '@typescript-eslint/triple-slash-reference': [
     'error',
     {
@@ -87,6 +83,8 @@ export const tsRules = {
     }
   ],
   'class-methods-use-this': 'off',
+  // This must be turned off for TypeScript because decorators generate false positives
+  'new-cap': 'off',
   'node/no-unsupported-features/es-syntax': 'off',
   'require-jsdoc': 'off'
 }

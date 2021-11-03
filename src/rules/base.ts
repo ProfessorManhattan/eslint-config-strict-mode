@@ -3,7 +3,7 @@ import { schemaDefinitions } from '../library'
 
 const maxLineLength = 120
 const maxStatementsPerFunction = 10
-const ruleState = {
+export const ruleState = {
   error: 2,
   off: 0,
   warn: 1
@@ -12,15 +12,20 @@ const ruleState = {
 // eslint-disable-next-line max-lines-per-function
 export const baseRules = (repoType: string, repoSubType: string) => {
   return {
-    'arrow-parens': ['off', 'always'],
+    'array-func/prefer-array-from': 'off',
+    'arrow-parens': ['error', 'always'],
     'brace-style': ['error', '1tbs'],
-    'capitalized-comments': 'off',
     'comma-dangle': 'off',
     eqeqeq: ['error', 'always'],
+    'eslint-comments/disable-enable-pair': ['error', { allowWholeFile: true }],
     'ext/lines-between-object-properties': [ruleState.error, 'never'],
-    'filenames/match-exported': ruleState.error,
-    'filenames/match-regex': ruleState.error,
+    'filenames/match-regex': [ruleState.error, '^[a-z-]+.?[a-z-]+$'],
     'filenames/no-index': ruleState.error,
+    'fp/no-class': 'off',
+    // Handled by functional/no-class
+    'fp/no-let': 'off',
+    // Handled by functional/no-let
+    'fp/no-mutating-methods': 'warn',
     'fp/no-mutation': [
       'error',
       {
@@ -29,11 +34,26 @@ export const baseRules = (repoType: string, repoSubType: string) => {
         exceptions: []
       }
     ],
+    'fp/no-nil': 'off',
+    'fp/no-rest-parameters': 'warn',
+    'fp/no-this': 'off',
+    // Handled by functional/no-this-expression
+    'fp/no-unused-expression': 'off',
+    // Handled by functional/no-expression-statement
     'func-style': ['error', 'declaration', { allowArrowFunctions: true }],
     'functional/functional-parameters': ['error', { enforceParameterCount: false }],
-    'functional/immutable-data': 'off',
+    'functional/immutable-data': [
+      'warn',
+      {
+        ignoreAccessorPattern: ['module.exports'],
+        ignoreImmediateMutation: true
+      }
+    ],
+    'functional/no-class': 'off',
     'functional/no-conditional-statement': 'off',
     'functional/no-expression-statement': 'off',
+    'functional/no-return-void': 'off',
+    'functional/no-this-expression': 'off',
     'id-blacklist': [
       'error',
       'any',
@@ -56,6 +76,7 @@ export const baseRules = (repoType: string, repoSubType: string) => {
         ignore: ['@megabytelabs/angular-common', '@megabytelabs/common', '@megabytelabs/nestjs-common']
       }
     ],
+    'jest/require-hook': 'off',
     'json-schema-validator/no-invalid': [
       'error',
       {
@@ -74,7 +95,6 @@ export const baseRules = (repoType: string, repoSubType: string) => {
       }
     ],
     'max-statements': ['error', maxStatementsPerFunction, { ignoreTopLevelFunctions: true }],
-    'new-cap': ruleState.off,
     // eslint-disable-next-line no-warning-comments
     // TODO: Figure out how to ignore decorators for the `newline-per-chained-call` rule
     'newline-per-chained-call': 'off',
@@ -112,13 +132,8 @@ export const baseRules = (repoType: string, repoSubType: string) => {
     'no-constructor-bind/no-constructor-state': 'error',
     'no-empty-function': ['error', { allow: ['constructors'] }],
     'no-explicit-type-exports/no-explicit-type-exports': ruleState.error,
-    'no-loops/no-loops': 2,
-    'no-magic-numbers': [
-      'error',
-      {
-        ignoreArrayIndexes: true
-      }
-    ],
+    'no-loops/no-loops': ruleState.error,
+    'no-magic-numbers': ['error', { ignore: [-1, 0, 1] }],
     'no-multiple-empty-lines': [
       'error',
       {
@@ -132,18 +147,12 @@ export const baseRules = (repoType: string, repoSubType: string) => {
       }
     ],
     'no-restricted-syntax': ['error', 'ForInStatement'],
-    'no-shadow': 'off',
+    'no-shadow': ['error'],
     'no-ternary': 'off',
+    'no-unused-expressions': ['error', { allowTernary: true }],
     'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
-    'no-useless-constructor': 'off',
-    'node/no-missing-import': [
-      'error',
-      {
-        allowModules: [],
-        resolvePaths: [],
-        tryExtensions: ['.js', '.json', '.ts']
-      }
-    ],
+    // Handled by import/no-unresolved
+    'node/no-missing-import': 'off',
     'one-var': ['error', 'never'],
     'padding-line-between-statements': [
       'error',
@@ -175,7 +184,6 @@ export const baseRules = (repoType: string, repoSubType: string) => {
         }
       }
     ],
-    semi: 'off',
     'sort-class-members/sort-class-members': [
       ruleState.error,
       {
@@ -194,8 +202,6 @@ export const baseRules = (repoType: string, repoSubType: string) => {
     'sort-imports': 'off',
     'sort-keys': 'off',
     'sort-keys-fix/sort-keys-fix': 'error',
-    'space-before-function-paren': 'off',
-    'space-in-parens': ['off', 'never'],
     'spaced-comment': [
       'error',
       'always',
@@ -204,7 +210,6 @@ export const baseRules = (repoType: string, repoSubType: string) => {
       }
     ],
     'tsdoc/syntax': 'error',
-    'unicorn/no-new-array': 'off',
     'unicorn/prefer-module': repoType === 'npm' && repoSubType === 'library' ? ruleState.off : ruleState.error,
     'unused-imports/no-unused-imports': 'error',
     'woke/all': ruleState.error

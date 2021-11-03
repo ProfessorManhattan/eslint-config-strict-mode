@@ -12,20 +12,9 @@ export const maxLines = 500
  * Dictionary of plugins to load based on project type
  */
 export const plugins = {
-  eslint: ['editorconfig', 'no-secrets'],
-  html: ['html', 'no-unsanitized'],
-  jest: ['jest', 'jest-async', 'jest-dom', 'jest-formatting'],
-  prettier: ['prettier'],
-  typescript: [
-    '@typescript-eslint',
-    '@typescript-eslint/tslint',
+  angular: ['angular'],
+  common: [
     'array-func',
-    'eslint-plugin-prefer-arrow',
-    'eslint-plugin-import',
-    'eslint-plugin-no-explicit-type-exports',
-    'eslint-plugin-tsdoc',
-    'eslint-plugin-unicorn',
-    'etc',
     'ext',
     'filenames',
     'fp',
@@ -35,17 +24,31 @@ export const plugins = {
     'no-loops',
     'no-use-extend-native',
     'optimize-regex',
+    'prefer-arrow',
     'promise',
     'regexp',
-    'rxjs',
     'security',
     'sonarjs',
     'sort-class-members',
     'sort-keys-fix',
     'switch-case',
-    'typescript-sort-keys',
+    'unicorn',
     'unused-imports',
     'woke'
+  ],
+  eslint: ['editorconfig', 'no-secrets'],
+  html: ['html', 'no-unsanitized'],
+  javascript: ['jsdoc'],
+  jest: ['jest', 'jest-async', 'jest-dom', 'jest-formatting'],
+  prettier: ['prettier'],
+  typescript: [
+    '@typescript-eslint',
+    '@typescript-eslint/tslint',
+    'eslint-plugin-no-explicit-type-exports',
+    'eslint-plugin-tsdoc',
+    'etc',
+    'rxjs',
+    'typescript-sort-keys'
   ]
 }
 
@@ -53,9 +56,8 @@ export const plugins = {
  * ESLint templates to include based on project type
  */
 export const templates = {
-  angular: ['plugin:compat/recommended', 'plugin:no-unsanitized/DOM'],
-  eslint: ['eslint:all', 'plugin:eslint-comments/recommended', 'plugin:editorconfig/all'],
-  javascript: [
+  angular: ['plugin:angular/johnpapa'],
+  common: [
     'plugin:array-func/all',
     'plugin:fp/recommended',
     'plugin:functional/recommended',
@@ -69,12 +71,17 @@ export const templates = {
     'plugin:switch-case/recommended',
     'plugin:unicorn/recommended'
   ],
+  eslint: ['eslint:all', 'plugin:eslint-comments/recommended', 'plugin:editorconfig/all'],
+  functional: ['plugin:fp/recommended', 'plugin:functional/recommended'],
+  html: ['plugin:compat/recommended', 'plugin:no-unsanitized/DOM'],
+  javascript: ['plugin:jsdoc/recommended'],
   jest: ['plugin:jest/all', 'plugin:jest-dom/recommended', 'plugin:jest-formatting/recommended'],
   json: ['plugin:jsonc/recommended-with-json', 'plugin:json-schema-validator/recommended', 'plugin:jsonc/prettier'],
   node: ['plugin:node/recommended'],
   prettier: ['prettier', 'plugin:prettier/recommended'],
   toml: ['plugin:toml/standard'],
   typescript: [
+    'plugin:@typescript-eslint/recommended',
     'plugin:etc/recommended',
     'plugin:import/typescript',
     'plugin:rxjs/recommended',

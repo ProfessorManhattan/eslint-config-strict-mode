@@ -5,7 +5,7 @@ import { baseRules } from './rules/base'
 import { jsRules } from './rules/javascript'
 import { jsonRules } from './rules/json'
 import { taskfileRules } from './rules/taskfile'
-import { tsSpecRules } from './rules/tsspec'
+import { specRules } from './rules/ts-spec'
 import { tsRules } from './rules/typescript'
 import { yamlRules } from './rules/yaml'
 
@@ -64,23 +64,22 @@ module.exports = {
       parserOptions: {
         project: 'tsconfig.json',
         sourceType: 'module'
-      }
+      },
+      plugins: getPlugins('typescript', repoType, repoSubType),
+      rules: baseRules(repoType, repoSubType)
     },
     {
       extends: getExtends('javascript', repoType, repoSubType),
-      files: ['*.js', '*.jsx']
-    },
-    {
-      files: ['*.js', '*.jsx', '*.ts', '*.tsx'],
-      plugins: getPlugins('script', repoType, repoSubType),
+      files: ['*.js', '*.jsx'],
+      plugins: getPlugins('javascript', repoType, repoSubType),
       rules: baseRules(repoType, repoSubType)
     },
     {
       env: {
         jest: true
       },
-      files: ['*.spec.ts'],
-      rules: tsSpecRules
+      files: ['*.spec.js', '*.spec.ts'],
+      rules: specRules
     },
     {
       files: ['*.js', '*.jsx'],
@@ -89,6 +88,17 @@ module.exports = {
     {
       files: ['*.ts', '*.tsx'],
       rules: tsRules
+    },
+    {
+      files: ['*.func.js', '*.func.ts'],
+      rules: {
+        'fp/no-nil': 'error',
+        'functional/no-class': 'error',
+        'functional/no-conditional-statement': 'error',
+        'functional/no-expression-statement': 'error',
+        'functional/no-return-void': 'error',
+        'functional/no-this-expression': 'error'
+      }
     },
     {
       extends: getExtends('yml', repoType, repoSubType),
@@ -123,6 +133,7 @@ module.exports = {
       rules: taskfileRules
     }
   ],
+  reportUnusedDisableDirectives: true,
   rules: {
     'max-lines': ['error', maxLines],
     'no-secrets/no-secrets': [

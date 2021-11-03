@@ -18,11 +18,10 @@ export const acquireProjectType = (): {
   }
 }
 
-// eslint-disable-next-line fp/no-nil
-const getScriptsExtends = (type: string, subType: string, isTypeScript: boolean = true) => {
+const getScriptsExtends = (type: string, subType: string, isTypeScript = true) => {
   const base = isTypeScript
-    ? [...templates.eslint, ...templates.javascript, ...templates.typescript, ...templates.prettier]
-    : [...templates.eslint, ...templates.javascript, ...templates.prettier]
+    ? [...templates.eslint, ...templates.common, ...templates.typescript, ...templates.prettier]
+    : [...templates.eslint, ...templates.common, ...templates.javascript, ...templates.prettier]
   switch (`${type}-${subType}`) {
     case 'angular-app':
       return [...templates.angular, ...templates.jest, ...base]
@@ -39,7 +38,6 @@ const getScriptsExtends = (type: string, subType: string, isTypeScript: boolean 
   }
 }
 
-// eslint-disable-next-line fp/no-nil
 export const getExtends = (
   extension: 'javascript' | 'json' | 'toml' | 'typescript' | 'yml',
   type: string,
@@ -61,14 +59,15 @@ export const getExtends = (
   }
 }
 
-// eslint-disable-next-line fp/no-nil
-const getScriptsPlugins = (type: string, subType: string) => {
-  const base = [...plugins.eslint, ...plugins.typescript, ...plugins.prettier]
+const getScriptsPlugins = (type: string, subType: string, isTypeScript = true) => {
+  const base = isTypeScript
+    ? [...plugins.eslint, ...plugins.common, ...plugins.typescript, ...plugins.prettier]
+    : [...plugins.eslint, ...plugins.common, ...plugins.javascript, ...plugins.prettier]
   switch (`${type}-${subType}`) {
     case 'angular-app':
-      return [...plugins.html, ...plugins.jest, ...base]
+      return [...plugins.angular, ...plugins.html, ...plugins.jest, ...base]
     case 'angular-website':
-      return [...plugins.html, ...plugins.jest, ...base]
+      return [...plugins.angular, ...plugins.html, ...plugins.jest, ...base]
     case 'npm-cli':
       return [...plugins.jest, ...base]
     case 'npm-library':
@@ -78,19 +77,20 @@ const getScriptsPlugins = (type: string, subType: string) => {
   }
 }
 
-// eslint-disable-next-line fp/no-nil
 export const getPlugins = (
-  extension: 'json' | 'script' | 'toml' | 'yml',
+  extension: 'javascript' | 'json' | 'toml' | 'typescript' | 'yml',
   type: string,
   subType: string
 ): readonly string[] => {
   switch (extension) {
+    case 'javascript':
+      return getScriptsPlugins(type, subType, false)
     case 'json':
       return [...plugins.eslint, ...plugins.prettier]
-    case 'script':
-      return getScriptsPlugins(type, subType)
     case 'toml':
       return [...plugins.eslint, ...plugins.prettier]
+    case 'typescript':
+      return getScriptsPlugins(type, subType)
     case 'yml':
       return [...plugins.eslint, ...plugins.prettier]
     default:
