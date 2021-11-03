@@ -1,6 +1,6 @@
 {
   "name": "@megabytelabs/eslint-config",
-  "version": "1.0.69",
+  "version": "1.0.70",
   "private": false,
   "publishConfig": {
     "access": "public"
@@ -100,7 +100,7 @@
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^13.1.0",
-    "@megabytelabs/eslint-config": "^1.0.68",
+    "@megabytelabs/eslint-config": "^1.0.69",
     "@megabytelabs/prettier-config": "^14.14.14",
     "@types/node": "^16.11.6",
     "@types/parse-gitignore": "^1.0.0",
