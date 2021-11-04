@@ -85,6 +85,7 @@ export const tsRules = {
   'class-methods-use-this': 'off',
   // This must be turned off for TypeScript because decorators generate false positives
   'new-cap': 'off',
+  'node/no-missing-import': 'off',
   'node/no-unsupported-features/es-syntax': 'off',
   'require-jsdoc': 'off'
 }

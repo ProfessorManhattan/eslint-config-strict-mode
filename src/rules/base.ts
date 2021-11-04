@@ -16,6 +16,7 @@ export const baseRules = (repoType: string, repoSubType: string) => {
     'arrow-parens': ['error', 'always'],
     'brace-style': ['error', '1tbs'],
     'comma-dangle': 'off',
+    'editorconfig/indent': 'off',
     eqeqeq: ['error', 'always'],
     'eslint-comments/disable-enable-pair': ['error', { allowWholeFile: true }],
     'ext/lines-between-object-properties': [ruleState.error, 'never'],
@@ -151,8 +152,10 @@ export const baseRules = (repoType: string, repoSubType: string) => {
     'no-ternary': 'off',
     'no-unused-expressions': ['error', { allowTernary: true }],
     'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+    // Handled by import/no-extraneous-dependencies
+    'node/no-extraneous-import': 'off',
     // Handled by import/no-unresolved
-    'node/no-missing-import': 'off',
+    'node/no-unpublished-import': 'off',
     'one-var': ['error', 'never'],
     'padding-line-between-statements': [
       'error',

@@ -1,3 +1,4 @@
+import * as fs from 'node:fs'
 import { maxLines } from './constants'
 import { acquireProjectType, getExtends, getGitignore, getPlugins } from './library'
 import { ansibleMetaRules, ansibleRules } from './rules/ansible'
@@ -13,6 +14,20 @@ const gitignore = getGitignore()
 const taskfile = acquireProjectType()
 const repoType = taskfile.vars.REPOSITORY_TYPE
 const repoSubType = taskfile.vars.REPOSITORY_SUBTYPE
+
+const tsConfig = fs.existsSync('./tsconfig.json')
+  ? {
+      extends: getExtends('typescript', repoType, repoSubType),
+      files: ['*.ts', '*.tsx'],
+      parser: '@typescript-eslint/parser',
+      parserOptions: {
+        project: 'tsconfig.json',
+        sourceType: 'module'
+      },
+      plugins: getPlugins('typescript', repoType, repoSubType),
+      rules: baseRules(repoType, repoSubType)
+    }
+  : { files: ['.doesnotexist'] }
 
 // eslint-disable-next-line unicorn/prefer-module
 module.exports = {
@@ -34,16 +49,20 @@ module.exports = {
   overrides: [
     {
       extends: getExtends('json', repoType, repoSubType),
-      files: ['*.json', '*.json5'],
+      files: ['*.json', '*.json5', '*.json.handlebars'],
       parser: 'jsonc-eslint-parser',
       plugins: getPlugins('json', repoType, repoSubType),
       rules: jsonRules
     },
     {
-      files: ['package.json'],
+      files: ['package.json', 'package.*.json.handlebars'],
       rules: {
         'jsonc/sort-keys': [
           'error',
+          {
+            order: { type: 'asc' },
+            pathPattern: 'keywords'
+          },
           {
             order: { type: 'asc' },
             pathPattern: 'lint-staged'
@@ -57,17 +76,7 @@ module.exports = {
       parser: 'toml-eslint-parser',
       plugins: getPlugins('toml', repoType, repoSubType)
     },
-    {
-      extends: getExtends('typescript', repoType, repoSubType),
-      files: ['*.ts', '*.tsx'],
-      parser: '@typescript-eslint/parser',
-      parserOptions: {
-        project: 'tsconfig.json',
-        sourceType: 'module'
-      },
-      plugins: getPlugins('typescript', repoType, repoSubType),
-      rules: baseRules(repoType, repoSubType)
-    },
+    tsConfig,
     {
       extends: getExtends('javascript', repoType, repoSubType),
       files: ['*.js', '*.jsx'],
@@ -138,7 +147,7 @@ module.exports = {
     'max-lines': ['error', maxLines],
     'no-secrets/no-secrets': [
       'error',
-      { ignoreContent: ['allowSyntheticDefaultImports', 'noFallthroughCasesInSwitch'] }
+      { ignoreContent: ['allowSyntheticDefaultImports', 'noFallthroughCasesInSwitch', 'T01ABCG4NK1'] }
     ]
   }
 }

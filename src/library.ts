@@ -73,7 +73,7 @@ const getScriptsPlugins = (type: string, subType: string, isTypeScript = true) =
     case 'npm-library':
       return [...plugins.jest, ...base]
     default:
-      return base
+      return [...plugins.jest, ...base]
   }
 }
 
