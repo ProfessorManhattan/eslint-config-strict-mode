@@ -1,6 +1,6 @@
 {
   "name": "@megabytelabs/eslint-config",
-  "version": "1.0.85",
+  "version": "1.0.86",
   "private": false,
   "publishConfig": {
     "access": "public"
@@ -96,13 +96,15 @@
     "eslint-plugin-unused-imports": "^1.1.5",
     "eslint-plugin-woke": "^1.0.0",
     "eslint-plugin-yml": "^0.10.1",
+    "glob": "^7.2.0",
     "parse-gitignore": "^1.0.1",
     "yaml": "^1.10.2"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^13.1.0",
-    "@megabytelabs/eslint-config": "^1.0.84",
+    "@megabytelabs/eslint-config": "^1.0.85",
     "@megabytelabs/prettier-config": "^14.14.14",
+    "@types/glob": "^7.2.0",
     "@types/node": "^16.11.6",
     "@types/parse-gitignore": "^1.0.0",
     "cz-conventional-changelog": "^3.3.0",

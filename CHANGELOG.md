@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.86](https://github.com/ProfessorManhattan/eslint-config/compare/v1.0.85...v1.0.86) (2021-11-13)
+
 ### [1.0.85](https://github.com/ProfessorManhattan/eslint-config/compare/v1.0.84...v1.0.85) (2021-11-13)
 
 ### [1.0.84](https://github.com/ProfessorManhattan/eslint-config/compare/v1.0.83...v1.0.84) (2021-11-13)
