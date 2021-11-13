@@ -44,7 +44,8 @@ module.exports = {
     '.vscode/',
     'deprecated/',
     'package-lock.json',
-    'pnpm-lock.yaml'
+    'pnpm-lock.yaml',
+    '*.toml'
   ],
   overrides: [
     {
@@ -87,7 +88,7 @@ module.exports = {
       env: {
         jest: true
       },
-      files: ['*.spec.js', '*.spec.ts'],
+      files: ['*spec.js', '*spec.ts'],
       rules: specRules
     },
     {
@@ -146,8 +147,8 @@ module.exports = {
   rules: {
     'max-lines': ['error', maxLines],
     'no-secrets/no-secrets': [
-      'error',
-      { ignoreContent: ['allowSyntheticDefaultImports', 'noFallthroughCasesInSwitch', 'T01ABCG4NK1'] }
+      'warn',
+      { ignoreContent: ['allowSyntheticDefaultImports', 'noFallthroughCasesInSwitch', 'T01ABCG4NK1', 'ansible_galaxy_project_id'] }
     ]
   }
 }

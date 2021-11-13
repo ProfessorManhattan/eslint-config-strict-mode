@@ -1,7 +1,7 @@
 import { ruleState } from './base'
 
 export const specRules = {
-  'filenames/match-regex': [ruleState.error, '^[a-z-]+.?[a-z-]+.spec$'],
+  'filenames/match-regex': [ruleState.error, '^[a-z-]+.?[a-z2-]+\.?spec$'],
   'fp/no-mutation': 'off',
   'functional/no-class': 'error',
   'functional/no-let': 'off',
@@ -17,5 +17,13 @@ export const specRules = {
   'max-lines-per-function': 'off',
   'no-magic-numbers': 'off',
   'no-undef': 'off',
-  'node/no-unpublished-import': 'off'
+  'node/no-unpublished-import': 'off',
+  "unicorn/prevent-abbreviations": [
+    "error",
+    {
+      "ignore": [
+        "\\.e2e-spec$"
+      ]
+    }
+  ]
 }
