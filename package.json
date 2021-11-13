@@ -1,6 +1,6 @@
 {
   "name": "@megabytelabs/eslint-config",
-  "version": "1.0.83",
+  "version": "1.0.84",
   "private": false,
   "publishConfig": {
     "access": "public"
@@ -19,7 +19,7 @@
   },
   "main": "dist/main.js",
   "engines": {
-    "node": ">=16"
+    "node": ">=14"
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",
@@ -101,7 +101,7 @@
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^13.1.0",
-    "@megabytelabs/eslint-config": "^1.0.82",
+    "@megabytelabs/eslint-config": "^1.0.83",
     "@megabytelabs/prettier-config": "^14.14.14",
     "@types/node": "^16.11.6",
     "@types/parse-gitignore": "^1.0.0",
