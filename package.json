@@ -1,6 +1,6 @@
 {
   "name": "@mblabs/eslint-config",
-  "version": "1.0.94",
+  "version": "1.0.95",
   "private": false,
   "publishConfig": {
     "access": "public"
@@ -19,7 +19,7 @@
   },
   "main": "dist/main.js",
   "engines": {
-    "node": ">=14"
+    "node": ">=14.18.0"
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",
@@ -102,7 +102,7 @@
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^13.1.0",
-    "@mblabs/eslint-config": "^1.0.93",
+    "@mblabs/eslint-config": "^1.0.94",
     "@megabytelabs/prettier-config": "^14.14.14",
     "@types/glob": "^7.2.0",
     "@types/node": "^16.11.6",
