@@ -1,6 +1,6 @@
 {
   "name": "@mblabs/eslint-config",
-  "version": "1.0.112",
+  "version": "1.0.113",
   "private": false,
   "publishConfig": {
     "access": "public"
@@ -110,6 +110,7 @@
     "@types/node": "^16.11.6",
     "@types/parse-gitignore": "^1.0.0",
     "cz-conventional-changelog": "^3.3.0",
+    "eslint-plugin-angular": "^4.1.0",
     "typescript": "^4.4.4"
   },
   "blueprint": {
