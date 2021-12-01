@@ -1,6 +1,6 @@
 {
   "name": "@mblabs/eslint-config",
-  "version": "1.0.113",
+  "version": "1.0.114",
   "private": false,
   "publishConfig": {
     "access": "public"
@@ -55,6 +55,7 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-formatter-gitlab": "^3.0.0",
     "eslint-formatter-pretty": "^4.1.0",
+    "eslint-plugin-angular": "^4.1.0",
     "eslint-plugin-array-func": "^3.1.7",
     "eslint-plugin-editorconfig": "^3.0.2",
     "eslint-plugin-eslint-comments": "^3.2.0",
@@ -104,13 +105,12 @@
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^13.1.0",
-    "@mblabs/eslint-config": "^1.0.111",
+    "@mblabs/eslint-config": "^1.0.112",
     "@megabytelabs/prettier-config": "^14.14.14",
     "@types/glob": "^7.2.0",
     "@types/node": "^16.11.6",
     "@types/parse-gitignore": "^1.0.0",
     "cz-conventional-changelog": "^3.3.0",
-    "eslint-plugin-angular": "^4.1.0",
     "typescript": "^4.4.4"
   },
   "blueprint": {
