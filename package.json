@@ -1,6 +1,6 @@
 {
   "name": "@mblabs/eslint-config",
-  "version": "1.0.111",
+  "version": "1.0.112",
   "private": false,
   "publishConfig": {
     "access": "public"
@@ -99,11 +99,12 @@
     "eslint-plugin-yml": "^0.10.1",
     "glob": "^7.2.0",
     "parse-gitignore": "^1.0.1",
+    "tslint": "^6.1.3",
     "yaml": "^1.10.2"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^13.1.0",
-    "@mblabs/eslint-config": "^1.0.110",
+    "@mblabs/eslint-config": "^1.0.111",
     "@megabytelabs/prettier-config": "^14.14.14",
     "@types/glob": "^7.2.0",
     "@types/node": "^16.11.6",
