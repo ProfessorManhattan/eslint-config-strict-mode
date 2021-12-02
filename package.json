@@ -1,6 +1,6 @@
 {
   "name": "@mblabs/eslint-config",
-  "version": "1.0.114",
+  "version": "1.0.115",
   "private": false,
   "publishConfig": {
     "access": "public"
@@ -105,7 +105,7 @@
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^13.1.0",
-    "@mblabs/eslint-config": "^1.0.112",
+    "@mblabs/eslint-config": "^1.0.113",
     "@megabytelabs/prettier-config": "^14.14.14",
     "@types/glob": "^7.2.0",
     "@types/node": "^16.11.6",
