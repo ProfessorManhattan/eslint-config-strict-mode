@@ -1,6 +1,12 @@
 ---
 version: '3'
 
+includes:
+  test: 69
+
 vars:
   REPOSITORY_SUBTYPE: config
   REPOSITORY_TYPE: npm
+
+tasks:
+  donothing: 'true'

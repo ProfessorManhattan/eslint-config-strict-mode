@@ -1,8 +1,16 @@
 import * as fs from 'node:fs'
-import { maxLines } from './constants'
-import { acquireProjectType, getExtends, getGitignore, getPlugins } from './library'
+import { maxLines, maxLinesMax } from './constants'
+import {
+  acquireProjectType,
+  getExtends,
+  getGitignore,
+  getPlugins,
+  schemaDefinitions,
+  vscodeTasksOrder
+} from './library'
 import { ansibleMetaRules, ansibleRules } from './rules/ansible'
 import { baseRules } from './rules/base'
+import { gitlabCIRules } from './rules/gitlab-ci'
 import { jsRules } from './rules/javascript'
 import { jsonRules } from './rules/json'
 import { taskfileRules } from './rules/taskfile'
@@ -37,15 +45,19 @@ module.exports = {
     node: repoType === 'npm'
   },
   ignorePatterns: [
-    ...gitignore,
+    '!.*',
     '.common/',
-    '.husky/',
     '.modules/',
-    '.vscode/',
+    '.pnpm-store/',
+    '.venv/',
     'deprecated/',
+    'angular.json',
     'package-lock.json',
     'pnpm-lock.yaml',
-    '*.toml'
+    'venv/',
+    '_generated_/',
+    '*.toml',
+    ...gitignore
   ],
   overrides: [
     {
@@ -67,6 +79,18 @@ module.exports = {
           {
             order: { type: 'asc' },
             pathPattern: 'lint-staged'
+          }
+        ]
+      }
+    },
+    {
+      files: ['.vscode/tasks.json'],
+      rules: {
+        'jsonc/sort-keys': [
+          'error',
+          {
+            order: vscodeTasksOrder,
+            pathPattern: '^.*$'
           }
         ]
       }
@@ -131,7 +155,7 @@ module.exports = {
       }
     },
     {
-      files: ['molecule/**/converge.yml', 'molecule/**/prepare.yml', 'tests/**/*.yml', 'tasks/**/*.yml'],
+      files: ['molecule/**/converge.yml', 'molecule/**/prepare.yml', 'tests/**/*.yml'],
       rules: ansibleRules
     },
     {
@@ -141,14 +165,54 @@ module.exports = {
     {
       files: ['Taskfile*.yml'],
       rules: taskfileRules
+    },
+    {
+      files: ['./Taskfile.yml'],
+      rules: {
+        'max-len': 'off'
+      }
+    },
+    {
+      files: ['*.gitlab-ci.yml'],
+      rules: gitlabCIRules
+    },
+    {
+      files: ['tasks.json', 'launch.json'],
+      rules: {
+        'max-lines': ['error', maxLinesMax]
+      }
+    },
+    {
+      files: ['angular.json'],
+      rules: {
+        'json-schema-validator/no-invalid': 'off'
+      }
     }
   ],
   reportUnusedDisableDirectives: true,
   rules: {
+    'json-schema-validator/no-invalid': [
+      'error',
+      {
+        schemas: schemaDefinitions(),
+        useSchemastoreCatalog: true
+      }
+    ],
     'max-lines': ['error', maxLines],
     'no-secrets/no-secrets': [
       'warn',
-      { ignoreContent: ['allowSyntheticDefaultImports', 'noFallthroughCasesInSwitch', 'T01ABCG4NK1', 'ansible_galaxy_project_id'] }
-    ]
+      {
+        ignoreContent: [
+          'allowSyntheticDefaultImports',
+          '__zone_symbol__UNPATCHED_EVENTS',
+          'enableI18nLegacyMessageIdFormat',
+          'noFallthroughCasesInSwitch',
+          'noPropertyAccessFromIndexSignature',
+          'T01ABCG4NK1',
+          'ansible_galaxy_project_id'
+        ]
+      }
+    ],
+    'no-warning-comments': 'warn'
   }
 }

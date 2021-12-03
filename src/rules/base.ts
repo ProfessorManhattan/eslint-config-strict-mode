@@ -1,5 +1,4 @@
 import { maxClassesPerFile } from '../constants'
-import { schemaDefinitions } from '../library'
 
 const maxLineLength = 120
 const maxStatementsPerFunction = 10
@@ -69,22 +68,24 @@ export const baseRules = (repoType: string, repoSubType: string) => {
     ],
     'import/no-extraneous-dependencies': [
       'error',
-      { devDependencies: false, optionalDependencies: false, peerDependencies: false }
+      { devDependencies: false, optionalDependencies: ['**/.config/scripts/**/*.js'], peerDependencies: false }
     ],
     'import/no-unresolved': [
       ruleState.error,
       {
-        ignore: ['@megabytelabs/angular-common', '@megabytelabs/common', '@megabytelabs/nestjs-common']
+        ignore: [
+          '@mblabs/angular-common',
+          '@mblabs/common',
+          '@mblabs/nestjs-common',
+          'chalk',
+          'esbuild',
+          'esbuild-node-externals',
+          'inquirer',
+          'signale'
+        ]
       }
     ],
     'jest/require-hook': 'off',
-    'json-schema-validator/no-invalid': [
-      'error',
-      {
-        schemas: schemaDefinitions(),
-        useSchemastoreCatalog: true
-      }
-    ],
     'linebreak-style': ['error', 'unix'],
     'max-classes-per-file': ['error', maxClassesPerFile],
     'max-len': [
@@ -132,7 +133,6 @@ export const baseRules = (repoType: string, repoSubType: string) => {
     'no-constructor-bind/no-constructor-bind': 'error',
     'no-constructor-bind/no-constructor-state': 'error',
     'no-empty-function': ['error', { allow: ['constructors'] }],
-    'no-explicit-type-exports/no-explicit-type-exports': ruleState.error,
     'no-loops/no-loops': ruleState.error,
     'no-magic-numbers': ['error', { ignore: [-1, 0, 1] }],
     'no-multiple-empty-lines': [
@@ -154,6 +154,21 @@ export const baseRules = (repoType: string, repoSubType: string) => {
     'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
     // Handled by import/no-extraneous-dependencies
     'node/no-extraneous-import': 'off',
+    'node/no-missing-import': [
+      'error',
+      {
+        allowModules: [
+          '@mblabs/angular-common',
+          '@mblabs/common',
+          '@mblabs/nestjs-common',
+          'chalk',
+          'esbuild',
+          'esbuild-node-externals',
+          'inquirer',
+          'signale'
+        ]
+      }
+    ],
     // Handled by import/no-unresolved
     'node/no-unpublished-import': 'off',
     'one-var': ['error', 'never'],
@@ -212,7 +227,6 @@ export const baseRules = (repoType: string, repoSubType: string) => {
         markers: ['/']
       }
     ],
-    'tsdoc/syntax': 'error',
     'unicorn/prefer-module': repoType === 'npm' && repoSubType === 'library' ? ruleState.off : ruleState.error,
     'unused-imports/no-unused-imports': 'error',
     'woke/all': ruleState.error

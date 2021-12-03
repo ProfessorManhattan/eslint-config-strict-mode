@@ -1,3 +1,5 @@
+import { ruleState } from './base'
+
 export const tsRules = {
   '@typescript-eslint/array-type': [
     'error',
@@ -85,9 +87,11 @@ export const tsRules = {
   'class-methods-use-this': 'off',
   // This must be turned off for TypeScript because decorators generate false positives
   'new-cap': 'off',
+  'no-explicit-type-exports/no-explicit-type-exports': ruleState.error,
   'no-unused-vars': 'off',
   'no-useless-constructor': 'off',
   'node/no-missing-import': 'off',
   'node/no-unsupported-features/es-syntax': 'off',
-  'require-jsdoc': 'off'
+  'require-jsdoc': 'off',
+  'tsdoc/syntax': 'error'
 }

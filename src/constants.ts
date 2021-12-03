@@ -9,6 +9,12 @@ export const maxClassesPerFile = 4
 export const maxLines = 500
 
 /**
+ * Maximum number of lines of code for "special" files that
+ * surpass normal limit (e.g. generated files)
+ */
+export const maxLinesMax = 2424
+
+/**
  * Dictionary of plugins to load based on project type
  */
 export const plugins = {

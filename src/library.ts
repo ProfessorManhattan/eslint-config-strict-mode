@@ -1,4 +1,6 @@
+import glob from 'glob'
 import * as fs from 'node:fs'
+import path from 'node:path'
 import parseGitignore from 'parse-gitignore'
 import * as YAML from 'yaml'
 import { plugins, templates } from './constants'
@@ -99,31 +101,102 @@ export const getPlugins = (
 }
 
 export const getGitignore = (): readonly string[] => {
-  return parseGitignore(fs.readFileSync('./.gitignore'))
+  if (fs.existsSync('./.gitignore')) {
+    return parseGitignore(fs.readFileSync('./.gitignore'))
+  } else {
+    return []
+  }
+}
+
+export const getGlob = (pattern: string): readonly string[] => {
+  const files = glob.sync(pattern)
+
+  return files.map((file: string) => path.basename(file))
 }
 
 // Automatically uses https://www.schemastore.org/api/json/catalog.json in addition to the below configurations
 export const schemaDefinitions = (): readonly { readonly fileMatch: readonly string[]; readonly schema: string }[] => {
   return [
     {
-      fileMatch: ['.commitlint.config.cjs'],
+      fileMatch: ['commitlint.config.cjs'],
       schema: 'https://json.schemastore.org/commitlintrc.json'
     },
     {
-      fileMatch: ['.eslintrc.cjs'],
-      schema: 'https://json.schemastore.org/eslintrc'
+      fileMatch: ['.gitlab-ci.yml', ...getGlob('.gitlab/ci/**/*.yml')],
+      schema: 'https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json'
     },
     {
-      fileMatch: ['.stylelintrc.cjs'],
+      fileMatch: ['cspell.json'],
+      schema:
+        'https://raw.githubusercontent.com/streetsidesoftware/cspell/main/packages/cspell-types/cspell.schema.json'
+    },
+    {
+      fileMatch: ['package.json'],
+      schema: 'https://json.schemastore.org/package.json'
+    },
+    {
+      fileMatch: ['stylelintrc.cjs'],
       schema: 'https://json.schemastore.org/stylelintrc.json'
     },
     {
-      fileMatch: ['Taskfile.yml', 'Taskfile-*.yml'],
+      fileMatch: ['Taskfile.yml', ...getGlob('.config/taskfiles/**/*.yml')],
       schema: 'https://json.schemastore.org/taskfile.json'
     },
     {
       fileMatch: ['tsconfig.json', 'tsconfig.module.json'],
       schema: 'https://json.schemastore.org/tsconfig.json'
+    },
+    {
+      fileMatch: ['yamllint.yml'],
+      schema: 'https://json.schemastore.org/yamllint.json'
     }
   ]
 }
+
+export const vscodeTasksOrder = [
+  'version',
+  'label',
+  'type',
+  'group',
+  'command',
+  'linux',
+  'osx',
+  'windows',
+  'isBackground',
+  'presentation',
+  'reveal',
+  'echo',
+  'focus',
+  'panel',
+  'problemMatcher',
+  'base',
+  'owner',
+  'severity',
+  'fileLocation',
+  'pattern',
+  'regexp',
+  'kind',
+  'file',
+  'location',
+  'line',
+  'column',
+  'endLine',
+  'endColumn',
+  'code',
+  'message',
+  'loop',
+  'background',
+  'activeOnStart',
+  'beginsPattern',
+  'endsPattern',
+  'tasks',
+  'cwd',
+  'env',
+  'shell',
+  'executable',
+  'options',
+  'args',
+  'runOptions',
+  'reevaluateOnRerun',
+  'runOn'
+]
