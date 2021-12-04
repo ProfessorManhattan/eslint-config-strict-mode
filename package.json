@@ -1,5 +1,5 @@
 {
-  "name": "@washingtondc/eslint",
+  "name": "eslint-config-strict-mode",
   "version": "1.0.1",
   "private": false,
   "publishConfig": {
