@@ -43,7 +43,7 @@ export const gitlabCIRules = {
     'error',
     {
       order: gitlabCIOrder,
-      pathPattern: '^[[]?.?.?([a-zA-Z0-9-]+).?.?$'
+      pathPattern: '.*'
     },
     {
       order: ['name', 'entrypoint', 'command', 'alias', 'variables'],
@@ -58,7 +58,7 @@ export const gitlabCIRules = {
       pathPattern: 'image$'
     },
     {
-      order: { type: 'asc' },
+      order: gitlabCIOrder,
       pathPattern: '^[[]?.?.?([a-zA-Z0-9-]+).?.?..*$'
     },
     {
