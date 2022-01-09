@@ -187,6 +187,12 @@ module.exports = {
       rules: {
         'json-schema-validator/no-invalid': 'off'
       }
+    },
+    {
+      files: ['.config/scripts/**/*.js'],
+      rules: {
+        'import/no-extraneous-dependencies': 'off'
+      }
     }
   ],
   reportUnusedDisableDirectives: true,

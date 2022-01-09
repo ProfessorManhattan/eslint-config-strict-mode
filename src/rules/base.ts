@@ -227,6 +227,7 @@ export const baseRules = (repoType: string, repoSubType: string) => {
         markers: ['/']
       }
     ],
+    'unicorn/no-process-exit': 'off',
     'unicorn/prefer-module': repoType === 'npm' && repoSubType === 'library' ? ruleState.off : ruleState.error,
     'unused-imports/no-unused-imports': 'error',
     'woke/all': ruleState.error
