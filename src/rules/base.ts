@@ -133,7 +133,6 @@ export const baseRules = (repoType: string, repoSubType: string) => {
     'no-constructor-bind/no-constructor-bind': 'error',
     'no-constructor-bind/no-constructor-state': 'error',
     'no-empty-function': ['error', { allow: ['constructors'] }],
-    'no-loops/no-loops': ruleState.error,
     'no-magic-numbers': ['error', { ignore: [-1, 0, 1] }],
     'no-multiple-empty-lines': [
       'error',

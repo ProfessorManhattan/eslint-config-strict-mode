@@ -183,7 +183,7 @@ module.exports = {
       }
     },
     {
-      files: ['angular.json'],
+      files: ['angular.json', '**/.config/taskfiles/**/*.yml', 'Taskfile.yml'],
       rules: {
         'json-schema-validator/no-invalid': 'off'
       }
@@ -197,6 +197,8 @@ module.exports = {
   ],
   reportUnusedDisableDirectives: true,
   rules: {
+    'fp/no-throw': 'off',
+    'fp/no-loops': 'off',
     'json-schema-validator/no-invalid': [
       'error',
       {

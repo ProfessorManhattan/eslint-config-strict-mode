@@ -27,7 +27,6 @@ export const plugins = {
     'functional',
     'import',
     'no-constructor-bind',
-    'no-loops',
     'no-use-extend-native',
     'optimize-regex',
     'prefer-arrow',
