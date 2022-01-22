@@ -1,0 +1,619 @@
+# eslint-disable eslint-comments/disable-enable-pair, max-lines
+---
+version: '3'
+
+tasks:
+  act:
+    run: once
+    cmds:
+      - task: brew:formulae
+        vars:
+          FORMULAE: act
+
+  allure:
+    run: once
+    cmds:
+      - task: brew:formulae
+        vars:
+          FORMULAE: allure
+
+  brew:
+    deps:
+      - common
+    run: once
+    cmds:
+      - task: brew:{{OS}}
+
+    log:
+      error: Failed to install or load Homebrew
+      start: Ensuring Homebrew is installed and available
+      success: Successfully ensured Homebrew is installed
+  brew:cask:
+    deps:
+      - brew
+    run: when_changed
+    cmds:
+      - brew install --cask {{.CASK}}
+    log:
+      error: Failed to install `{{.CASK}}`
+      start: Ensuring the `{{.CASK}}` Homebrew cask is installed
+      success: Successfully installed `{{.CASK}}`
+    status:
+      - type {{.CASK}} &> /dev/null
+
+  brew:darwin:
+    cmds:
+      - |
+        if ! type brew &> /dev/null; then
+          if sudo -n bash; then
+            echo | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+          else
+            /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+          fi
+          if [ '{{.BODEGA}}' != 'true' ]; then
+            task install:software:exit:notice:reload
+          fi
+        fi
+      - task: brew:utils
+    status:
+      - type brew &> /dev/null
+
+  brew:formulae:
+    deps:
+      - brew
+    run: when_changed
+    cmds:
+      - brew install {{.FORMULAE}}
+    log:
+      error: Failed to install `{{.FORMULAE}}`
+      start: Ensuring the `{{.FORMULAE}}` Homebrew formulae is installed
+      success: Successfully installed `{{.FORMULAE}}`
+    status:
+      - type {{.FORMULAE}} &> /dev/null
+
+  brew:linux:
+    run: once
+    cmds:
+      - |
+        function ensureSource() {
+          if ! (grep "/bin/brew shellenv" < "$1" &> /dev/null); then
+            echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> "$1"
+          fi
+        }
+        if ! type brew &> /dev/null; then
+          if sudo -n bash; then
+            echo | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+          else
+            /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+          fi
+          eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+          ensureSource "$HOME/.profile"
+          if [ '{{.BODEGA}}' != 'true' ]; then
+            task install:software:exit:notice:reload
+          fi
+        fi
+    status:
+      - type brew &> /dev/null || [[ "$OPTIMIZED_IMAGE" == 'true' ]]
+
+  brew:utils:
+    run: once
+    cmds:
+      - task: compatibility:coreutils
+      - task: compatibility:findutils
+      - task: compatibility:gnu-sed
+      - task: compatibility:grep
+      - task: compatibility:gnu-tar
+      - task: compatibility:gawk
+    log:
+      error: Failed to setup GNU-compatibility tools
+      start: Installing GNU-compatibility tools for macOS via Homebrew
+      success: Successfully installed GNU-compatibility tools
+    status:
+      - '[ "{{OS}}" != "darwin" ]'
+
+  brew:windows:
+    cmds:
+      - task: common:windows
+
+  codeclimate:
+    cmds:
+      - task: brew:formulae
+        vars:
+          FORMULAE: codeclimate/formulae/codeclimate
+    status:
+      - type codeclimate > /dev/null
+
+  common:
+    run: once
+    cmds:
+      - task: common:{{OS}}
+
+    log:
+      error: There was an error ensuring common system tools are present
+      start: Ensuring common system tools are present
+      success: Ensured common system tools are present
+  common:darwin:
+    cmds:
+      - task: common:darwin:xcode
+
+  common:darwin:xcode:
+    vars:
+      CLT_STATUS:
+        sh: brew config | grep CLT
+    cmds:
+      - sudo xcode-select --install
+    log:
+      error: Failed to run `sudo xcode-select --install`
+      start: Running `sudo xcode-select --install` to install macOS developer tools
+      success: Successfully ran `sudo xcode-select --install`
+    status:
+      - '[ "{{.CLT_STATUS}}" != "CLT: N/A" ]'
+
+  common:linux:
+    vars:
+      LINUX_FAMILY:
+        sh: |
+          if [ -f "/etc/debian_version" ]; then
+            echo "debian"
+          elif [ -f "/etc/redhat-release" ]; then
+            echo "redhat"
+          elif [ -f "/etc/arch-release" ]; then
+            echo "archlinux"
+          else
+            echo "unknown"
+          fi
+    cmds:
+      - task: common:linux:{{.LINUX_FAMILY}}
+    status:
+      - '[[ "$OPTIMIZED_IMAGE" == "true" ]]'
+
+  common:linux:archlinux:
+    interactive: true
+    cmds:
+      - .config/log warn "Archlinux support for Homebrew is not very well documented.. if this does not work and you can get it working, please open a PR :)"
+      - |
+        sudo pacman update
+        sudo pacman -S base-devel curl file git procps-ng
+    status:
+      - type curl &> /dev/null
+      - type git &> /dev/null
+      - ldconfig -p | grep base-devel
+      - ldconfig -p | grep file
+      - ldconfig -p | grep procps-ng
+
+  common:linux:debian:
+    interactive: true
+    cmds:
+      - |
+        .config/log info 'Attempting to install Homebrew dependencies (sudo password required)'
+        sudo apt-get -y update
+        sudo apt-get install -y build-essential curl file git procps
+    status:
+      - type curl &> /dev/null
+      - type git &> /dev/null
+      - dpkg-query -l build-essential &> /dev/null
+      - dpkg-query -l file &> /dev/null
+      - dpkg-query -l procps &> /dev/null
+
+  common:linux:redhat:
+    interactive: true
+    cmds:
+      - mkdir -p "$HOME/.config/bodega"
+      - |
+        if [ ! -f "$HOME/.config/bodega/yum-devtools-check-ran" ]; then
+          yum grouplist 'Development Tools' &> "$HOME/.config/bodega/yum-devtools-check-ran"
+          DEV_TOOLS_NOT_INSTALLED="$(grep 'No groups match' < "$HOME/.config/bodega/yum-devtools-check-ran" > /dev/null)"
+          if [[ "$DEV_TOOLS_NOT_INSTALLED" == '0' ]]; then
+            sudo yum groupinstall -y 'Development Tools'
+          fi
+          touch "$HOME/.config/bodega/yum-devtools-check-ran"
+        fi
+        if ! rpm --quiet --query curl file git procps-ng; then
+          .config/log info 'Attempting to install Homebrew dependencies (sudo password required)'
+          sudo yum install -y curl file git procps-ng
+        fi
+        if [ -f '/etc/os-release' ]; then
+          source /etc/os-release
+          if [[ "$ID" == 'fedora' ]] && [ "$VERSION_ID" -gt "29" ]; then
+            if ! rpm --quiet --query libxcrypt-compat; then
+              .config/log info 'Attempting to install Fedora-specific Homebrew dependency (sudo password required)'
+              sudo yum -y install libxcrypt-compat
+            fi
+          fi
+        fi
+
+  common:linux:unknown:
+    cmds:
+      - .config/log warn 'You are using an operating system that we do not directly support. Please make sure
+        the equivalent of `build-essential`, `curl`, `file`, `git`, and `procps` are installed.'
+
+  common:windows:
+    cmds:
+      - exit 1
+
+    log:
+      error: Windows is not supported. Try using a Windows WSL environment.
+  compatibility:findutils:
+    cmds:
+      - task: brew:formulae
+        vars:
+          FORMULAE: findutils
+    status:
+      - type gfind > /dev/null
+
+  compatibility:gawk:
+    cmds:
+      - task: brew:formulae
+        vars:
+          FORMULAE: gawk
+
+  compatibility:gnu-sed:
+    cmds:
+      - task: brew:formulae
+        vars:
+          FORMULAE: gnu-sed
+    status:
+      - type gsed > /dev/null
+
+  compatibility:gnu-tar:
+    cmds:
+      - task: brew:formulae
+        vars:
+          FORMULAE: gnu-tar
+    status:
+      - type gtar > /dev/null
+
+  compatibility:grep:
+    cmds:
+      - task: brew:formulae
+        vars:
+          FORMULAE: grep
+    status:
+      - type ggrep > /dev/null
+
+  container-structure-test:
+    run: once
+    cmds:
+      - task: brew:formulae
+        vars:
+          FORMULAE: container-structure-test
+
+  coreutils:
+    cmds:
+      - task: brew:formulae
+        vars:
+          FORMULAE: coreutils
+    status:
+      - type gcp > /dev/null || [ "{{OS}}" != "darwin" ]
+
+  docker:
+    run: once
+    cmds:
+      - task: docker:{{OS}}
+
+  docker:darwin:
+    run: once
+    cmds:
+      - task: brew:cask
+        vars:
+          CASK: docker
+      - task: exit:notice:restart
+    status:
+      - type docker > /dev/null
+
+  docker:linux:
+    run: once
+    cmds:
+      - task: brew:formulae
+        vars:
+          FORMULAE: docker
+      - task: exit:notice:restart
+    status:
+      - type docker > /dev/null
+
+  docker:windows:
+    cmds:
+      - task: common:windows
+
+  dockle:
+    run: once
+    cmds:
+      - task: brew:formulae
+        vars:
+          FORMULAE: goodwithtech/r/dockle
+    status:
+      - type dockle > /dev/null
+
+  exiftool:
+    run: once
+    cmds:
+      - task: brew:formulae
+        vars:
+          FORMULAE: exiftool
+
+  exit:notice:reload:
+    cmds:
+      - .config/log warn 'Software was installed that requires a terminal session reload'
+      - .config/log info 'Please close and re-open the terminal. Then, re-run the same command to continue.'
+      - exit 1
+
+  exit:notice:restart:
+    cmds:
+      - .config/log warn 'Software was installed that requires a system reboot'
+      - .config/log info 'Please reboot the system and re-run the same command after rebooting'
+      - exit 1
+
+  gcloud:
+    run: once
+    cmds:
+      - task: gcloud:{{OS}}
+    status:
+      - type gcloud > /dev/null
+
+  gcloud:darwin:
+    cmds:
+      - task: brew:cask
+        vars:
+          CASK: google-cloud-sdk
+
+  gcloud:linux:
+    cmds:
+      - task: :install:install-doctor
+        vars:
+          SOFTWARE: googlecloudsdk
+
+  gcloud:windows:
+    cmds:
+      - task: common:windows
+
+  gh:
+    run: once
+    cmds:
+      - task: brew:formulae
+        vars:
+          FORMULAE: gh
+
+  git:
+    deps:
+      - common
+    run: once
+
+  gitleaks:
+    run: once
+    cmds:
+      - task: brew:formulae
+        vars:
+          FORMULAE: gitleaks
+
+  glab:
+    run: once
+    cmds:
+      - task: brew:formulae
+        vars:
+          FORMULAE: glab
+
+  go:
+    run: once
+    cmds:
+      - task: brew:formulae
+        vars:
+          FORMULAE: go
+
+  grype:
+    run: once
+    cmds:
+      - task: brew:formulae
+        vars:
+          FORMULAE: anchore/grype/grype
+    status:
+      - type grype > /dev/null
+
+  jq:
+    run: once
+    cmds:
+      - task: brew:formulae
+        vars:
+          FORMULAE: jq
+
+  node:
+    run: once
+    cmds:
+      - task: brew:formulae
+        vars:
+          FORMULAE: node
+
+  pipx:
+    run: once
+    cmds:
+      - task: pipx:{{OS}}
+    log:
+      error: Failed to ensure `pipx` is installed
+      start: Ensuring `pipx` is installed
+      success: Successfully ensured `pipx` is installed
+    status:
+      - type pipx > /dev/null
+
+  pipx:darwin:
+    deps:
+      - brew
+    cmds:
+      - brew install pipx
+      - pipx ensurepath
+
+  pipx:linux:
+    deps:
+      - :install:software:python
+    cmds:
+      - python3 -m pip install --user pipx
+      - python3 -m pipx ensurepath
+
+  pipx:windows:
+    cmds:
+      - exit 1
+
+    log:
+      error: These scripts are not currently compatible with Windows. Try using WSL.
+  poetry:
+    run: once
+    cmds:
+      - task: poetry:{{OS}}
+      - task: exit:notice:reload
+    status:
+      - type poetry > /dev/null
+
+  poetry:darwin:
+    run: once
+    cmds:
+      - task: brew:formulae
+        vars:
+          FORMULAE: poetry
+
+  poetry:linux:
+    run: once
+    cmds:
+      - task: brew:formulae
+        vars:
+          FORMULAE: poetry
+
+  poetry:windows:
+    cmds:
+      - exit 1
+
+    log:
+      error: These scripts are not currently compatible with Windows. Try using WSL.
+  python:
+    deps:
+      - brew # bug fix
+    run: once
+    cmds:
+      - task: python:{{OS}}
+
+  python:darwin:
+    run: once
+    cmds:
+      - task: brew:formulae
+        vars:
+          FORMULAE: python@3.10
+    status:
+      - type python3 > /dev/null
+
+  python:linux:
+    run: once
+    cmds:
+      - task: :install:install-doctor
+        vars:
+          SOFTWARE: python
+
+  python:windows:
+    cmds:
+      - exit 1
+
+    log:
+      error: These scripts are not currently compatible with Windows. Try using WSL.
+  rsync:
+    run: once
+    cmds:
+      - task: brew:formulae
+        vars:
+          FORMULAE: rsync
+
+  sshpass:
+    run: once
+    cmds:
+      - task: brew:formulae
+        vars:
+          FORMULAE: hudochenkov/sshpass/sshpass
+    status:
+      - type sshpass > /dev/null
+
+  subrepo:
+    run: once
+    cmds:
+      - task: brew:formulae
+        vars:
+          FORMULAE: git-subrepo
+    status:
+      - git subrepo --version > /dev/null || [[ "${container:=}" == "docker" ]]
+
+  tokei:
+    run: once
+    cmds:
+      - task: brew:formulae
+        vars:
+          FORMULAE: tokei
+
+  trivy:
+    run: once
+    cmds:
+      - task: brew:formulae
+        vars:
+          FORMULAE: aquasecurity/trivy/trivy
+    status:
+      - type trivy > /dev/null
+
+  vagrant:
+    cmds:
+      - task: vagrant:{{OS}}
+
+  vagrant:darwin:
+    run: once
+    cmds:
+      - task: brew:cask
+        vars:
+          CASK: vagrant
+
+  vagrant:linux:
+    run: once
+    cmds:
+      - task: :install:install-doctor
+        vars:
+          SOFTWARE: vagrant
+
+  virtualbox:
+    cmds:
+      - task: virtualbox:{{OS}}
+      - task: exit:notice:restart
+    status:
+      - type vboxmanage > /dev/null
+
+  virtualbox:darwin:
+    run: once
+    cmds:
+      - task: brew:cask
+        vars:
+          CASK: virtualbox
+
+  virtualbox:linux:
+    run: once
+    cmds:
+      - task: :install:install-doctor
+        vars:
+          SOFTWARE: virtualbox
+
+  vmware:
+    cmds:
+      - task: vmware:{{OS}}
+      - task: exit:notice:restart
+    status:
+      - type vmware > /dev/null
+
+  vmware:darwin:
+    run: once
+    cmds:
+      - task: brew:cask
+        vars:
+          CASK: vmware-fusion
+
+  vmware:linux:
+    run: once
+    cmds:
+      - task: :install:install-doctor
+        vars:
+          SOFTWARE: vmware
+
+  yq:
+    run: once
+    cmds:
+      - task: brew:formulae
+        vars:
+          FORMULAE: yq
