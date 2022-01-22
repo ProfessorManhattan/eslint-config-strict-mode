@@ -25,6 +25,7 @@
     "build": "tsc -p tsconfig.json",
     "test": "npm run build && standard-version && npm publish && npm install --save-dev ${npm_package_name}"
   },
+  "type": "module",
   "files": [
     "dist/",
     "README.md"
@@ -101,19 +102,20 @@
     "eslint-plugin-yml": "^0.10.1",
     "glob": "^7.2.0",
     "parse-gitignore": "^1.0.1",
-    "tslib": "^2.3.1",
     "tslint": "^6.1.3",
     "yaml": "^1.10.2"
   },
   "devDependencies": {
-    "@commitlint/config-conventional": "^13.1.0",
     "@types/glob": "^7.2.0",
     "@types/node": "^16.11.6",
     "@types/parse-gitignore": "^1.0.0",
     "@washingtondc/eslint": "^1.0.0",
     "@washingtondc/prettier": "^1.0.0",
-    "cz-conventional-changelog": "^3.3.0",
-    "typescript": "^4.4.4"
+    "typescript": "^4.4.4",
+    "@washingtondc/development": "^1.0.2",
+    "@washingtondc/release": "^0.0.2",
+    "eslint-config-strict-mode": "^1.0.0",
+    "sleekfast": "^0.0.1"
   },
   "blueprint": {
     "description": "ESLint configuration for linting TS, JS, JSON, YAML, and TOML",
@@ -130,9 +132,7 @@
     "title": "A Strict, Awesome ESLint Config"
   },
   "config": {
-    "commitizen": {
-      "path": "cz-conventional-changelog"
-    }
+    "commitizen": {}
   },
   "eslintConfig": {
     "extends": "@washingtondc/eslint"
