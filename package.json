@@ -134,6 +134,9 @@
   },
   "blueprint": {
     "description": "ESLint configuration for linting TS, JS, JSON, YAML, and TOML",
+    "github_id": "R_kgDOGt18OA",
+    "gitlab_group_id": "12165875",
+    "gitlab_project_id": "30830469",
     "group": "npm",
     "name": "ESLint",
     "overview": "This [ESLint](https://eslint.org/) configuration package includes a whole slew of ESLint plugins and default settings that are meant to enforce strict design patterns among developers who code with TypeScript, JavaScript, JSON, YAML, and TOML. You can use this configuration as is or customize it to your liking so you can have your own shared ESLint configuration package!",
@@ -144,10 +147,7 @@
     "slug": "eslint-config",
     "subgroup": "config",
     "subheader_description": "A try-to-pack-everything-in ESLint configuration with as many full configs as possible (but without duplicate/similar rules)",
-    "title": "A Strict, Awesome ESLint Config",
-    "gitlab_project_id": "30830469",
-    "github_id": "R_kgDOGt18OA",
-    "gitlab_group_id": "12165875"
+    "title": "A Strict, Awesome ESLint Config"
   },
   "commitlint": {
     "extends": [
