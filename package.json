@@ -1,53 +1,34 @@
 {
-  "name": "eslint-config-strict-mode",
-  "version": "1.0.11",
-  "private": false,
-  "publishConfig": {
-    "access": "public"
-  },
-  "description": "ESLint configuration for linting TS, JS, JSON, YAML, and TOML",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ProfessorManhattan/eslint-config.git"
-  },
   "author": "Brian Zalewski <brian@megabyte.space> (https://megabyte.space)",
-  "homepage": "https://megabyte.space",
+  "blueprint": {
+    "description": "ESLint configuration for linting TS, JS, JSON, YAML, and TOML",
+    "group": "npm",
+    "name": "ESLint",
+    "overview": "This [ESLint](https://eslint.org/) configuration package includes a whole slew of ESLint plugins and default settings that are meant to enforce strict design patterns among developers who code with TypeScript, JavaScript, JSON, YAML, and TOML. You can use this configuration as is or customize it to your liking so you can have your own shared ESLint configuration package!",
+    "repository": {
+      "github": "https://github.com/ProfessorManhattan/eslint-config",
+      "gitlab": "https://gitlab.com/megabyte-labs/npm/configs/eslint"
+    },
+    "slug": "eslint-config",
+    "subgroup": "config",
+    "subheader_description": "A try-to-pack-everything-in ESLint configuration with as many full configs as possible (but without duplicate/similar rules)",
+    "title": "A Strict, Awesome ESLint Config"
+  },
   "bugs": {
     "email": "help@megabyte.space",
     "url": "https://gitlab.com/megabyte-labs/npm/configs/eslint/-/issues"
   },
-  "main": "dist/main.js",
-  "engines": {
-    "node": ">=14.18.0"
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ],
+    "helpUrl": "https://megabyte.space/docs/contributing/commits"
   },
-  "scripts": {
-    "build": "tsc -p tsconfig.json",
-    "test": "npm run build && standard-version && npm publish && npm install --save-dev ${npm_package_name}"
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-emoji-conventional"
+    }
   },
-  "type": "module",
-  "files": [
-    "dist/",
-    "README.md"
-  ],
-  "keywords": [
-    "editorconfig",
-    "eslint",
-    "eslint-config",
-    "formatter",
-    "javascript",
-    "lint",
-    "linter",
-    "megabytelabs",
-    "prettier",
-    "professormanhattan",
-    "schema",
-    "toml",
-    "tsdoc",
-    "typescript",
-    "typescript",
-    "yaml"
-  ],
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^5.2.0",
     "@typescript-eslint/eslint-plugin-tslint": "^5.2.0",
@@ -105,38 +86,34 @@
     "tslint": "^6.1.3",
     "yaml": "^1.10.2"
   },
+  "description": "ESLint configuration for linting TS, JS, JSON, YAML, and TOML",
   "devDependencies": {
+    "@megabytelabs/jest-preset": "^1.0.0",
     "@types/glob": "^7.2.0",
     "@types/node": "^16.11.6",
     "@types/parse-gitignore": "^1.0.0",
+    "@washingtondc/development": "^1.0.2",
     "@washingtondc/eslint": "^1.0.0",
     "@washingtondc/prettier": "^1.0.0",
-    "typescript": "^4.4.4",
-    "@washingtondc/development": "^1.0.2",
     "@washingtondc/release": "^0.0.2",
+    "esbuild": "^0.12.29",
+    "esbuild-node-externals": "^1.3.0",
     "eslint-config-strict-mode": "^1.0.0",
-    "sleekfast": "^0.0.1"
+    "sleekfast": "^0.0.1",
+    "typescript": "^4.4.4"
   },
-  "blueprint": {
-    "description": "ESLint configuration for linting TS, JS, JSON, YAML, and TOML",
-    "name": "ESLint",
-    "group": "npm",
-    "subheader_description": "A try-to-pack-everything-in ESLint configuration with as many full configs as possible (but without duplicate/similar rules)",
-    "overview": "This [ESLint](https://eslint.org/) configuration package includes a whole slew of ESLint plugins and default settings that are meant to enforce strict design patterns among developers who code with TypeScript, JavaScript, JSON, YAML, and TOML. You can use this configuration as is or customize it to your liking so you can have your own shared ESLint configuration package!",
-    "repository": {
-      "github": "https://github.com/ProfessorManhattan/eslint-config",
-      "gitlab": "https://gitlab.com/megabyte-labs/npm/configs/eslint"
-    },
-    "slug": "eslint-config",
-    "subgroup": "config",
-    "title": "A Strict, Awesome ESLint Config"
-  },
-  "config": {
-    "commitizen": {}
+  "engines": {
+    "node": ">=14.18.0"
   },
   "eslintConfig": {
-    "extends": "@washingtondc/eslint"
+    "extends": "eslint-config-strict-mode"
   },
+  "files": [
+    "dist",
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md"
+  ],
   "funding": [
     {
       "type": "opencollective",
@@ -147,21 +124,55 @@
       "url": "https://www.patreon.com/ProfessorManhattan"
     }
   ],
+  "homepage": "https://megabyte.space",
+  "jest": {
+    "preset": "@megabytelabs/jest-preset",
+    "reporters": [
+      "default",
+      [
+        "jest-html-reporters",
+        {
+          "filename": "index.html",
+          "logoImgPath": "./.config/assets/logo-jest-report.png",
+          "openReport": true,
+          "pageTitle": "Code Coverage Report",
+          "publicPath": "./coverage"
+        }
+      ]
+    ]
+  },
+  "keywords": [
+    "config",
+    "editorconfig",
+    "eslint",
+    "eslint-config",
+    "formatter",
+    "javascript",
+    "lint",
+    "linter",
+    "mblabs",
+    "megabytelabs",
+    "prettier",
+    "professormanhattan",
+    "schema",
+    "toml",
+    "tsdoc",
+    "typescript",
+    "washingtondc",
+    "yaml"
+  ],
+  "license": "MIT",
   "lint-staged": {
+    "**/!(logo).(jpg|png)": [
+      "task image:compress --"
+    ],
     "**/*": [
-      "blocklint --wordlist blacklist,slave,whitelist",
-      "check-merge-conflict",
-      "check-added-large-files",
-      "check-symlinks",
-      "destroyed-symlinks"
+      "task lint:any --"
     ],
     "**/*.(css|html|less|md|mjml|php|scss|sh|xml)": [
       "task fix:prettier --"
     ],
-    "**/*.(jpg|png)": [
-      "task image:compress --"
-    ],
-    "**/*.(js|jsx|ts)": [
+    "**/*.(js|jsx|ts|tsx)": [
       "task fix:js --",
       "task lint:js --"
     ],
@@ -169,7 +180,6 @@
       "task fix:json --"
     ],
     "**/*.sh": [
-      "task fix:shell --",
       "task lint:shell --"
     ],
     "**/*.toml": [
@@ -186,10 +196,62 @@
     "logo.png": [
       "task image:resize -- 200 200",
       "task image:compress --"
-    ],
-    "requirements.txt": [
-      "requirements-txt-fixer"
     ]
   },
-  "prettier": "@washingtondc/prettier"
+  "main": "dist/main.js",
+  "name": "@mblabs/eslint-config",
+  "nodemonConfig": {
+    "exec": "tsc -p . && node --inspect-brk dist/main",
+    "ext": "js,jsx,json,ts,tsx,yml",
+    "ignore": [
+      "src/**/*.spec.ts"
+    ],
+    "watch": [
+      ".env",
+      "src"
+    ]
+  },
+  "ntl": {
+    "descriptions": {
+      "help": "Display a list of tasks that can be run via the Taskfile.yml",
+      "prepare": "Hook, triggered by running npm install, that runs logic such as installing pre-commit hooks",
+      "repair": "Fixes basic issues in projects that are having trouble running basic commands like 'task start'",
+      "start": "Entrypoint for new developers that installs requirements and then runs 'task start'"
+    }
+  },
+  "optionalDependencies": {},
+  "prettier": "@washingtondc/prettier",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "release": {
+    "branches": [
+      "next",
+      {
+        "name": "beta",
+        "prerelease": true
+      },
+      {
+        "name": "alpha",
+        "prerelease": true
+      }
+    ],
+    "extends": "@washingtondc/release"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ProfessorManhattan/eslint-config.git"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "help": "task --list",
+    "prepare": "task common:husky",
+    "repair": "bash <(curl -sS https://install.doctor/repair)",
+    "start": "bash .config/start.sh",
+    "test": "npm run build && standard-version && npm publish && npm install --save-dev ${npm_package_name}"
+  },
+  "type": "module",
+  "typings": "dist/main.d.ts",
+  "version": "1.0.11"
 }

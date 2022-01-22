@@ -5,7 +5,6 @@
     "baseUrl": "./",
     "declaration": true,
     "emitDecoratorMetadata": true,
-    "esModuleInterop": true,
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
     "importHelpers": true,
@@ -21,13 +20,14 @@
     "pretty": true,
     "removeComments": true,
     "resolveJsonModule": true,
+    "rootDir": "src",
     "skipLibCheck": true,
     "sourceMap": true,
     "strictBindCallApply": true,
     "strictFunctionTypes": true,
     "strictNullChecks": true,
     "strictPropertyInitialization": true,
-    "target": "es5",
+    "target": "es2017",
     "typeRoots": ["node_modules/@types", "src/types"]
   }
 }
