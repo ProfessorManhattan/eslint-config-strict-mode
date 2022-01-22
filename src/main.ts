@@ -169,7 +169,8 @@ module.exports = {
     {
       files: ['./Taskfile.yml'],
       rules: {
-        'max-len': 'off'
+        'max-len': 'off',
+        'yml/sort-keys': 'warn'
       }
     },
     {
@@ -183,7 +184,7 @@ module.exports = {
       }
     },
     {
-      files: ['angular.json', '**/.config/taskfiles/**/*.yml', 'Taskfile.yml'],
+      files: ['angular.json', '**/.config/taskfiles/**/*.yml', 'Taskfile.yml', 'nodemon.json'],
       rules: {
         'json-schema-validator/no-invalid': 'off'
       }
@@ -192,6 +193,12 @@ module.exports = {
       files: ['.config/scripts/**/*.js'],
       rules: {
         'import/no-extraneous-dependencies': 'off'
+      }
+    },
+    {
+      files: ['.config/variables.json'],
+      rules: {
+        'max-lines': 'off'
       }
     }
   ],
