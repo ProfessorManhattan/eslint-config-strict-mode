@@ -137,12 +137,24 @@
         "Turns off all rules that are unnecessary or might conflict with Prettier"
       ],
       [
+        "[`eslint-formatter-git-log`](https://npmjs.com/package/eslint-formatter-git-log)",
+        "Formatter that displays results that include the name of the developer who is responsible for the error"
+      ],
+      [
         "[`eslint-formatter-gitlab`](https://npmjs.com/package/eslint-formatter-gitlab)",
         "Formatter for GitLab CI that integrates results into merge requests"
       ],
       [
         "[`eslint-formatter-pretty`](https://npmjs.com/package/eslint-formatter-pretty)",
         "Stylish formatter for terminal results that includes features such as clicking result to open code in editor"
+      ],
+      [
+        "[`eslint-formatter-summary`](https://npmjs.com/package/eslint-formatter-summary)",
+        "Alternate formatting style for the results that displays a table"
+      ],
+      [
+        "[`eslint-plugin-angular`](https://npmjs.com/package/eslint-plugin-angular)",
+        "Rules for Angular applications"
       ],
       [
         "[`eslint-plugin-array-func`](https://npmjs.com/package/eslint-plugin-array-func)",
@@ -166,7 +178,7 @@
       ],
       [
         "[`eslint-plugin-filenames`](https://npmjs.com/package/eslint-plugin-filenames)",
-        "Eslint plugin to check filenames"
+        "ESLint plugin to check filenames"
       ],
       [
         "[`eslint-plugin-fp`](https://npmjs.com/package/eslint-plugin-fp)",
@@ -197,6 +209,10 @@
         "Linting rules for ESLint realted to code style formatting"
       ],
       [
+        "[`eslint-plugin-jsdoc`](https://npmjs.com/package/eslint-plugin-jsdoc)",
+        "Rules that enforce comments written in JSDoc syntax"
+      ],
+      [
         "[`eslint-plugin-json-schema-validator`](https://npmjs.com/package/eslint-plugin-json-schema-validator)",
         "ESLint plugin that validates data using JSON Schema Validator"
       ],
@@ -213,12 +229,8 @@
         "A plugin to guard against exporting imported types"
       ],
       [
-        "[`eslint-plugin-no-loops`](https://npmjs.com/package/eslint-plugin-no-loops)",
-        "A plugin to disallow use of loops"
-      ],
-      [
         "[`eslint-plugin-no-secrets`](https://npmjs.com/package/eslint-plugin-no-secrets)",
-        "An eslint plugin to find strings that might be secrets or credentials"
+        "An ESLint plugin to find strings that might be secrets or credentials"
       ],
       [
         "[`eslint-plugin-no-unsanitized`](https://npmjs.com/package/eslint-plugin-no-unsanitized)",
@@ -294,11 +306,11 @@
       ],
       [
         "[`eslint-plugin-unused-imports`](https://npmjs.com/package/eslint-plugin-unused-imports)",
-        "Package to seperate no-unused-vars and no-unused-imports for eslint as well as providing an autofixer for the latter"
+        "Package to seperate no-unused-vars and no-unused-imports for ESLint as well as providing an autofixer for the latter"
       ],
       [
         "[`eslint-plugin-woke`](https://npmjs.com/package/eslint-plugin-woke)",
-        "ESLint plugin to promote diversity and inclusion in codebases"
+        "ESLint plugin to promote diversity and inclusion in codebases by restricting the presence of certain potentially offensive keywords"
       ],
       [
         "[`eslint-plugin-yml`](https://npmjs.com/package/eslint-plugin-yml)",

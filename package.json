@@ -3,6 +3,9 @@
   "blueprint": {
     "customPackageName": "eslint-config-strict-mode",
     "description": "ESLint configuration for linting TS, JS, JSON, YAML, and TOML",
+    "github_id": "R_kgDOGuY01w",
+    "gitlab_group_id": "12165875",
+    "gitlab_project_id": "30830469",
     "group": "npm",
     "name": "Strict ESLint Config",
     "overview": "This [ESLint](https://eslint.org/) configuration package includes basically every quality ESLint plugin available. The default settings are meant to enforce strict design patterns among developers who code with TypeScript and JavaScript. It also includes linting rules for JSON, YAML, and TOML. Most of the rules include auto-fix functionality and it even sorts JSON and YAML. You can use this configuration as is or customize it to your liking so you can have your own shared ESLint configuration package!",
@@ -13,10 +16,7 @@
     "slug": "eslint-config-strict-mode",
     "subgroup": "config",
     "subheader_description": "A strict ESLint configuration that includes all the best ESLint plugins for linting TypeScript, JavaScript, JSON, YAML, and TOML",
-    "title": "A Strict, Awesome ESLint Config",
-    "github_id": "R_kgDOGuY01w",
-    "gitlab_project_id": "30830469",
-    "gitlab_group_id": "12165875"
+    "title": "A Strict, Awesome ESLint Config"
   },
   "bugs": {
     "email": "help@megabyte.space",
@@ -250,6 +250,7 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "help": "task --list",
+    "prepare": "task common:husky",
     "repair": "bash <(curl -sS https://install.doctor/repair)",
     "start": "bash .config/start.sh",
     "test": "npm run build && standard-version && npm publish && npm install --save-dev ${npm_package_name}"
