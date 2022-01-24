@@ -251,12 +251,11 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "help": "task --list",
-    "prepare": "task common:husky",
     "repair": "bash <(curl -sS https://install.doctor/repair)",
     "start": "bash .config/start.sh",
     "test": "npm run build && standard-version && npm publish && npm install --save-dev ${npm_package_name}"
   },
-  "type": "commonjs",
+  "type": "module",
   "typings": "dist/main.d.ts",
-  "version": "1.0.14"
+  "version": "1.0.18"
 }

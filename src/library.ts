@@ -92,7 +92,7 @@ export const getPlugins = (
     case 'toml':
       return [...plugins.eslint, ...plugins.prettier]
     case 'typescript':
-      return []
+      return getScriptsPlugins(type, subType)
     case 'yml':
       return [...plugins.eslint, ...plugins.prettier]
     default:
