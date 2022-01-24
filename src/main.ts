@@ -204,8 +204,8 @@ module.exports = {
   ],
   reportUnusedDisableDirectives: true,
   rules: {
-    'fp/no-throw': 'off',
     'fp/no-loops': 'off',
+    'fp/no-throw': 'off',
     'json-schema-validator/no-invalid': [
       'error',
       {
