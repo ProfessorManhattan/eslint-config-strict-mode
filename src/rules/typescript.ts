@@ -60,38 +60,40 @@ export const tsRules = {
   'node/no-unsupported-features/es-syntax': 'off',
   'require-jsdoc': 'off',
   'tsdoc/syntax': 'error'
-  /*'@typescript-eslint/tslint/config': [ TODO: Re-add this back in - was not working with other file types
-    'error',
-    {
-      rules: {
-        'comment-type': [true, 'doc', 'singleline', 'multiline'],
-        'completed-docs': [true, 'enums', 'functions', 'methods', 'classes', 'namespaces'],
-        encoding: true,
-        'import-spacing': true,
-        'invalid-void': true,
-        'no-inferred-empty-object-type': true,
-        'no-mergeable-namespace': true,
-        'no-promise-as-boolean': true,
-        'no-tautology-expression': true,
-        'no-unnecessary-callback-wrapper': true,
-        'number-literal-format': true,
-        'object-literal-sort-keys': false,
-        'prefer-conditional-expression': true,
-        'prefer-method-signature': true,
-        'prefer-switch': [
-          true,
-          {
-            'min-cases': 4
-          }
-        ],
-        'return-undefined': true,
-        'static-this': true,
-        'strict-comparisons': true,
-        'strict-string-expressions': true,
-        'strict-type-predicates': true,
-        typedef: [true, 'call-signature'],
-        'unnecessary-else': true
-      }
-    }
-  ],*/
+  /*
+   * '@typescript-eslint/tslint/config': [ TODO: Re-add this back in - was not working with other file types
+   *'error',
+   *{
+   *  rules: {
+   *    'comment-type': [true, 'doc', 'singleline', 'multiline'],
+   *    'completed-docs': [true, 'enums', 'functions', 'methods', 'classes', 'namespaces'],
+   *    encoding: true,
+   *    'import-spacing': true,
+   *    'invalid-void': true,
+   *    'no-inferred-empty-object-type': true,
+   *    'no-mergeable-namespace': true,
+   *    'no-promise-as-boolean': true,
+   *    'no-tautology-expression': true,
+   *    'no-unnecessary-callback-wrapper': true,
+   *    'number-literal-format': true,
+   *    'object-literal-sort-keys': false,
+   *    'prefer-conditional-expression': true,
+   *    'prefer-method-signature': true,
+   *    'prefer-switch': [
+   *      true,
+   *      {
+   *        'min-cases': 4
+   *      }
+   *    ],
+   *    'return-undefined': true,
+   *    'static-this': true,
+   *    'strict-comparisons': true,
+   *    'strict-string-expressions': true,
+   *    'strict-type-predicates': true,
+   *    typedef: [true, 'call-signature'],
+   *    'unnecessary-else': true
+   *  }
+   *}
+   *],
+   */
 }

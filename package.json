@@ -1,26 +1,14 @@
 {
   "private": false,
   "name": "eslint-config-strict-mode",
+  "version": "1.0.27",
   "description": "ESLint configuration for linting TS, JS, JSON, YAML, and TOML",
   "license": "MIT",
   "author": "Brian Zalewski <brian@megabyte.space> (https://megabyte.space)",
-  "blueprint": {
-    "customPackageName": "eslint-config-strict-mode",
-    "description": "ESLint configuration for linting TS, JS, JSON, YAML, and TOML",
-    "github_id": "R_kgDOGuY01w",
-    "gitlab_group_id": "12165875",
-    "gitlab_project_id": "30830469",
-    "group": "npm",
-    "name": "Strict ESLint Config",
-    "overview": "This [ESLint](https://eslint.org/) configuration package includes basically every quality ESLint plugin available. The default settings are meant to enforce strict design patterns among developers who code with TypeScript and JavaScript. It also includes linting rules for JSON, YAML, and TOML. Most of the rules include auto-fix functionality and it even sorts JSON and YAML. You can use this configuration as is or customize it to your liking so you can have your own shared ESLint configuration package!",
-    "repository": {
-      "github": "https://github.com/ProfessorManhattan/eslint-config-strict-mode",
-      "gitlab": "https://gitlab.com/megabyte-labs/npm/configs/eslint"
-    },
-    "slug": "eslint-config-strict-mode",
-    "subgroup": "config",
-    "subheader_description": "A strict ESLint configuration that includes all the best ESLint plugins for linting TypeScript, JavaScript, JSON, YAML, and TOML",
-    "title": "A Strict, Awesome ESLint Config"
+  "homepage": "https://megabyte.space",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ProfessorManhattan/eslint-config-strict-mode.git"
   },
   "bugs": {
     "email": "help@megabyte.space",
@@ -44,6 +32,7 @@
       "path": "node_modules/cz-emoji-conventional"
     }
   },
+  "typings": "dist/main.d.ts",
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^5.2.0",
     "@typescript-eslint/parser": "^5.2.0",
@@ -141,6 +130,24 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "blueprint": {
+    "customPackageName": "eslint-config-strict-mode",
+    "description": "ESLint configuration for linting TS, JS, JSON, YAML, and TOML",
+    "github_id": "R_kgDOGuY01w",
+    "gitlab_group_id": "12165875",
+    "gitlab_project_id": "30830469",
+    "group": "npm",
+    "name": "Strict ESLint Config",
+    "overview": "This [ESLint](https://eslint.org/) configuration package includes basically every quality ESLint plugin available. The default settings are meant to enforce strict design patterns among developers who code with TypeScript and JavaScript. It also includes linting rules for JSON, YAML, and TOML. Most of the rules include auto-fix functionality and it even sorts JSON and YAML. You can use this configuration as is or customize it to your liking so you can have your own shared ESLint configuration package!",
+    "repository": {
+      "github": "https://github.com/ProfessorManhattan/eslint-config-strict-mode",
+      "gitlab": "https://gitlab.com/megabyte-labs/npm/configs/eslint"
+    },
+    "slug": "eslint-config-strict-mode",
+    "subgroup": "config",
+    "subheader_description": "A strict ESLint configuration that includes all the best ESLint plugins for linting TypeScript, JavaScript, JSON, YAML, and TOML",
+    "title": "A Strict, Awesome ESLint Config"
   },
   "commitlint": {
     "extends": [
@@ -247,11 +254,5 @@
       }
     ],
     "extends": "@washingtondc/release"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ProfessorManhattan/eslint-config-strict-mode.git"
-  },
-  "typings": "dist/main.d.ts",
-  "version": "1.0.27"
+  }
 }
