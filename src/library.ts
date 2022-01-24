@@ -103,9 +103,9 @@ export const getPlugins = (
 export const getGitignore = (): readonly string[] => {
   if (fs.existsSync('./.gitignore')) {
     return parseGitignore(fs.readFileSync('./.gitignore'))
+  } else {
+    return []
   }
-
-  return []
 }
 
 export const getGlob = (pattern: string): readonly string[] => {

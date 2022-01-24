@@ -51,12 +51,12 @@ module.exports = {
     '.pnpm-store/',
     '.venv/',
     'deprecated/',
-    'angular.json',
-    'package-lock.json',
-    'pnpm-lock.yaml',
+    'angular.json$',
+    'package-lock.json$',
+    'pnpm-lock.yaml$',
     'venv/',
     '_generated_/',
-    '*.toml',
+    '*.toml$',
     ...gitignore
   ],
   overrides: [
@@ -204,8 +204,8 @@ module.exports = {
   ],
   reportUnusedDisableDirectives: true,
   rules: {
-    'fp/no-loops': 'off',
     'fp/no-throw': 'off',
+    'fp/no-loops': 'off',
     'json-schema-validator/no-invalid': [
       'error',
       {
