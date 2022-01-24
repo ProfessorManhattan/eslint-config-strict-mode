@@ -1,4 +1,8 @@
 {
+  "private": false,
+  "name": "eslint-config-strict-mode",
+  "description": "ESLint configuration for linting TS, JS, JSON, YAML, and TOML",
+  "license": "MIT",
   "author": "Brian Zalewski <brian@megabyte.space> (https://megabyte.space)",
   "blueprint": {
     "customPackageName": "eslint-config-strict-mode",
@@ -22,11 +26,18 @@
     "email": "help@megabyte.space",
     "url": "https://gitlab.com/megabyte-labs/npm/configs/eslint/-/issues"
   },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ],
-    "helpUrl": "https://megabyte.space/docs/contributing/commits"
+  "type": "commonjs",
+  "main": "dist/main.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "help": "task --list",
+    "prepare": "task common:husky",
+    "repair": "bash <(curl -sS https://install.doctor/repair)",
+    "start": "bash .config/start.sh",
+    "test": "npm run build && standard-version && npm publish && npm install --save-dev ${npm_package_name}"
   },
   "config": {
     "commitizen": {
@@ -89,7 +100,7 @@
     "tslint": "^6.1.3",
     "yaml": "^1.10.2"
   },
-  "description": "ESLint configuration for linting TS, JS, JSON, YAML, and TOML",
+  "optionalDependencies": {},
   "devDependencies": {
     "@megabytelabs/jest-preset": "^1.0.0",
     "@types/glob": "^7.2.0",
@@ -104,45 +115,6 @@
     "eslint-config-strict-mode": "^1.0.0",
     "sleekfast": "^0.0.1",
     "typescript": "^4.4.4"
-  },
-  "engines": {
-    "node": ">=14.18.0"
-  },
-  "eslintConfig": {
-    "extends": "eslint-config-strict-mode"
-  },
-  "files": [
-    "dist",
-    "CHANGELOG.md",
-    "LICENSE",
-    "README.md"
-  ],
-  "funding": [
-    {
-      "type": "opencollective",
-      "url": "https://opencollective.com/megabytelabs"
-    },
-    {
-      "type": "patreon",
-      "url": "https://www.patreon.com/ProfessorManhattan"
-    }
-  ],
-  "homepage": "https://megabyte.space",
-  "jest": {
-    "preset": "@megabytelabs/jest-preset",
-    "reporters": [
-      "default",
-      [
-        "jest-html-reporters",
-        {
-          "filename": "index.html",
-          "logoImgPath": "./.config/assets/logo-jest-report.png",
-          "openReport": true,
-          "pageTitle": "Code Coverage Report",
-          "publicPath": "./coverage"
-        }
-      ]
-    ]
   },
   "keywords": [
     "config",
@@ -164,7 +136,47 @@
     "washingtondc",
     "yaml"
   ],
-  "license": "MIT",
+  "engines": {
+    "node": ">=14.18.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ],
+    "helpUrl": "https://megabyte.space/docs/contributing/commits"
+  },
+  "eslintConfig": {
+    "extends": "eslint-config-strict-mode"
+  },
+  "funding": [
+    {
+      "type": "opencollective",
+      "url": "https://opencollective.com/megabytelabs"
+    },
+    {
+      "type": "patreon",
+      "url": "https://www.patreon.com/ProfessorManhattan"
+    }
+  ],
+  "jest": {
+    "preset": "@megabytelabs/jest-preset",
+    "reporters": [
+      "default",
+      [
+        "jest-html-reporters",
+        {
+          "filename": "index.html",
+          "logoImgPath": "./.config/assets/logo-jest-report.png",
+          "openReport": true,
+          "pageTitle": "Code Coverage Report",
+          "publicPath": "./coverage"
+        }
+      ]
+    ]
+  },
   "lint-staged": {
     "**/!(logo).(jpg|png)": [
       "task image:compress --"
@@ -201,8 +213,6 @@
       "task image:compress --"
     ]
   },
-  "main": "dist/main.js",
-  "name": "eslint-config-strict-mode",
   "nodemonConfig": {
     "exec": "tsc -p . && node --inspect-brk dist/main",
     "ext": "js,jsx,json,ts,tsx,yml",
@@ -222,12 +232,7 @@
       "start": "Entrypoint for new developers that installs requirements and then runs 'task start'"
     }
   },
-  "optionalDependencies": {},
   "prettier": "@washingtondc/prettier",
-  "private": false,
-  "publishConfig": {
-    "access": "public"
-  },
   "release": {
     "branches": [
       "main",
@@ -247,15 +252,6 @@
     "type": "git",
     "url": "git+https://github.com/ProfessorManhattan/eslint-config-strict-mode.git"
   },
-  "scripts": {
-    "build": "tsc -p tsconfig.json",
-    "help": "task --list",
-    "prepare": "task common:husky",
-    "repair": "bash <(curl -sS https://install.doctor/repair)",
-    "start": "bash .config/start.sh",
-    "test": "npm run build && standard-version && npm publish && npm install --save-dev ${npm_package_name}"
-  },
-  "type": "commonjs",
   "typings": "dist/main.d.ts",
   "version": "1.0.27"
 }
