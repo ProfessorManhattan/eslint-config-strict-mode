@@ -1,7 +1,7 @@
 {
   "private": false,
-  "name": "@mblabs/eslint-config",
-  "version": "1.0.11",
+  "name": "eslint-config-strict-mode",
+  "version": "1.0.13",
   "description": "ESLint configuration for linting TS, JS, JSON, YAML, and TOML",
   "license": "MIT",
   "author": "Brian Zalewski <brian@megabyte.space> (https://megabyte.space)",
@@ -90,19 +90,18 @@
     "tslint": "^6.1.3",
     "yaml": "^1.10.2"
   },
-  "optionalDependencies": {},
   "devDependencies": {
     "@megabytelabs/jest-preset": "^1.0.0",
     "@types/glob": "^7.2.0",
     "@types/node": "^16.11.6",
     "@types/parse-gitignore": "^1.0.0",
     "@washingtondc/development": "^1.0.2",
-    "@washingtondc/eslint": "^1.0.0",
+    "@washingtondc/eslint": "^1.0.1",
     "@washingtondc/prettier": "^1.0.0",
     "@washingtondc/release": "^0.0.2",
     "esbuild": "^0.12.29",
     "esbuild-node-externals": "^1.3.0",
-    "eslint-config-strict-mode": "^1.0.0",
+    "eslint-config-strict-mode": "^1.0.12",
     "sleekfast": "^0.0.1",
     "typescript": "^4.4.4"
   },
@@ -133,17 +132,18 @@
     "access": "public"
   },
   "blueprint": {
+    "customPackageName": "eslint-config-strict-mode",
     "description": "ESLint configuration for linting TS, JS, JSON, YAML, and TOML",
     "group": "npm",
     "name": "ESLint",
-    "overview": "This [ESLint](https://eslint.org/) configuration package includes a whole slew of ESLint plugins and default settings that are meant to enforce strict design patterns among developers who code with TypeScript, JavaScript, JSON, YAML, and TOML. You can use this configuration as is or customize it to your liking so you can have your own shared ESLint configuration package!",
+    "overview": "This [ESLint](https://eslint.org/) configuration package includes basically every quality ESLint plugin available. The default settings are meant to enforce strict design patterns among developers who code with TypeScript and JavaScript. It also includes linting rules for JSON, YAML, and TOML. Most of the rules include auto-fix functionality and it even sorts JSON and YAML. You can use this configuration as is or customize it to your liking so you can have your own shared ESLint configuration package!",
     "repository": {
       "github": "https://github.com/ProfessorManhattan/eslint-config",
       "gitlab": "https://gitlab.com/megabyte-labs/npm/configs/eslint"
     },
     "slug": "eslint-config",
     "subgroup": "config",
-    "subheader_description": "A try-to-pack-everything-in ESLint configuration with as many full configs as possible (but without duplicate/similar rules)",
+    "subheader_description": "A strict ESLint configuration that includes all the best ESLint plugins for linting TypeScript, JavaScript, JSON, YAML, and TOML",
     "title": "A Strict, Awesome ESLint Config",
     "gitlab_project_id": "30830469",
     "github_id": "R_kgDOGt18OA",

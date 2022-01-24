@@ -26,7 +26,7 @@ const repoSubType = taskfile.vars.REPOSITORY_SUBTYPE
 const tsConfig = fs.existsSync('./tsconfig.json')
   ? {
       extends: getExtends('typescript', repoType, repoSubType),
-      files: ['*.ts', '*.tsx'],
+      files: ['*.ts$', '*.tsx$'],
       parser: '@typescript-eslint/parser',
       parserOptions: {
         project: 'tsconfig.json',
@@ -62,13 +62,13 @@ module.exports = {
   overrides: [
     {
       extends: getExtends('json', repoType, repoSubType),
-      files: ['*.json', '*.json5', '*.json.handlebars'],
+      files: ['*.json$', '*.json5$'],
       parser: 'jsonc-eslint-parser',
       plugins: getPlugins('json', repoType, repoSubType),
       rules: jsonRules
     },
     {
-      files: ['package.json', 'package.*.json.handlebars'],
+      files: ['package.json$'],
       rules: {
         'jsonc/sort-keys': [
           'error',
@@ -84,7 +84,7 @@ module.exports = {
       }
     },
     {
-      files: ['.vscode/tasks.json'],
+      files: ['.vscode/tasks.json$'],
       rules: {
         'jsonc/sort-keys': [
           'error',
@@ -97,14 +97,14 @@ module.exports = {
     },
     {
       extends: getExtends('toml', repoType, repoSubType),
-      files: ['*.toml'],
+      files: ['*.toml$'],
       parser: 'toml-eslint-parser',
       plugins: getPlugins('toml', repoType, repoSubType)
     },
     tsConfig,
     {
       extends: getExtends('javascript', repoType, repoSubType),
-      files: ['*.js', '*.jsx'],
+      files: ['*.js$', '*.jsx$'],
       plugins: getPlugins('javascript', repoType, repoSubType),
       rules: baseRules(repoType, repoSubType)
     },
@@ -112,19 +112,19 @@ module.exports = {
       env: {
         jest: true
       },
-      files: ['*spec.js', '*spec.ts'],
+      files: ['*spec.js$', '*spec.ts$'],
       rules: specRules
     },
     {
-      files: ['*.js', '*.jsx'],
+      files: ['*.js$', '*.jsx$'],
       rules: jsRules
     },
     {
-      files: ['*.ts', '*.tsx'],
+      files: ['*.ts$', '*.tsx$'],
       rules: tsRules
     },
     {
-      files: ['*.func.js', '*.func.ts'],
+      files: ['*.func.js$', '*.func.ts$'],
       rules: {
         'fp/no-nil': 'error',
         'functional/no-class': 'error',
@@ -136,13 +136,13 @@ module.exports = {
     },
     {
       extends: getExtends('yml', repoType, repoSubType),
-      files: ['*.yaml', '*.yml'],
+      files: ['*.yaml$', '*.yml$'],
       parser: 'yaml-eslint-parser',
       plugins: getPlugins('yml', repoType, repoSubType),
       rules: yamlRules
     },
     {
-      files: ['defaults/*.yml', 'molecule/**/molecule.yml', 'vars/*.yml'],
+      files: ['defaults/*.yml$', 'molecule/**/molecule.yml$', 'vars/*.yml$'],
       rules: {
         'yml/no-empty-document': 'off',
         'yml/sort-keys': [
@@ -155,48 +155,48 @@ module.exports = {
       }
     },
     {
-      files: ['molecule/**/converge.yml', 'molecule/**/prepare.yml', 'tests/**/*.yml'],
+      files: ['molecule/**/converge.yml$', 'molecule/**/prepare.yml$', 'tests/**/*.yml$'],
       rules: ansibleRules
     },
     {
-      files: ['meta/main.yml'],
+      files: ['meta/main.yml$'],
       rules: ansibleMetaRules
     },
     {
-      files: ['Taskfile*.yml'],
+      files: ['Taskfile*.yml$'],
       rules: taskfileRules
     },
     {
-      files: ['./Taskfile.yml'],
+      files: ['./Taskfile.yml$'],
       rules: {
         'max-len': 'off',
         'yml/sort-keys': 'warn'
       }
     },
     {
-      files: ['*.gitlab-ci.yml'],
+      files: ['*.gitlab-ci.yml$'],
       rules: gitlabCIRules
     },
     {
-      files: ['tasks.json', 'launch.json'],
+      files: ['tasks.json$', 'launch.json$'],
       rules: {
         'max-lines': ['error', maxLinesMax]
       }
     },
     {
-      files: ['angular.json', '**/.config/taskfiles/**/*.yml', 'Taskfile.yml', 'nodemon.json'],
+      files: ['angular.json$', '**/.config/taskfiles/**/*.yml$', 'Taskfile.yml$', 'nodemon.json$'],
       rules: {
         'json-schema-validator/no-invalid': 'off'
       }
     },
     {
-      files: ['.config/scripts/**/*.js'],
+      files: ['.config/scripts/**/*.js$'],
       rules: {
         'import/no-extraneous-dependencies': 'off'
       }
     },
     {
-      files: ['.config/variables.json'],
+      files: ['.config/variables.json$'],
       rules: {
         'max-lines': 'off'
       }
