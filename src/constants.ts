@@ -48,7 +48,7 @@ export const plugins = {
   prettier: ['prettier'],
   typescript: [
     '@typescript-eslint',
-    '@typescript-eslint/tslint',
+    // '@typescript-eslint/tslint', - Was causing conflicts with other file types
     'eslint-plugin-no-explicit-type-exports',
     'eslint-plugin-tsdoc',
     'etc',
