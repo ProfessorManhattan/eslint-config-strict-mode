@@ -256,7 +256,7 @@
     "start": "bash .config/start.sh",
     "test": "npm run build && standard-version && npm publish && npm install --save-dev ${npm_package_name}"
   },
-  "type": "module",
+  "type": "commonjs",
   "typings": "dist/main.d.ts",
-  "version": "1.0.13"
+  "version": "1.0.14"
 }
