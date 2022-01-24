@@ -13,7 +13,10 @@
     "slug": "eslint-config-strict-mode",
     "subgroup": "config",
     "subheader_description": "A strict ESLint configuration that includes all the best ESLint plugins for linting TypeScript, JavaScript, JSON, YAML, and TOML",
-    "title": "A Strict, Awesome ESLint Config"
+    "title": "A Strict, Awesome ESLint Config",
+    "github_id": "R_kgDOGuY01w",
+    "gitlab_project_id": "30830469",
+    "gitlab_group_id": "12165875"
   },
   "bugs": {
     "email": "help@megabyte.space",
