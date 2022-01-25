@@ -7246,6 +7246,16 @@ packages:
       universalify: 1.0.0
     dev: true
 
+  /fs-extra/9.1.0:
+    resolution: {integrity: sha512-hcg3ZmepS30/7BSFqRvoo3DOMQu7IjqxO5nCDt+zM9XWjb33Wg7ziNT+Qvqbuc3+gWpzO02JubVyk2G4Zvo1OQ==}
+    engines: {node: '>=10'}
+    dependencies:
+      at-least-node: 1.0.0
+      graceful-fs: 4.2.9
+      jsonfile: 6.1.0
+      universalify: 2.0.0
+    dev: true
+
   /fs.realpath/1.0.0:
     resolution: {integrity: sha1-FQStJSMVjKpA20onh8sBQRmU6k8=}
 
@@ -9046,7 +9056,7 @@ packages:
   /jest-html-reporters/2.1.7:
     resolution: {integrity: sha512-qYly47l7Q59bjVWpGQ9grSYaNIAtS1L+l8jQrC24iXWKRy3N/pkKTklGtcdqsZ8hhiGQPI9skByl/63GNj0UeQ==}
     dependencies:
-      fs-extra: 9.0.1
+      fs-extra: 9.1.0
       open: 8.4.0
     dev: true
 
