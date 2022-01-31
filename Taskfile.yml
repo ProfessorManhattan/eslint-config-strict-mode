@@ -98,6 +98,7 @@ vars:
   PYTHON_VIRTUALENV: true
   REPOSITORY_SUBTYPE: config
   REPOSITORY_TYPE: npm
+  SEMANTIC_CONFIG: semantic-release-config
   TIMEZONE: America/New_York
 
 profile: |
