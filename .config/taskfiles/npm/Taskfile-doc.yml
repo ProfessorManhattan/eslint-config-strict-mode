@@ -7,9 +7,9 @@ tasks:
       - :npm:install:typedoc
     desc: Generate TypeDoc HTML documentation
     log:
+      error: Encountered error generating HTML documentation with TypeDoc
       start: Generating HTML documentation with TypeDoc
       success: Successfully generated HTML technical documentation with TypeDoc
-      error: Encountered error generating HTML documentation with TypeDoc
     cmds:
       - '{{.NPX_HANDLE}}typedoc src/ --exclude "**/*.spec.ts" --out build/docs'
 
@@ -18,9 +18,9 @@ tasks:
       - :npm:install:typedoc
     desc: Generate TypeDoc JSON documentation
     log:
+      error: Encountered error generating JSON documentation with TypeDoc
       start: Generating JSON documentation with TypeDoc
       success: Successfully generated JSON technical documentation with TypeDoc
-      error: Encountered error generating JSON documentation with TypeDoc
     cmds:
       - '{{.NPX_HANDLE}}typedoc src/ --exclude "**/*.spec.ts" --json build/docs/typedoc.json'
 

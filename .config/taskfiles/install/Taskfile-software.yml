@@ -166,9 +166,9 @@ tasks:
             echo "unknown"
           fi
     log:
+      error: Failed to ensure basic system dependencies are installed
       start: Ensuring basic system dependencies are installed
       success: Basic system dependencies are installed!
-      error: Failed to ensure basic system dependencies are installed
     cmds:
       - task: common:linux:{{.LINUX_FAMILY}}
     status:

@@ -6542,7 +6542,7 @@ packages:
       '@babel/code-frame': 7.16.7
       '@eslint/eslintrc': 0.2.2
       ajv: 6.12.6
-      chalk: 4.1.2
+      chalk: 4.1.0
       cross-spawn: 7.0.3
       debug: 4.3.3
       doctrine: 3.0.0
@@ -6570,7 +6570,7 @@ packages:
       optionator: 0.9.1
       progress: 2.0.3
       regexpp: 3.2.0
-      semver: 7.3.5
+      semver: 7.3.2
       strip-ansi: 6.0.1
       strip-json-comments: 3.1.1
       table: 5.4.6
@@ -14347,7 +14347,7 @@ packages:
   /wide-align/1.1.5:
     resolution: {integrity: sha512-eDMORYaPNZ4sQIuuYPDHdQvf4gyCF9rEEV/yPxGfwPkRodwEgiMUUXTx/dex+Me0wxx53S+NgUHaP7y3MGlDmg==}
     dependencies:
-      string-width: 4.2.3
+      string-width: 1.0.2
     dev: true
 
   /widest-line/3.1.0:

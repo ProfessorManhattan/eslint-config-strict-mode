@@ -211,9 +211,9 @@ tasks:
 
   prepare:
     log:
+      error: Failed to ensure GitLab and GitHub are in sync
       start: Preparing for Ansible Galaxy upload
       success: GitLab and GitHub are in sync
-      error: Failed to ensure GitLab and GitHub are in sync
     cmds:
       - task: :git:remotes
       - git pull origin master
@@ -350,8 +350,8 @@ tasks:
 
   verify:
     log:
+      error: Failed to connect to Ansible Galaxy with provided token
       start: Verifying connection can be made to Ansible Galaxy
       success: Successfully connected to Ansible Galaxy
-      error: Failed to connect to Ansible Galaxy with provided token
     cmds:
       - ansible-galaxy role setup --token "$ANSIBLE_GALAXY_TOKEN" null null null null --list > /dev/null
