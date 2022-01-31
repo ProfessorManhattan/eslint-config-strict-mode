@@ -21,8 +21,8 @@ tasks:
 
   clone:common:
     log:
-      error: Error cloning Shared Common to `{{.SHARED_FOLDER}}`
       start: Cloning Shared Common to `{{.SHARED_FOLDER}}`
+      error: Error cloning Shared Common to `{{.SHARED_FOLDER}}`
     cmds:
       - rm -rf ./{{.SHARED_FOLDER}}
       - git clone --depth=1 {{.SHARED_COMMON_URL}} ./{{.SHARED_FOLDER}}
@@ -30,8 +30,8 @@ tasks:
 
   clone:docs:
     log:
-      error: Error cloning / cleaning up {{.REPOSITORY_SUBTYPE}} docs repo
       start: Cloning {{.REPOSITORY_SUBTYPE}} docs repo and pruning unnecessary files
+      error: Error cloning / cleaning up {{.REPOSITORY_SUBTYPE}} docs repo
     cmds:
       - mkdir -p ./{{.SHARED_FOLDER}}/common/.config
       - rm -rf ./{{.SHARED_FOLDER}}/.config/docs
