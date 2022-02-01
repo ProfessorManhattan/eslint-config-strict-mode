@@ -19,7 +19,7 @@
     "header_description_post": "<i></i>",
     "header_description_pre": "A configuration managed by ",
     "header_title_post": "<i></i>",
-    "header_title_pre": "Config: ",
+    "header_title_pre": "<i></i>",
     "link": "https://megabyte.space/docs/npm/config"
   },
   "email": {
