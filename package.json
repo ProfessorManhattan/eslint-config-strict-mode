@@ -22,10 +22,10 @@
   ],
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "help": "task --list",
-    "prepare": "task common:husky",
+    "help": "",
+    "prepare": "",
     "repair": "bash <(curl -sS https://install.doctor/repair)",
-    "start": "bash .config/start.sh",
+    "start": "",
     "test": "npm run build && standard-version && npm publish && npm install --save-dev ${npm_package_name}"
   },
   "config": {
