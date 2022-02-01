@@ -17,19 +17,19 @@
 </div>
 <br/>
 <div align="center">
-  <a href="{{ website.npm_package }}/{{ pkg.name }}" title="Version {{ pkg.version }}" target="_blank">
+  <a href="https://www.npmjs.com/package/{{ pkg.name }}" title="Version {{ pkg.version }}" target="_blank">
     <img alt="Version: {{ pkg.version }}" src="https://img.shields.io/badge/version-{{ pkg.version }}-blue.svg?cacheSeconds=2592000&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgAQMAAABJtOi3AAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAACNJREFUCNdjIACY//+BEp9hhM3hAzYQwoBIAqEDYQrCZLwAAGlFKxU1nF9cAAAAAElFTkSuQmCC&style={{ alt_badge_style }}" />
   </a>
   <a href="{{ repository.gitlab }}{{ repository.location.commits.gitlab }}" title="GitLab CI build status" target="_blank">
     <img alt="Build status" src="https://img.shields.io/gitlab/pipeline-status/{{ repository.group.npm_path }}/{{ subgroup }}/{{ slug }}?branch=master&label=build&logo=gitlab&logoColor=white&style={{ alt_badge_style }}">
   </a>
-  <a href="{{ website.npm_package }}/{{ pkg.name }}" title="Dependency status reported by Depfu" target="_blank">
+  <a href="https://www.npmjs.com/package/{{ pkg.name }}" title="Dependency status reported by Depfu" target="_blank">
     <img alt="Dependency status reported by Depfu" src="https://img.shields.io/depfu/megabyte-labs/{{ customPackageName }}?logo=codeforces&logoColor=white&style={{ alt_badge_style }}&logo=npm" />
   </a>
-  <a href="{{ website.npm_package }}/{{ pkg.name }}" title="Zip file size" target="_blank">
+  <a href="https://www.npmjs.com/package/{{ pkg.name }}" title="Zip file size" target="_blank">
     <img alt="Zip file size" src="https://img.shields.io/bundlephobia/minzip/{{ pkg.name }}?style={{ alt_badge_style }}&logo=npm&logoColor=white" />
   </a>
-  <a href="{{ website.npm_package }}/{{ pkg.name }}" title="Total downloads of {{ pkg.name }} on npmjs.org" target="_blank">
+  <a href="https://www.npmjs.com/package/{{ pkg.name }}" title="Total downloads of {{ pkg.name }} on npmjs.org" target="_blank">
     <img alt="Total downloads of {{ pkg.name }} on npmjs.org" src="https://img.shields.io/npm/dt/{{ pkg.name }}?style={{ alt_badge_style }}&logo=npm&logoColor=white" />
   </a>
   <a href="https://snyk.io/advisor/npm-package/{{ pkg.name }}" title="Number of vulnerabilities from Snyk scan on {{ pkg.name }}" target="_blank">

@@ -29,19 +29,19 @@
 </div>
 <br/>
 <div align="center">
-  <a href="website.npm_package/eslint-config-strict-mode" title="Version 1.0.27" target="_blank">
+  <a href="https://www.npmjs.com/package/eslint-config-strict-mode" title="Version 1.0.27" target="_blank">
     <img alt="Version: 1.0.27" src="https://img.shields.io/badge/version-1.0.27-blue.svg?cacheSeconds=2592000&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgAQMAAABJtOi3AAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAACNJREFUCNdjIACY//+BEp9hhM3hAzYQwoBIAqEDYQrCZLwAAGlFKxU1nF9cAAAAAElFTkSuQmCC&style=flat-square" />
   </a>
   <a href="https://gitlab.com/megabyte-labs/npm/configs/eslint/-/commits/master" title="GitLab CI build status" target="_blank">
     <img alt="Build status" src="https://img.shields.io/gitlab/pipeline-status/megabyte-labs/npm/config/eslint-config-strict-mode?branch=master&label=build&logo=gitlab&logoColor=white&style=flat-square">
   </a>
-  <a href="website.npm_package/eslint-config-strict-mode" title="Dependency status reported by Depfu" target="_blank">
+  <a href="https://www.npmjs.com/package/eslint-config-strict-mode" title="Dependency status reported by Depfu" target="_blank">
     <img alt="Dependency status reported by Depfu" src="https://img.shields.io/depfu/megabyte-labs/eslint-config-strict-mode?logo=codeforces&logoColor=white&style=flat-square&logo=npm" />
   </a>
-  <a href="website.npm_package/eslint-config-strict-mode" title="Zip file size" target="_blank">
+  <a href="https://www.npmjs.com/package/eslint-config-strict-mode" title="Zip file size" target="_blank">
     <img alt="Zip file size" src="https://img.shields.io/bundlephobia/minzip/eslint-config-strict-mode?style=flat-square&logo=npm&logoColor=white" />
   </a>
-  <a href="website.npm_package/eslint-config-strict-mode" title="Total downloads of eslint-config-strict-mode on npmjs.org" target="_blank">
+  <a href="https://www.npmjs.com/package/eslint-config-strict-mode" title="Total downloads of eslint-config-strict-mode on npmjs.org" target="_blank">
     <img alt="Total downloads of eslint-config-strict-mode on npmjs.org" src="https://img.shields.io/npm/dt/eslint-config-strict-mode?style=flat-square&logo=npm&logoColor=white" />
   </a>
   <a href="https://snyk.io/advisor/npm-package/eslint-config-strict-mode" title="Number of vulnerabilities from Snyk scan on eslint-config-strict-mode" target="_blank">
