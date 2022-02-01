@@ -312,6 +312,7 @@ if [[ "$OSTYPE" == 'darwin'* ]] || [[ "$OSTYPE" == 'linux-gnu'* ]] || [[ "$OSTYP
       bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     fi
     if [ -f "$HOME/.profile" ]; then
+      # shellcheck disable=SC1091
       . "$HOME/.profile"
     fi
     if ! type poetry &> /dev/null; then
