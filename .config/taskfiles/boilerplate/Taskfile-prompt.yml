@@ -12,6 +12,10 @@ tasks:
       - task: overview
       - task: slug
       - task: project-specific
+      - task: build
+      - task: test
+
+  build: 'true'
 
   description: 'true'
 
@@ -23,6 +27,10 @@ tasks:
 
   project-specific: 'true'
 
+  slug: 'true'
+
   subgroup: 'true'
+
+  test: 'true'
 
   title: 'true'
