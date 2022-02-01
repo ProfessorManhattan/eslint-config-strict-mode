@@ -1,0 +1,28 @@
+---
+version: '3'
+
+tasks:
+  all:
+    cmds:
+      - task: name
+      - task: group
+      - task: subgroup
+      - task: title
+      - task: description
+      - task: overview
+      - task: slug
+      - task: project-specific
+
+  description: 'true'
+
+  group: 'true'
+
+  name: 'true'
+
+  overview: 'true'
+
+  project-specific: 'true'
+
+  subgroup: 'true'
+
+  title: 'true'
