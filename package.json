@@ -17,7 +17,8 @@
   "type": "commonjs",
   "main": "dist/main.js",
   "files": [
-    "dist"
+    "dist",
+    "lib"
   ],
   "scripts": {
     "build": "tsc -p tsconfig.json",
@@ -102,6 +103,7 @@
     "esbuild": "^0.12.29",
     "esbuild-node-externals": "^1.3.0",
     "eslint-config-strict-mode": "^1.0.28",
+    "jest-preset-ts": "^1.0.0",
     "semantic-release-config": "^0.0.12",
     "sleekfast": "^0.0.1",
     "typescript": "^4.5.5"
@@ -185,7 +187,7 @@
     }
   ],
   "jest": {
-    "preset": "@megabytelabs/jest-preset",
+    "preset": "jest-preset-ts",
     "reporters": [
       "default",
       [

@@ -305,49 +305,70 @@
       ]
     ],
     "prettier": [
-      ["Prettier Plugin", "Description"],
-      [
-        "[`@prettier/plugin-php`](https://npmjs.com/package/@prettier/plugin-php)",
-        "This plugin adds support for the PHP language to Prettier"
-      ],
+      ["Prettier Plugin", "Description", "File Types"],
+      ["[`@prettier/plugin-php`](https://npmjs.com/package/@prettier/plugin-php)", "Adds support for PHP", "`*.php`"],
       [
         "[`@prettier/plugin-pug`](https://npmjs.com/package/@prettier/plugin-pug)",
-        "This plugin adds support for the Pug language to Prettier"
+        "Adds support for Pug templates",
+        "`*.jade`, `*.pug`"
       ],
       [
         "[`@prettier/plugin-ruby`](https://npmjs.com/package/@prettier/plugin-ruby)",
-        "A prettier plugin for the Ruby programming language and its ecosystem"
+        "Adds support for Ruby",
+        "`*.rb` and [many more](https://github.com/prettier/plugin-ruby/blob/main/src/plugin.ts#L20)"
       ],
-      ["[`@prettier/plugin-xml`](https://npmjs.com/package/@prettier/plugin-xml)", "A prettier plugin for XML"],
+      [
+        "[`@prettier/plugin-xml`](https://npmjs.com/package/@prettier/plugin-xml)",
+        "A prettier plugin for XML",
+        "`*.xml` and [many more](https://github.com/prettier/plugin-xml/blob/main/src/plugin.ts#L59)"
+      ],
       [
         "[`prettier-plugin-go-template`](https://npmjs.com/package/prettier-plugin-go-template)",
-        "Fixes prettier formatting for go templates"
+        "Adds support for Go templates",
+        "`*.gohtml`, `*.gotmpl`, `*.go.tmpl`, `*.tmpl`, `*.tpl`, `*.html.tmpl`, `*.go.html`"
       ],
-      ["[`prettier-plugin-ini`](https://npmjs.com/package/prettier-plugin-ini)", "A prettier plugin for INI files"],
       [
-        "[`prettier-plugin-java`](https://npmjs.com/package/prettier-plugin-java)",
-        "This plugin allows the support of Java on Prettier"
+        "[`prettier-plugin-csharp`](https://npmjs.com/package/prettier-plugin-csharp)",
+        "Adds support for C#",
+        "`*.cs`, `*.cake`, `*.cshtml`, `*.csx`"
+      ],
+      [
+        "[`prettier-plugin-ini`](https://npmjs.com/package/prettier-plugin-ini)",
+        "Adds support for INI files",
+        "`*.ini`"
+      ],
+      ["[`prettier-plugin-java`](https://npmjs.com/package/prettier-plugin-java)", "Adds support for Java", "`*.java`"],
+      [
+        "[`prettier-plugin-jsdoc`](https://npmjs.com/package/prettier-plugin-jsdoc)",
+        "Adds support for JSDoc comments in TypeScript/JavaScript files",
+        "`*.js`, `*.ts`, `*.jsx`, `*.tsx`, `*.mdx`, possibly others"
       ],
       [
         "[`prettier-plugin-organize-imports`](https://npmjs.com/package/prettier-plugin-organize-imports)",
-        "A plugin that makes Prettier organize your imports using the organizeImports feature of the TypeScript language service API"
+        "Makes Prettier organize your TypeScript imports using the `organizeImports` feature of the TypeScript language service API",
+        "`*.js`, `*.jsx`, `*.ts`, `*.tsx`, `*.vue`"
       ],
       [
         "[`prettier-plugin-package-perfection`](https://npmjs.com/package/prettier-plugin-package-perfection)",
-        "A plugin to sort the keys of a package.json file using prettier-package-json "
+        "Sorts the keys and does some auto-formatting of the `package.json` file (uses [prettier-package-json](https://www.npmjs.com/package/prettier-package-json) for the logic)",
+        "`package.json`"
       ],
       [
         "[`prettier-plugin-properties`](https://npmjs.com/package/prettier-plugin-properties)",
-        "Prettier plugin for .properties files"
+        "Adds support for `properties` files",
+        "`*.properties`"
       ],
       [
         "[`prettier-plugin-sh`](https://npmjs.com/package/prettier-plugin-sh)",
-        "This plugin adds support for a lot of files through mvdan-sh"
+        "Adds support for running Prettier on shell scripts",
+        "`*.sh`, `Dockerfile`, `.gitignore`, `.dotenv`, possibly more"
       ],
       [
         "[`prettier-plugin-solidity`](https://npmjs.com/package/prettier-plugin-solidity)",
-        "A Prettier plugin for automatically formatting your Solidity code"
-      ]
+        "Adds support for Solidity code",
+        "`*.sol`"
+      ],
+      ["[`prettier-plugin-sql`](https://npmjs.com/package/prettier-plugin-sql)", "Adds support for SQL", "`*.sql`"]
     ]
   },
   "profile": {
