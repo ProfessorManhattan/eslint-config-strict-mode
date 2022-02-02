@@ -1,5 +1,5 @@
 import * as fs from 'node:fs'
-import { maxLines, maxLinesMax } from './constants'
+import { maxLines } from './constants'
 import {
   acquireProjectType,
   getExtends,
@@ -136,6 +136,13 @@ module.exports = {
       }
     },
     {
+      files: ['**/.config/prompts/**.js', 'test/**.js', 'test/**.ts', 'tests/**.js', 'tests/**.ts'],
+      rules: {
+        'import/no-extraneous-dependencies': 'off',
+        'import/no-unresolved': 'warn'
+      }
+    },
+    {
       extends: getExtends('yml', repoType, repoSubType),
       files: ['*.yaml', '*.yml'],
       parser: 'yaml-eslint-parser',
@@ -179,27 +186,27 @@ module.exports = {
       rules: gitlabCIRules
     },
     {
-      files: ['tasks.json', 'launch.json'],
-      rules: {
-        'max-lines': ['error', maxLinesMax]
-      }
-    },
-    {
-      files: ['angular.json', '**/.config/taskfiles/**/*.yml', 'Taskfile.yml', 'nodemon.json'],
+      files: [
+        'angular.json',
+        '**/.github/ISSUE_TEMPLATE/*.yml',
+        '**/.config/taskfiles/**/*.yml',
+        'Taskfile.yml',
+        'nodemon.json'
+      ],
       rules: {
         'json-schema-validator/no-invalid': 'off'
       }
     },
     {
-      files: ['.config/scripts/**/*.js'],
+      files: ['goreleaser.yml', 'goreleaser-*.yml'],
       rules: {
-        'import/no-extraneous-dependencies': 'off'
-      }
-    },
-    {
-      files: ['.config/variables.json'],
-      rules: {
-        'max-lines': 'off'
+        'yml/sort-keys': [
+          'error',
+          {
+            order: { type: 'asc' },
+            pathPattern: '.*'
+          }
+        ]
       }
     }
   ],

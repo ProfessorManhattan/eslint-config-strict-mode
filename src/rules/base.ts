@@ -67,7 +67,7 @@ export const baseRules = (repoType: string, repoSubType: string) => {
       'undefined'
     ],
     'import/no-extraneous-dependencies': [
-      'error',
+      'warn',
       { devDependencies: false, optionalDependencies: ['**/.config/scripts/**/*.js'], peerDependencies: false }
     ],
     'import/no-unresolved': [
@@ -81,7 +81,8 @@ export const baseRules = (repoType: string, repoSubType: string) => {
           'esbuild',
           'esbuild-node-externals',
           'inquirer',
-          'signale'
+          'signale',
+          'string-break'
         ]
       }
     ],
@@ -164,7 +165,8 @@ export const baseRules = (repoType: string, repoSubType: string) => {
           'esbuild',
           'esbuild-node-externals',
           'inquirer',
-          'signale'
+          'signale',
+          'string-break'
         ]
       }
     ],

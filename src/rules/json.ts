@@ -5,5 +5,7 @@ export const jsonRules = {
       order: { type: 'asc' },
       pathPattern: '.*'
     }
-  ]
+  ],
+  'max-len': 'off',
+  'max-lines': 'off'
 }

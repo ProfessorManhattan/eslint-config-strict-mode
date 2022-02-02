@@ -1,4 +1,5 @@
 export const taskfileRules = {
+  'max-lines': 'off',
   'yml/sort-keys': [
     'error',
     {
