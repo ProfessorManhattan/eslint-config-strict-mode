@@ -58,7 +58,7 @@
     "eslint-plugin-jest-async": "^1.0.3",
     "eslint-plugin-jest-dom": "^3.9.4",
     "eslint-plugin-jest-formatting": "^3.1.0",
-    "eslint-plugin-jsdoc": "^37.7.0",
+    "eslint-plugin-jsdoc": "^37.7.1",
     "eslint-plugin-json-schema-validator": "^1.2.49",
     "eslint-plugin-jsonc": "^1.7.0",
     "eslint-plugin-no-constructor-bind": "^2.0.4",
@@ -85,7 +85,6 @@
     "eslint-plugin-unused-imports": "^1.1.5",
     "eslint-plugin-woke": "^1.0.1",
     "eslint-plugin-yml": "^0.10.1",
-    "glob": "^7.2.0",
     "parse-gitignore": "^1.0.1",
     "tslib": "^2.3.1",
     "yaml": "^1.10.2"
