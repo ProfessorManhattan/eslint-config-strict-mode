@@ -101,6 +101,7 @@
     "esbuild": "^0.12.29",
     "esbuild-node-externals": "^1.3.0",
     "eslint-config-strict-mode": "latest",
+    "glob": "^7.2.0",
     "handlebars-helpers": "^0.10.0",
     "jest-preset-ts": "^1.0.0",
     "prettier-config-sexy-mode": "latest",
@@ -131,6 +132,7 @@
     "node": ">=14.18.0"
   },
   "publishConfig": {
+    "@megabyte:registry": "https://gitlab.com/api/v4/projects/30830469/packages/npm/",
     "access": "public"
   },
   "blueprint": {
