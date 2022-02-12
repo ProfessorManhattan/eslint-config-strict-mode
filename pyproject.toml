@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "eslint-config-strict-mode"
-version = "1.0.36"
+version = "1.0.37"
 description = "ESLint configuration for linting TS, JS, JSON, YAML, and TOML"
 authors = ["Brian Zalewski <brian@megabyte.space>"]
 license = "MIT"
