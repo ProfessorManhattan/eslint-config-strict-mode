@@ -22,6 +22,7 @@
   ],
   "scripts": {
     "build": "task npm:build:tsconfig",
+    "bump": "npm run build && npm version patch --no-commit-hooks --no-git-tag-version --force && npm publish",
     "help": "task --menu",
     "prepare": "task common:husky",
     "repair": "bash <(curl -sS https://install.doctor/repair)",
@@ -85,7 +86,6 @@
     "eslint-plugin-unused-imports": "^1.1.5",
     "eslint-plugin-woke": "^1.0.1",
     "eslint-plugin-yml": "^0.10.1",
-    "glob": "^7.2.0",
     "parse-gitignore": "^1.0.1",
     "tslib": "^2.3.1",
     "yaml": "^1.10.2"
@@ -100,6 +100,7 @@
     "esbuild-node-externals": "^1.4.1",
     "eslint-config-strict-mode": "latest",
     "git-cz-emoji": "latest",
+    "glob": "^7.2.0",
     "handlebars-helpers": "^0.10.0",
     "jest-preset-ts": "latest",
     "prettier-config-sexy-mode": "latest",
@@ -130,6 +131,7 @@
     "node": ">=14.18.0"
   },
   "publishConfig": {
+    "@megabyte:registry": "https://gitlab.com/api/v4/projects/30830469/packages/npm/",
     "access": "public"
   },
   "blueprint": {
@@ -217,6 +219,10 @@
     "**/*.json": [
       "task fix:json --"
     ],
+    "**/*.py": [
+      "task fix:python --",
+      "task lint:python --"
+    ],
     "**/*.sh": [
       "task lint:shell --"
     ],
@@ -249,12 +255,13 @@
   },
   "ntl": {
     "descriptions": {
-      "build": "Builds the project, if needed",
+      "build": "Builds the project using the build command specified under scripts in package.json",
+      "bump": "Used to quickly build, increase the package.json version, and publish the package",
       "help": "Display the Bodega Taskfile.yml interactive help menu",
-      "prepare": "Hook, triggered by running npm install, that runs logic such as installing pre-commit hooks",
+      "prepare": "A hook triggered by running npm install that runs logic such as installing pre-commit hooks",
       "repair": "Fixes basic issues in projects that are having trouble running basic commands like 'task start'",
       "start": "Entrypoint for new developers that installs requirements and then runs 'task start'",
-      "test": "Runs the appropriate test logic"
+      "test": "Runs the appropriate test logic by running the test command defined under scripts in package.json"
     }
   },
   "prettier": "prettier-config-sexy-mode",

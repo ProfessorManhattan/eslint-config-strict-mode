@@ -1,12 +1,13 @@
 [tool.poetry]
 name = "eslint-config-strict-mode"
-version = "1.0.27"
+version = "1.0.36"
 description = "ESLint configuration for linting TS, JS, JSON, YAML, and TOML"
 authors = ["Brian Zalewski <brian@megabyte.space>"]
 license = "MIT"
 readme = "README.md"
 homepage = "https://megabyte.space"
 documentation = "https://megabyte.space/docs/npm/config"
+repository = "https://github.com/ProfessorManhattan/eslint-config-strict-mode"
 keywords = ["config", "editorconfig", "eslint", "eslint-config", "formatter", "javascript", "lint", "linter", "mblabs", "megabytelabs", "prettier", "professormanhattan", "schema", "toml", "tsdoc", "typescript", "washingtondc", "yaml"]
 include = ["docs/CHANGELOG.md", "LICENSE"]
 classifiers = [
@@ -50,11 +51,26 @@ classifiers = [
 [tool.poetry.dependencies]
 python = ">=3.10.0,<4.0.0"
 
+# Semantic Extras -> `poetry install -E semantic`
+pip = { version = "^21.3.0", optional = true }
+setuptools = { version = "^58.2.0", optional = true }
+twine = { version = "^3.4.2", optional = true }
+wheel = { version = "^0.37.0", optional = true }
+
 [tool.poetry.dev-dependencies]
 blocklint = "^0.2.3"
 pre-commit-hooks = "^4.0.1"
 proselint = "^0.12.0"
+toml-sort = "^0.19.0"
 yamllint = "^1.26.3"
+
+[tool.poetry.extras]
+semantic = [
+  "pip",
+  "setuptools",
+  "twine",
+  "wheel"
+]
 
 [tool.poetry.urls]
 "Bug Tracker" = "https://gitlab.com/megabyte-labs/npm/configs/eslint/-/issues"

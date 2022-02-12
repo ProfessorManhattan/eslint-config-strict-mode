@@ -230,7 +230,9 @@ tasks:
   quickstart:
     deps:
       - :ansible:symlink:{{.REPOSITORY_SUBTYPE}}
-      - :install:python:requirements
+      - task: :install:python:requirements
+        vars:
+          INSTALL_OPTIONS: --no-dev
     vars:
       INSTALLING:
         sh: if test -f install_in_progress; then echo 'true'; else echo 'false'; fi
@@ -353,9 +355,12 @@ tasks:
         }
 
   verify:
+    deps:
+      - :install:software:poetry
     log:
       error: Failed to connect to Ansible Galaxy with provided token
       start: Verifying connection can be made to Ansible Galaxy
       success: Successfully connected to Ansible Galaxy
     cmds:
-      - ansible-galaxy role setup --token "$ANSIBLE_GALAXY_TOKEN" null null null null --list > /dev/null
+      - poetry update ansible
+      - poetry run ansible-galaxy role setup --token "$ANSIBLE_GALAXY_TOKEN" null null null null --list

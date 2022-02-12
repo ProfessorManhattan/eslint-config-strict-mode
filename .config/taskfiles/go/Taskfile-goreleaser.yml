@@ -9,14 +9,24 @@ tasks:
   build:
     deps:
       - :install:go:goreleaser
+      - :install:go:nfpm
+      - :install:software:jq
+    vars:
+      CURRENT_TAG:
+        sh: jq -r '.blueprint.currentBuildTag' package.json
     log:
       error: GoReleaser encountered an error (config file -> `{{.GORELEASER_CONFIG}}`)
       start: Building with project with GoReleaser
       success: Completed building the project with GoReleaser
     cmds:
       - |
-        if [ -f "$HOME/.profile" ]; then . "$HOME/.profile"; fi
-        goreleaser build --config {{.GORELEASER_CONFIG}} --rm-dist
+        unset GITHUB_TOKEN
+        unset GITLAB_TOKEN
+        export GOVERSION="$(go version)"
+        if [ '{{.CURRENT_TAG}}' != 'null' ]; then
+          export GORELEASER_CURRENT_TAG={{.CURRENT_TAG}}
+        fi
+        goreleaser build --config {{.GORELEASER_CONFIG}} --rm-dist --skip-validate
 
   check:
     deps:
@@ -26,13 +36,16 @@ tasks:
       start: Validating the configuration file
       success: GoReleaser configuration is valid!
     cmds:
-      - |
-        if [ -f "$HOME/.profile" ]; then . "$HOME/.profile"; fi
-        goreleaser check --config {{.GORELEASER_CONFIG}}
+      - goreleaser check --config {{.GORELEASER_CONFIG}}
 
   release:
     deps:
       - :install:go:goreleaser
+      - :install:go:nfpm
+      - :install:software:jq
+    vars:
+      CURRENT_TAG:
+        sh: jq -r '.blueprint.currentBuildTag' package.json
     log:
       error: Encountered error while releasing with GoReleaser (config file -> `{{.GORELEASER_CONFIG}})
       start: Publishing compiled assets with GoReleaser
@@ -40,5 +53,10 @@ tasks:
     cmds:
       - task: :publish:snap:register
       - |
-        if [ -f "$HOME/.profile" ]; then . "$HOME/.profile"; fi
-        goreleaser release --skip-publish --config {{.GORELEASER_CONFIG}} --rm-dist
+        unset GITHUB_TOKEN
+        unset GITLAB_TOKEN
+        export GOVERSION="$(go version)"
+        if [ '{{.CURRENT_TAG}}' != 'null' ]; then
+          export GORELEASER_CURRENT_TAG={{.CURRENT_TAG}}
+        fi
+        goreleaser release --skip-publish --config {{.GORELEASER_CONFIG}} --rm-dist --skip-validate
