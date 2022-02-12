@@ -30,14 +30,14 @@
   },
   "config": {
     "commitizen": {
-      "path": "node_modules/cz-emoji-conventional"
+      "path": "node_modules/git-cz-emoji"
     }
   },
   "typings": "dist/main.d.ts",
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.10.1",
-    "@typescript-eslint/parser": "^5.10.1",
-    "eslint": "^8.8.0",
+    "@typescript-eslint/eslint-plugin": "^5.11.0",
+    "@typescript-eslint/parser": "^5.11.0",
+    "eslint": "^8.9.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-formatter-git-log": "^0.5.3",
     "eslint-formatter-gitlab": "^3.0.0",
@@ -51,14 +51,14 @@
     "eslint-plugin-ext": "^0.1.0",
     "eslint-plugin-filenames": "^1.3.2",
     "eslint-plugin-fp": "^2.3.0",
-    "eslint-plugin-functional": "^4.1.1",
+    "eslint-plugin-functional": "^4.2.0",
     "eslint-plugin-html": "^6.2.0",
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-jest": "^25.7.0",
     "eslint-plugin-jest-async": "^1.0.3",
     "eslint-plugin-jest-dom": "^3.9.4",
     "eslint-plugin-jest-formatting": "^3.1.0",
-    "eslint-plugin-jsdoc": "^37.7.0",
+    "eslint-plugin-jsdoc": "^37.9.0",
     "eslint-plugin-json-schema-validator": "^1.2.49",
     "eslint-plugin-jsonc": "^1.7.0",
     "eslint-plugin-no-constructor-bind": "^2.0.4",
@@ -93,16 +93,15 @@
   "devDependencies": {
     "@commitlint/config-conventional": "^16.0.0",
     "@types/glob": "^7.2.0",
-    "@types/node": "^16.11.6",
+    "@types/node": "^16.11.24",
     "@types/parse-gitignore": "^1.0.0",
     "@washingtondc/development": "latest",
-    "@washingtondc/eslint": "^1.0.1",
-    "cz-emoji-conventional": "^1.0.1",
     "esbuild": "^0.12.29",
-    "esbuild-node-externals": "^1.3.0",
+    "esbuild-node-externals": "^1.4.1",
     "eslint-config-strict-mode": "latest",
+    "git-cz-emoji": "latest",
     "handlebars-helpers": "^0.10.0",
-    "jest-preset-ts": "^1.0.0",
+    "jest-preset-ts": "latest",
     "prettier-config-sexy-mode": "latest",
     "semantic-release-config": "latest",
     "typescript": "^4.5.5"

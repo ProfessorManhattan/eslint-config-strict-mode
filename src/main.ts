@@ -47,6 +47,7 @@ module.exports = {
   ignorePatterns: [
     '!.*',
     '.common/',
+    '.go/',
     '.modules/',
     '.pnpm-store/',
     '.venv/',
