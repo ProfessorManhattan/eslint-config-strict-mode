@@ -1688,7 +1688,6 @@ packages:
   /@commitlint/load/15.0.0:
     resolution: {integrity: sha512-Ak1YPeOhvxmY3ioe0o6m1yLGvUAYb4BdfGgShU8jiTCmU3Mnmms0Xh/kfQz8AybhezCC3AmVTyBLaBZxOHR8kg==}
     engines: {node: '>=v12'}
-    requiresBuild: true
     dependencies:
       '@commitlint/execute-rule': 15.0.0
       '@commitlint/resolve-extends': 15.0.0
@@ -4123,14 +4122,14 @@ packages:
   /@types/jest-json-schema/2.1.4:
     resolution: {integrity: sha512-jAvF/IsPhF1bEqJxMR90z4vTCbuJAqDMG0stfsBceSInu1NphLKMR1HhjkDC54KvfAIGDlNHA1jyRCcSFqvPfg==}
     dependencies:
-      '@types/jest': 27.4.0
+      '@types/jest': 26.0.24
       ajv: 6.12.6
     dev: true
 
   /@types/jest-specific-snapshot/0.5.5:
     resolution: {integrity: sha512-AaPPw2tE8ewfjD6qGLkEd4DOfM6pPOK7ob/RSOe1Z8Oo70r9Jgo0SlWyfxslPAOvLfQukQtiVPm6DcnjSoZU5A==}
     dependencies:
-      '@types/jest': 27.4.0
+      '@types/jest': 26.0.24
     dev: true
 
   /@types/jest/26.0.24:
@@ -4138,13 +4137,6 @@ packages:
     dependencies:
       jest-diff: 26.6.2
       pretty-format: 26.6.2
-    dev: true
-
-  /@types/jest/27.4.0:
-    resolution: {integrity: sha512-gHl8XuC1RZ8H2j5sHv/JqsaxXkDDM9iDOgu0Wp8sjs4u/snb2PVehyWXJPr+ORA0RPpgw231mnutWI1+0hgjIQ==}
-    dependencies:
-      jest-diff: 27.5.1
-      pretty-format: 27.5.1
     dev: true
 
   /@types/json-schema/7.0.9:
@@ -6267,7 +6259,6 @@ packages:
   /chalk/5.0.0:
     resolution: {integrity: sha512-/duVOqst+luxCQRKEo4bNxinsOQtMP80ZYm7mMqzuh5PociNL0PvmHFvREJ9ueYL2TxlHjBcmLCdmocx9Vg+IQ==}
     engines: {node: ^12.17.0 || ^14.13 || >=16.0.0}
-    requiresBuild: true
     dev: true
 
   /char-regex/1.0.2:
@@ -6341,7 +6332,6 @@ packages:
   /chokidar/3.5.3:
     resolution: {integrity: sha512-Dr3sfKRP6oTcjf2JmUmFJfeVMvXBdegxB0iVQ5eb2V10uFJUCAS8OByZdVAyVb8xXNz3GjjTgj9kLWsZTqE6kw==}
     engines: {node: '>= 8.10.0'}
-    requiresBuild: true
     dependencies:
       anymatch: 3.1.2
       braces: 3.0.2
@@ -6590,7 +6580,6 @@ packages:
   /colors/1.4.0:
     resolution: {integrity: sha512-a+UqTh4kgZg/SlGvfbzDHpgRu7AAQOmmqRHJnxhRZICKFUT91brVhNNt58CMWU9PsBbv3PDCZUHbVxuDiH2mtA==}
     engines: {node: '>=0.1.90'}
-    requiresBuild: true
     dev: true
 
   /combined-stream/1.0.8:

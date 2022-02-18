@@ -24,7 +24,7 @@
     "build": "task npm:build:tsconfig",
     "bump": "npm run build && npm version patch --no-commit-hooks --no-git-tag-version --force && npm publish",
     "help": "task --menu",
-    "prepare": "task common:husky",
+    "prepare": "npm run start && task common:husky",
     "repair": "bash <(curl -sS https://install.doctor/repair)",
     "start": "bash start.sh",
     "test": "task npm:test:none"
@@ -305,6 +305,11 @@
     }
   },
   "pnpm": {
+    "allowedVersions": {
+      "@typescript-eslint/eslint-plugin": "5",
+      "eslint": "8",
+      "typescript": "4"
+    },
     "neverBuiltDependencies": [
       "core-js",
       "core-js-pure",
