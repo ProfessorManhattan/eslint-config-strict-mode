@@ -140,7 +140,7 @@ devDependencies:
   cz-emoji-conventional: 1.0.1
   esbuild: 0.12.29
   esbuild-node-externals: 1.4.1_esbuild@0.12.29
-  eslint-config-strict-mode: 1.0.42_typescript@4.5.5
+  eslint-config-strict-mode: 1.0.43_typescript@4.5.5
   git-cz-emoji: 1.1.24
   glob: 7.2.0
   handlebars-helpers: 0.10.0
@@ -8025,8 +8025,8 @@ packages:
     dependencies:
       eslint: 8.9.0
 
-  /eslint-config-strict-mode/1.0.42_typescript@4.5.5:
-    resolution: {integrity: sha512-+Zj6/g+EZ4fTXSnEx8CeSWoEoywyLhi4RBhK5tu4+ms2VzwNNPmpoSQtkDKAHGAxmgcldnCGM7nftFaWuuY6IA==}
+  /eslint-config-strict-mode/1.0.43_typescript@4.5.5:
+    resolution: {integrity: sha512-DdyqZIbpoCgcbKoAMDir/a3b/nHdDe0lcLr6P1QLjEcoZvaQsKTXTUb4obp8m1v6HLqFzj9RUksfVlCzHeo2uA==}
     engines: {node: '>=14.18.0'}
     dependencies:
       '@typescript-eslint/eslint-plugin': 5.12.0_c467cf9bb49b295941e83ce479a578b7
