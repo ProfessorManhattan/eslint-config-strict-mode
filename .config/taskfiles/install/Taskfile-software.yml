@@ -184,11 +184,12 @@ tasks:
       - |
         .config/log info 'Attempting to run `sudo pacman update` (for Homebrew dependencies)'
         sudo pacman update
-        .config/log info 'Attempting to run `sudo pacman -S base-devel curl file git procps-ng` (for Homebrew dependencies)'
-        sudo pacman -S base-devel curl file git procps-ng
+        .config/log info 'Attempting to run `sudo pacman -S base-devel curl file git gzip procps-ng` (for Homebrew dependencies)'
+        sudo pacman -S base-devel curl file git gzip procps-ng
     status:
       - type curl &> /dev/null
       - type git &> /dev/null
+      - type gzip &> /dev/null
       - ldconfig -p | grep base-devel
       - ldconfig -p | grep file
       - ldconfig -p | grep procps-ng
@@ -200,10 +201,11 @@ tasks:
         .config/log info 'Attempting to run `sudo apt-get -y update` (for Homebrew dependencies)'
         sudo apt-get -y update
         .config/log info 'Attempting to run `sudo apt-get install -y build-essential curl file git procps` (Homebrew dependencies)'
-        sudo apt-get install -y build-essential curl file git procps
+        sudo apt-get install -y build-essential curl file git gzip procps
     status:
       - type curl &> /dev/null
       - type git &> /dev/null
+      - type gzip &> /dev/null
       - dpkg-query -l build-essential &> /dev/null
       - dpkg-query -l file &> /dev/null
       - dpkg-query -l procps &> /dev/null
@@ -222,9 +224,9 @@ tasks:
           fi
           touch "$HOME/.config/bodega/yum-devtools-check-ran"
         fi
-        if ! rpm --quiet --query curl file git procps-ng; then
+        if ! rpm --quiet --query curl file git gzip procps-ng; then
           .config/log info 'Attempting to run `sudo yum install -y curl file git procps-ng`'
-          sudo yum install -y curl file git procps-ng
+          sudo yum install -y curl file git gzip procps-ng
         fi
         if [ -f '/etc/os-release' ]; then
           source /etc/os-release
@@ -318,6 +320,15 @@ tasks:
       - task: docker:{{OS}}
     status:
       - type docker > /dev/null
+
+  docker-slim:
+    run: once
+    cmds:
+      - task: brew:formulae
+        vars:
+          FORMULAE: docker-slim
+    status:
+      - type docker-slim > /dev/null
 
   docker:darwin:
     run: once
@@ -414,6 +425,15 @@ tasks:
     status:
       - type git > /dev/null
 
+  gitlab-runner:
+    run: once
+    cmds:
+      - task: brew:formulae
+        vars:
+          FORMULAE: gitlab-runner
+    status:
+      - type gitlab-runner > /dev/null
+
   gitleaks:
     run: once
     cmds:
@@ -477,6 +497,15 @@ tasks:
           FORMULAE: anchore/grype/grype
     status:
       - type grype > /dev/null
+
+  gzip:
+    run: once
+    cmds:
+      - task: brew:formulae
+        vars:
+          FORMULAE: gzip
+    status:
+      - type gzip > /dev/null
 
   jq:
     run: once
@@ -573,9 +602,11 @@ tasks:
   python:linux:
     run: once
     cmds:
-      - task: :install:install-doctor
+      - task: brew:formulae
         vars:
-          SOFTWARE: python
+          FORMULAE: python@3.10
+    status:
+      - type python3 > /dev/null
 
   python:windows:
     log:
@@ -591,6 +622,15 @@ tasks:
           FORMULAE: rsync
     status:
       - type rsync &> /dev/null
+
+  rust:
+    run: once
+    cmds:
+      - task: brew:formulae
+        vars:
+          FORMULAE: rust
+    status:
+      - type rust &> /dev/null
 
   sentry:
     run: once
@@ -707,6 +747,15 @@ tasks:
       - task: :install:install-doctor
         vars:
           SOFTWARE: vmware
+
+  yarn:
+    run: once
+    cmds:
+      - task: brew:formulae
+        vars:
+          FORMULAE: yarn
+    status:
+      - type yarn > /dev/null
 
   yq:
     run: once

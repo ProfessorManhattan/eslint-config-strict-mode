@@ -16,6 +16,21 @@ if [ -f .config/log ]; then
   chmod +x .config/log
 fi
 
+# @description Formats log statements
+#
+# @example
+#   format 'Message to be formatted'
+#
+# @arg $1 string The message to be formatted
+function format() {
+  # shellcheck disable=SC2001,SC2016
+  ANSI_STR="$(echo "$1" | sed 's/^\([^`]*\)`\([^`]*\)`/\1\\e[100;1m \2 \\e[0;39m/')"
+  if [[ $ANSI_STR == *'`'*'`'* ]]; then
+    ANSI_STR="$(format "$ANSI_STR")"
+  fi
+  echo -e "$ANSI_STR"
+}
+
 # @description Proxy function for handling logs in this script
 #
 # @example
@@ -28,13 +43,13 @@ function logger() {
     .config/log "$1" "$2"
   else
     if [ "$1" == 'error' ]; then
-      echo "ERROR:   ""$2"
+      echo -e "\e[1;41m  ERROR   \e[0m $(format "$2")\e[0;39m"
     elif [ "$1" == 'info' ]; then
-      echo "INFO:    ""$2"
+      echo -e "\e[1;46m   INFO   \e[0m $(format "$2")\e[0;39m"
     elif [ "$1" == 'success' ]; then
-      echo "SUCCESS: ""$2"
+      echo -e "\e[1;42m SUCCESS  \e[0m $(format "$2")\e[0;39m"
     elif [ "$1" == 'warn' ]; then
-      echo "WARNING: ""$2"
+      echo -e "\e[1;43m WARNING  \e[0m $(format "$2")\e[0;39m"
     else
       echo "$2"
     fi
@@ -63,8 +78,7 @@ function ensureRootPackageInstalled() {
         pacman update
         pacman -S "$1"
       elif [ -f "/etc/alpine-release" ]; then
-        apk update
-        apk add -y "$1"
+        apk --no-cache add "$1"
       fi
     fi
   fi
@@ -138,8 +152,7 @@ function ensurePackageInstalled() {
         sudo pacman update
         sudo pacman -S "$1"
       elif [ -f "/etc/alpine-release" ]; then
-        apk update
-        apk add -y "$1"
+        apk --no-cache add "$1"
       else
         logger error "$1 is missing. Please install $1 to continue." && exit 1
       fi
@@ -318,11 +331,11 @@ if [[ "$OSTYPE" == 'darwin'* ]]; then
     sudo xcode-select --install
   fi
 elif [[ "$OSTYPE" == 'linux-gnu'* ]] || [[ "$OSTYPE" == 'linux-musl'* ]]; then
-  if ! type curl &> /dev/null || ! type git &> /dev/null || ! type sudo &> /dev/null; then
+  if ! type curl &> /dev/null || ! type git &> /dev/null || ! type gzip &> /dev/null; then
     ensurePackageInstalled "curl"
     ensurePackageInstalled "file"
     ensurePackageInstalled "git"
-    ensurePackageInstalled "sudo"
+    ensurePackageInstalled "gzip"
   fi
 fi
 
@@ -342,7 +355,8 @@ if [[ "$OSTYPE" == 'darwin'* ]] || [[ "$OSTYPE" == 'linux-gnu'* ]] || [[ "$OSTYP
       . "$HOME/.profile"
     fi
     if ! type poetry &> /dev/null; then
-      brew install poetry
+      # shellcheck disable=SC2016
+      brew install poetry || logger info 'There may have been an issue installing `poetry` with `brew`'
     fi
     if ! type jq &> /dev/null; then
       brew install jq
@@ -357,14 +371,26 @@ fi
 if [ -d .git ] && type git &> /dev/null; then
   HTTPS_VERSION="$(git remote get-url origin | sed 's/git@gitlab.com:/https:\/\/gitlab.com\//')"
   git pull "$HTTPS_VERSION" master --ff-only
-  git submodule update --init --recursive
+  ROOT_DIR="$PWD"
+  if ls .modules/*/ > /dev/null 2>&1; then
+    for SUBMODULE_PATH in .modules/*/; do
+      cd "$SUBMODULE_PATH"
+      DEFAULT_BRANCH=$(git remote show origin | grep 'HEAD branch' | cut -d' ' -f5)
+      git reset --hard HEAD
+      git checkout "$DEFAULT_BRANCH"
+      git pull origin "$DEFAULT_BRANCH" --ff-only || true
+    done
+    cd "$ROOT_DIR"
+    # shellcheck disable=SC2016
+    logger success 'Ensured submodules in the `.modules` folder are pointing to the master branch'
+  fi
 fi
 
 # @description Ensures Task is installed and properly configured
 ensureTaskInstalled
 
 # @description Run the start logic, if appropriate
-if [ -z "$GITLAB_CI" ] && [ -z "$INIT_CWD" ]; then
+if [ -z "$GITLAB_CI" ] && [ -z "$INIT_CWD" ] && [ -f Taskfile.yml ]; then
   # shellcheck disable=SC1091
   . "$HOME/.profile"
   task start
