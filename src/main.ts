@@ -151,23 +151,23 @@ module.exports = {
     {
       files: ['lib/**/*.js'],
       rules: {
-        'camelcase': 'warn',
+        camelcase: 'warn',
         'fp/no-arguments': 'off',
+        'fp/no-delete': 'off',
         'fp/no-loops': 'off',
         'fp/no-mutating-methods': 'off',
         'fp/no-mutation': 'off',
-        'fp/no-delete': 'off',
-        'functional/functional-parameters': 'off',
-        'functional/immutable-data': 'off',
-        'functional/no-loop-statement': 'off',
-        'functional/no-let': 'off',
-        'functional/no-try-statement': 'off',
         'func-names': 'off',
         'func-style': 'warn',
+        'functional/functional-parameters': 'off',
+        'functional/immutable-data': 'off',
+        'functional/no-let': 'off',
+        'functional/no-loop-statement': 'off',
+        'functional/no-try-statement': 'off',
         'id-length': 'off',
-        'jsdoc/require-returns': 'off',
         'jsdoc/require-param-description': 'off',
         'jsdoc/require-param-type': 'off',
+        'jsdoc/require-returns': 'off',
         'max-lines-per-function': 'off',
         'max-statements': 'off',
         'no-await-in-loop': 'off',
@@ -175,11 +175,11 @@ module.exports = {
         'no-continue': 'warn',
         'no-loop-func': 'off',
         'no-magic-numbers': 'warn',
-        'no-unused-expressions': 'warn',
         'no-plusplus': 'off',
         'no-prototype-builtins': 'warn',
         'no-shadow': 'warn',
         'no-underscore-dangle': 'off',
+        'no-unused-expressions': 'warn',
         'prefer-arrow/prefer-arrow-functions': 'off',
         'prefer-destructuring': 'off',
         'prefer-named-capture-group': 'warn',
@@ -253,9 +253,7 @@ module.exports = {
       }
     },
     {
-      files: [
-        '.github/**/*.yml'
-      ],
+      files: ['.github/**/*.yml'],
       rules: {
         'unicorn/filename-case': 'off'
       }

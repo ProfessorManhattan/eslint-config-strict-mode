@@ -29,8 +29,8 @@
 </div>
 <br/>
 <div align="center">
-  <a href="https://www.npmjs.com/package/eslint-config-strict-mode" title="Version 1.0.37" target="_blank">
-    <img alt="Version: 1.0.37" src="https://img.shields.io/badge/version-1.0.37-blue.svg?cacheSeconds=2592000&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgAQMAAABJtOi3AAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAACNJREFUCNdjIACY//+BEp9hhM3hAzYQwoBIAqEDYQrCZLwAAGlFKxU1nF9cAAAAAElFTkSuQmCC&style=flat-square" />
+  <a href="https://www.npmjs.com/package/eslint-config-strict-mode" title="Version 1.0.47" target="_blank">
+    <img alt="Version: 1.0.47" src="https://img.shields.io/badge/version-1.0.47-blue.svg?cacheSeconds=2592000&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgAQMAAABJtOi3AAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAACNJREFUCNdjIACY//+BEp9hhM3hAzYQwoBIAqEDYQrCZLwAAGlFKxU1nF9cAAAAAElFTkSuQmCC&style=flat-square" />
   </a>
   <a href="https://gitlab.com/megabyte-labs/npm/configs/eslint/-/commits/master" title="GitLab CI build status" target="_blank">
     <img alt="Build status" src="https://img.shields.io/gitlab/pipeline-status/megabyte-labs/npm/config/eslint-config-strict-mode?branch=master&label=build&logo=gitlab&logoColor=white&style=flat-square">
@@ -55,7 +55,7 @@
   </a>
 </div>
 
-> </br><h3 align="center">**ESLint configuration for linting TS, JS, JSON, YAML, and TOML**</h3></br>
+> </br><h4 align="center">**ESLint configuration for linting TS, JS, JSON, YAML, and TOML**</h4></br>
 
 <a href="#table-of-contents" style="width:100%"><img style="width:100%" src="https://gitlab.com/megabyte-labs/assets/-/raw/master/png/aqua-divider.png" /></a>
 

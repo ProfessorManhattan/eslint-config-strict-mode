@@ -97,7 +97,6 @@
     "@types/node": "^16.11.6",
     "@types/parse-gitignore": "^1.0.0",
     "@washingtondc/development": "latest",
-    "cz-emoji-conventional": "^1.0.1",
     "esbuild": "^0.12.29",
     "esbuild-node-externals": "^1.3.0",
     "eslint-config-strict-mode": "latest",
@@ -140,7 +139,7 @@
     "customPackageName": "eslint-config-strict-mode",
     "description": "ESLint configuration for linting TS, JS, JSON, YAML, and TOML",
     "github_id": "R_kgDOGuY01w",
-    "gitlab_group_id": "",
+    "gitlab_group_id": "12165875",
     "gitlab_project_id": "30830469",
     "group": "npm",
     "name": "Strict ESLint Config",
@@ -205,9 +204,6 @@
     ]
   },
   "lint-staged": {
-    "(.dockerignore|.editorconfig|.eslintignore|.gitattributes|.gitconfig|.gitignore|.gitmodules|.nodemonignore|.npmignore|.prettierignore)": [
-      "task fix:prettier --"
-    ],
     "(Brewfile|composer.lock|Gemfile|Gopkg.lock|Pipfile.lock)": [
       "task fix:prettier --"
     ],
@@ -217,20 +213,13 @@
     "**/*": [
       "task lint:any --"
     ],
+    "**/*!(template).(json|webapp|webmanifest)": [
+      "task fix:json --"
+    ],
     "**/*.(bash|cfg|cgi|command|css|env|env.*|handlebars|hbs|html|less|fcgi|java|md|mdx|mjml|php|phtml|properties|reg|scss|tmpl|tmux|tool|tpl|zsh)": [
       "task fix:prettier --"
     ],
     "**/*.(cjs|js|jsx|mjs|ts|tsx)": [
-      "task fix:js --",
-      "task lint:js --"
-    ],
-    "**/*.(css|html|less|md|mjml|php|scss|sh|xml)": [
-      "task fix:prettier --"
-    ],
-    "**/*.(json|webapp|webmanifest)": [
-      "task fix:json --"
-    ],
-    "**/*.(js|jsx|ts|tsx)": [
       "task fix:js --",
       "task lint:js --"
     ],
@@ -242,8 +231,9 @@
       "task fix:go --",
       "task lint:go --"
     ],
-    "**/*.json": [
-      "task fix:json --"
+    "**/*.md": [
+      "task fix:markdown --",
+      "task lint:spelling:markdown --"
     ],
     "**/*.php": [
       "task fix:php --",
@@ -259,16 +249,13 @@
       "task lint:shell --"
     ],
     "**/*.toml": [
+      "task fix:toml --",
       "task fix:prettier --",
       "task lint:toml --"
     ],
     "**/*.xml": [
       "task fix:xml --",
       "task lint:xml --"
-    ],
-    "**/*.yml": [
-      "task fix:yaml --",
-      "task lint:yaml --"
     ],
     "Dockerfile": [
       "task fix:prettier --",
@@ -318,10 +305,8 @@
     ],
     "peerDependencyRules": {
       "ignoreMissing": [
-        "@typescript-eslint/eslint-plugin",
         "eslint",
-        "prettier",
-        "typescript"
+        "prettier"
       ]
     }
   },
