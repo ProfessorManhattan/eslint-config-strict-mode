@@ -39,6 +39,7 @@ export const gitlabCIOrder = [
 ]
 
 export const gitlabCIRules = {
+  'unicorn/prevent-abbreviations': 'off',
   'yml/sort-keys': [
     'error',
     {

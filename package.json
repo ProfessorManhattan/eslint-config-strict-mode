@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "eslint-config-strict-mode",
-  "version": "1.0.36",
+  "version": "1.0.47",
   "description": "ESLint configuration for linting TS, JS, JSON, YAML, and TOML",
   "license": "MIT",
   "author": "Brian Zalewski <brian@megabyte.space> (https://megabyte.space)",
@@ -46,6 +46,7 @@
     "eslint-formatter-summary": "^1.1.0",
     "eslint-plugin-angular": "^4.1.0",
     "eslint-plugin-array-func": "^3.1.7",
+    "eslint-plugin-diff": "^1.0.12",
     "eslint-plugin-editorconfig": "^3.2.0",
     "eslint-plugin-eslint-comments": "^3.2.0",
     "eslint-plugin-etc": "^2.0.2",

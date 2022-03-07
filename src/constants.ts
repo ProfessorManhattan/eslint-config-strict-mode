@@ -76,6 +76,7 @@ export const templates = {
     'plugin:switch-case/recommended',
     'plugin:unicorn/recommended'
   ],
+  diff: ['plugin:diff/staged'],
   eslint: ['eslint:all', 'plugin:eslint-comments/recommended', 'plugin:editorconfig/all'],
   functional: ['plugin:fp/recommended', 'plugin:functional/recommended'],
   html: ['plugin:compat/recommended', 'plugin:no-unsanitized/DOM'],

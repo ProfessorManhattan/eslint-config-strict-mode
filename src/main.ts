@@ -47,6 +47,8 @@ module.exports = {
   ignorePatterns: [
     '!.*',
     '.common/',
+    '.config/package-lock.json',
+    '.config/yarn.lock',
     '.go/',
     '.modules/',
     '.pnpm-store/',
@@ -56,7 +58,10 @@ module.exports = {
     'esbuild.js',
     'package-lock.json',
     'pnpm-lock.yaml',
+    'slim.report.json',
+    'test-output/',
     'venv/',
+    'yarn.lock',
     '_generated_/',
     '*.toml',
     ...gitignore
@@ -144,6 +149,54 @@ module.exports = {
       }
     },
     {
+      files: ['lib/**/*.js'],
+      rules: {
+        'camelcase': 'warn',
+        'fp/no-arguments': 'off',
+        'fp/no-loops': 'off',
+        'fp/no-mutating-methods': 'off',
+        'fp/no-mutation': 'off',
+        'fp/no-delete': 'off',
+        'functional/functional-parameters': 'off',
+        'functional/immutable-data': 'off',
+        'functional/no-loop-statement': 'off',
+        'functional/no-let': 'off',
+        'functional/no-try-statement': 'off',
+        'func-names': 'off',
+        'func-style': 'warn',
+        'id-length': 'off',
+        'jsdoc/require-returns': 'off',
+        'jsdoc/require-param-description': 'off',
+        'jsdoc/require-param-type': 'off',
+        'max-lines-per-function': 'off',
+        'max-statements': 'off',
+        'no-await-in-loop': 'off',
+        'no-console': 'off',
+        'no-continue': 'warn',
+        'no-loop-func': 'off',
+        'no-magic-numbers': 'warn',
+        'no-unused-expressions': 'warn',
+        'no-plusplus': 'off',
+        'no-prototype-builtins': 'warn',
+        'no-shadow': 'warn',
+        'no-underscore-dangle': 'off',
+        'prefer-arrow/prefer-arrow-functions': 'off',
+        'prefer-destructuring': 'off',
+        'prefer-named-capture-group': 'warn',
+        'prefer-rest-params': 'off',
+        'require-jsdoc': 'off',
+        'security/detect-non-literal-fs-filename': 'off',
+        'security/detect-object-injection': 'off',
+        'sonarjs/cognitive-complexity': 'off',
+        'unicorn/consistent-function-scoping': 'off',
+        'unicorn/no-array-for-each': 'off',
+        'unicorn/no-null': 'off',
+        'unicorn/prefer-module': 'off',
+        'unicorn/prevent-abbreviations': 'off',
+        'vars-on-top': 'warn'
+      }
+    },
+    {
       extends: getExtends('yml', repoType, repoSubType),
       files: ['*.yaml', '*.yml'],
       parser: 'yaml-eslint-parser',
@@ -172,7 +225,7 @@ module.exports = {
       rules: ansibleMetaRules
     },
     {
-      files: ['Taskfile*.yml'],
+      files: ['**/Taskfile*.yml'],
       rules: taskfileRules
     },
     {
@@ -183,7 +236,7 @@ module.exports = {
       }
     },
     {
-      files: ['*.gitlab-ci.yml'],
+      files: ['**/*.gitlab-ci.yml'],
       rules: gitlabCIRules
     },
     {
@@ -192,10 +245,19 @@ module.exports = {
         '**/.github/ISSUE_TEMPLATE/*.yml',
         '**/.config/taskfiles/**/*.yml',
         'Taskfile.yml',
+        'local/Taskfile*.yml',
         'nodemon.json'
       ],
       rules: {
         'json-schema-validator/no-invalid': 'off'
+      }
+    },
+    {
+      files: [
+        '.github/**/*.yml'
+      ],
+      rules: {
+        'unicorn/filename-case': 'off'
       }
     },
     {
@@ -208,6 +270,13 @@ module.exports = {
             pathPattern: '.*'
           }
         ]
+      }
+    },
+    {
+      files: ['Dockerfile.test.yml', 'Dockerfile-*.test.yml'],
+      rules: {
+        'unicorn/filename-case': 'off',
+        'yml/sort-keys': 'off'
       }
     }
   ],
@@ -237,6 +306,7 @@ module.exports = {
         ]
       }
     ],
-    'no-warning-comments': 'warn'
+    'no-warning-comments': 'warn',
+    'unicorn/no-null': 'off'
   }
 }

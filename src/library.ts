@@ -21,9 +21,10 @@ export const acquireProjectType = (): {
 }
 
 const getScriptsExtends = (type: string, subType: string, isTypeScript = true) => {
-  const base = isTypeScript
+  const baseScripts = isTypeScript
     ? [...templates.eslint, ...templates.common, ...templates.typescript, ...templates.prettier]
     : [...templates.eslint, ...templates.common, ...templates.javascript, ...templates.prettier]
+  const base = process.env.ESLINT_STAGED_ONLY ? baseScripts.concat(templates.diff): baseScripts
   switch (`${type}-${subType}`) {
     case 'angular-app':
       return [...templates.angular, ...templates.jest, ...base]
@@ -45,17 +46,18 @@ export const getExtends = (
   type: string,
   subType: string
 ): readonly string[] => {
+  const diff = process.env.ESLINT_STAGED_ONLY ? templates.diff : []
   switch (extension) {
     case 'json':
-      return [...templates.eslint, ...templates.json, ...templates.prettier]
+      return [...templates.eslint, ...templates.json, ...templates.prettier, ...diff]
     case 'javascript':
       return getScriptsExtends(type, subType, false)
     case 'toml':
-      return [...templates.eslint, ...templates.toml, ...templates.prettier]
+      return [...templates.eslint, ...templates.toml, ...templates.prettier, ...diff]
     case 'typescript':
       return getScriptsExtends(type, subType)
     case 'yml':
-      return [...templates.eslint, ...templates.yml, ...templates.prettier]
+      return [...templates.eslint, ...templates.yml, ...templates.prettier, ...diff]
     default:
       return []
   }
@@ -96,7 +98,7 @@ export const getPlugins = (
     case 'yml':
       return [...plugins.eslint, ...plugins.prettier]
     default:
-      return []
+      return getScriptsPlugins(type, subType)
   }
 }
 
