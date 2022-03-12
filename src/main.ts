@@ -289,7 +289,7 @@ module.exports = {
         useSchemastoreCatalog: true
       }
     ],
-    'max-lines': ['error', maxLines],
+    'max-lines': ['warn', maxLines],
     'no-secrets/no-secrets': [
       'warn',
       {

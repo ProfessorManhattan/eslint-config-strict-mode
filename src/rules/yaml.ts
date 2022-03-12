@@ -1,7 +1,7 @@
 export const yamlRules = {
   'capitalized-comments': 'off',
   'max-len': [
-    'error',
+    'warn',
     {
       code: 160,
       ignoreComments: true,

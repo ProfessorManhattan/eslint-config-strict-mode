@@ -37,6 +37,8 @@ export const baseRules = (repoType: string, repoSubType: string) => {
     'fp/no-nil': 'off',
     'fp/no-rest-parameters': 'warn',
     'fp/no-this': 'off',
+    // Handled by functional/no-throw-statement
+    'fp/no-throw': 'off',
     // Handled by functional/no-this-expression
     'fp/no-unused-expression': 'off',
     // Handled by functional/no-expression-statement
@@ -90,7 +92,7 @@ export const baseRules = (repoType: string, repoSubType: string) => {
     'linebreak-style': ['error', 'unix'],
     'max-classes-per-file': ['error', maxClassesPerFile],
     'max-len': [
-      'error',
+      'warn',
       {
         code: maxLineLength,
         ignoreComments: true,
@@ -228,6 +230,7 @@ export const baseRules = (repoType: string, repoSubType: string) => {
         markers: ['/']
       }
     ],
+    'unicorn/no-null': 'off',
     'unicorn/no-process-exit': 'off',
     'unicorn/prefer-module': repoType === 'npm' && repoSubType === 'library' ? ruleState.off : ruleState.error,
     'unused-imports/no-unused-imports': 'error',
