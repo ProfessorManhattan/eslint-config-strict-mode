@@ -78,6 +78,8 @@ tasks:
           git commit -m "⤵️ automation(synchronize) Applying changes from upstream repository."
           git push -q -o ci.skip origin master
         fi
+    status:
+      - '[ -z "$CI" ]'
 
   commit:config:
     deps:
