@@ -7,11 +7,7 @@ export const tsRules = {
       default: 'array'
     }
   ],
-  // Handled by unicorn/prefer-module
-  '@typescript-eslint/no-var-requires': 'off',
   '@typescript-eslint/class-literal-property-style': ['error', 'fields'],
-  // Handled by no-shadow
-  '@typescript-eslint/no-shadow': 'off',
   '@typescript-eslint/explicit-member-accessibility': [
     'error',
     {
@@ -38,6 +34,10 @@ export const tsRules = {
       }
     }
   ],
+  // Handled by no-shadow
+  '@typescript-eslint/no-shadow': 'off',
+  // Handled by unicorn/prefer-module
+  '@typescript-eslint/no-var-requires': 'off',
   '@typescript-eslint/quotes': [
     'error',
     'single',
