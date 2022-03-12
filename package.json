@@ -1,46 +1,48 @@
 {
+  "private": false,
+  "name": "eslint-config-strict-mode",
+  "version": "1.0.53",
+  "description": "ESLint configuration for linting TS, JS, JSON, YAML, and TOML",
+  "license": "MIT",
   "author": "Brian Zalewski <brian@megabyte.space> (https://megabyte.space)",
-  "blueprint": {
-    "customPackageName": "eslint-config-strict-mode",
-    "description": "ESLint configuration for linting TS, JS, JSON, YAML, and TOML",
-    "github_id": "R_kgDOGuY01w",
-    "gitlab_group_id": "12165875",
-    "gitlab_project_id": "30830469",
-    "group": "npm",
-    "name": "Strict ESLint Config",
-    "overview": "This [ESLint](https://eslint.org/) configuration package includes basically every quality ESLint plugin available. The default settings are meant to enforce strict design patterns among developers who code with TypeScript and JavaScript. It also includes linting rules for JSON, YAML, and TOML. Most of the rules include auto-fix functionality and it even sorts JSON and YAML. You can use this configuration as is or customize it to your liking so you can have your own shared ESLint configuration package!",
-    "repository": {
-      "github": "https://github.com/ProfessorManhattan/eslint-config-strict-mode",
-      "gitlab": "https://gitlab.com/megabyte-labs/npm/configs/eslint"
-    },
-    "slug": "eslint-config-strict-mode",
-    "subgroup": "config",
-    "subheader_description": "A strict ESLint configuration that includes all the best ESLint plugins for linting TypeScript, JavaScript, JSON, YAML, and TOML",
-    "title": "A Strict, Awesome ESLint Config"
+  "homepage": "https://megabyte.space",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ProfessorManhattan/eslint-config-strict-mode.git"
   },
   "bugs": {
     "email": "help@megabyte.space",
     "url": "https://gitlab.com/megabyte-labs/npm/configs/eslint/-/issues"
   },
-  "changelog": {
-    "displayTypes": [
-      "feat",
-      "fix",
-      "perf",
-      "refactor",
-      "revert"
-    ],
-    "showAuthor": true
-  },
-  "commitlint": {
-    "extends": [],
-    "helpUrl": "https://megabyte.space/docs/contributing/commits"
+  "type": "commonjs",
+  "main": "dist/main.js",
+  "files": [
+    "dist",
+    "lib"
+  ],
+  "scripts": {
+    "build": "bash start.sh && task npm:build:tsconfig",
+    "bump": "npm run build && SKIP_NPM_PREPUBLISHONLY=true npm version patch --no-commit-hooks --no-git-tag-version --force && SKIP_NPM_PREPUBLISHONLY=true npm publish",
+    "commit": "bash start.sh && task commit",
+    "fix": "bash start.sh && task fix",
+    "help": "bash start.sh && task --menu",
+    "lint": "bash start.sh && task list",
+    "preload": "bash start.sh && task preload",
+    "prepare": "bash start.sh && (test -f Taskfile.yml && task npm:prepare) || true",
+    "prepublishOnly": "test -z SKIP_NPM_PREPUBLISHONLY && bash start.sh && task npm:bundle:create || true",
+    "release": "bash start.sh && task publish:semantic-release",
+    "repair": "bash <(curl -sS https://install.doctor/repair)",
+    "start": "test -z SKIP_NPM_START && bash start.sh || true",
+    "test": "bash start.sh && task npm:test:none",
+    "unpack": "bash start.sh && task npm:bundle:unpack",
+    "update": "bash start.sh && task update"
   },
   "config": {
     "commitizen": {
       "path": "node_modules/git-cz-emoji"
     }
   },
+  "typings": "dist/main.d.ts",
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^5.12.0",
     "@typescript-eslint/parser": "^5.12.0",
@@ -94,66 +96,24 @@
     "eslint-plugin-woke": "^1.0.1",
     "eslint-plugin-yml": "^0.10.1",
     "parse-gitignore": "^1.0.1",
-    "yaml": "^1.10.2",
-    "tslib": "latest"
+    "tslib": "latest",
+    "yaml": "^1.10.2"
   },
-  "description": "ESLint configuration for linting TS, JS, JSON, YAML, and TOML",
+  "optionalDependencies": {},
   "devDependencies": {
     "@commitlint/config-conventional": "latest",
-    "eslint-config-strict-mode": "latest",
-    "git-cz-emoji": "latest",
-    "handlebars-helpers": "latest",
-    "prettier-config-sexy-mode": "latest",
-    "semantic-release-config": "latest",
-    "typescript": "latest",
     "@types/glob": "^7.2.0",
     "@types/node": "^16.11.6",
     "@types/parse-gitignore": "^1.0.0",
     "esbuild": "^0.12.29",
     "esbuild-node-externals": "^1.3.0",
-    "jest-preset-ts": "latest"
-  },
-  "engines": {
-    "node": ">=14.18.0"
-  },
-  "eslintConfig": {
-    "extends": "eslint-config-strict-mode",
-    "rules": {
-      "import/no-extraneous-dependencies": "warn",
-      "max-len": "warn",
-      "max-lines": "warn"
-    }
-  },
-  "files": [
-    "dist",
-    "lib"
-  ],
-  "funding": [
-    {
-      "type": "opencollective",
-      "url": "https://opencollective.com/megabytelabs"
-    },
-    {
-      "type": "patreon",
-      "url": "https://www.patreon.com/ProfessorManhattan"
-    }
-  ],
-  "homepage": "https://megabyte.space",
-  "jest": {
-    "preset": "jest-preset-ts",
-    "reporters": [
-      "default",
-      [
-        "jest-html-reporters",
-        {
-          "filename": "index.html",
-          "logoImgPath": "./.config/assets/logo-jest-report.png",
-          "openReport": true,
-          "pageTitle": "Code Coverage Report",
-          "publicPath": "./coverage"
-        }
-      ]
-    ]
+    "eslint-config-strict-mode": "latest",
+    "git-cz-emoji": "latest",
+    "handlebars-helpers": "latest",
+    "jest-preset-ts": "latest",
+    "prettier-config-sexy-mode": "latest",
+    "semantic-release-config": "latest",
+    "typescript": "latest"
   },
   "keywords": [
     "config",
@@ -175,9 +135,148 @@
     "washingtondc",
     "yaml"
   ],
-  "license": "MIT",
-  "main": "dist/main.js",
-  "name": "eslint-config-strict-mode",
+  "engines": {
+    "node": ">=14.18.0"
+  },
+  "publishConfig": {
+    "@megabyte:registry": "https://gitlab.com/api/v4/projects/30830469/packages/npm/",
+    "access": "public"
+  },
+  "blueprint": {
+    "customPackageName": "eslint-config-strict-mode",
+    "description": "ESLint configuration for linting TS, JS, JSON, YAML, and TOML",
+    "github_id": "R_kgDOGuY01w",
+    "gitlab_group_id": "12165875",
+    "gitlab_project_id": "30830469",
+    "group": "npm",
+    "name": "Strict ESLint Config",
+    "overview": "This [ESLint](https://eslint.org/) configuration package includes basically every quality ESLint plugin available. The default settings are meant to enforce strict design patterns among developers who code with TypeScript and JavaScript. It also includes linting rules for JSON, YAML, and TOML. Most of the rules include auto-fix functionality and it even sorts JSON and YAML. You can use this configuration as is or customize it to your liking so you can have your own shared ESLint configuration package!",
+    "repository": {
+      "github": "https://github.com/ProfessorManhattan/eslint-config-strict-mode",
+      "gitlab": "https://gitlab.com/megabyte-labs/npm/configs/eslint"
+    },
+    "slug": "eslint-config-strict-mode",
+    "subgroup": "config",
+    "subheader_description": "A strict ESLint configuration that includes all the best ESLint plugins for linting TypeScript, JavaScript, JSON, YAML, and TOML",
+    "title": "A Strict, Awesome ESLint Config"
+  },
+  "changelog": {
+    "displayTypes": [
+      "feat",
+      "fix",
+      "perf",
+      "refactor",
+      "revert"
+    ],
+    "showAuthor": true
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ],
+    "helpUrl": "https://megabyte.space/docs/contributing/commits"
+  },
+  "eslintConfig": {
+    "extends": "eslint-config-strict-mode",
+    "rules": {
+      "import/no-extraneous-dependencies": "warn",
+      "max-len": "warn",
+      "max-lines": "warn"
+    }
+  },
+  "funding": [
+    {
+      "type": "opencollective",
+      "url": "https://opencollective.com/megabytelabs"
+    },
+    {
+      "type": "patreon",
+      "url": "https://www.patreon.com/ProfessorManhattan"
+    }
+  ],
+  "jest": {
+    "preset": "jest-preset-ts",
+    "reporters": [
+      "default",
+      [
+        "jest-html-reporters",
+        {
+          "filename": "index.html",
+          "logoImgPath": "./.config/assets/logo-jest-report.png",
+          "openReport": true,
+          "pageTitle": "Code Coverage Report",
+          "publicPath": "./coverage"
+        }
+      ]
+    ]
+  },
+  "lint-staged": {
+    "(Brewfile|composer.lock|Gemfile|Gopkg.lock|Pipfile.lock)": [
+      "task fix:prettier --"
+    ],
+    "**/!(logo).(jpg|png)": [
+      "task image:compress --"
+    ],
+    "**/*": [
+      "task lint:any --"
+    ],
+    "**/*!(template).(json|webapp|webmanifest)": [
+      "task fix:json --"
+    ],
+    "**/*.(bash|cfg|cgi|command|css|env|env.*|handlebars|hbs|html|less|fcgi|java|md|mdx|mjml|php|phtml|properties|reg|scss|tmpl|tmux|tool|tpl|zsh)": [
+      "task fix:prettier --"
+    ],
+    "**/*.(cjs|js|jsx|mjs|ts|tsx)": [
+      "task fix:js --",
+      "task lint:js --"
+    ],
+    "**/*.(yml|yaml)": [
+      "task fix:yaml --",
+      "task lint:yaml --"
+    ],
+    "**/*.go": [
+      "task fix:go --",
+      "task lint:go --"
+    ],
+    "**/*.md": [
+      "task fix:markdown --",
+      "task lint:spelling:markdown --"
+    ],
+    "**/*.php": [
+      "task fix:php --",
+      "task lint:php --"
+    ],
+    "**/*.py": [
+      "task fix:python --",
+      "task lint:python --"
+    ],
+    "**/*.sh": [
+      "task fix:prettier --",
+      "task fix:shell --",
+      "task lint:shell --"
+    ],
+    "**/*.toml": [
+      "task fix:toml --",
+      "task fix:prettier --",
+      "task lint:toml --"
+    ],
+    "**/*.xml": [
+      "task fix:xml --",
+      "task lint:xml --"
+    ],
+    "Dockerfile": [
+      "task fix:prettier --",
+      "task lint:docker --"
+    ],
+    "Vagrantfile": [
+      "task fix:prettier --",
+      "task lint:vagrant"
+    ],
+    "logo.png": [
+      "task image:resize -- 200 200",
+      "task image:compress --"
+    ]
+  },
   "nodemonConfig": {
     "exec": "tsc -p . && node --inspect-brk dist/main",
     "ext": "js,jsx,json,ts,tsx,yml",
@@ -207,7 +306,6 @@
       "update": "Update and refresh the repository with upstream changes and templated parts"
     }
   },
-  "optionalDependencies": {},
   "pnpm": {
     "allowedVersions": {
       "@typescript-eslint/eslint-plugin": "5",
@@ -227,11 +325,6 @@
     }
   },
   "prettier": "prettier-config-sexy-mode",
-  "private": false,
-  "publishConfig": {
-    "@megabyte:registry": "https://gitlab.com/api/v4/projects/30830469/packages/npm/",
-    "access": "public"
-  },
   "release": {
     "branches": [
       "main",
@@ -247,29 +340,5 @@
       }
     ],
     "extends": "semantic-release-config"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ProfessorManhattan/eslint-config-strict-mode.git"
-  },
-  "scripts": {
-    "build": "bash start.sh && task npm:build:tsconfig",
-    "bump": "npm run build && SKIP_NPM_PREPUBLISHONLY=true npm version patch --no-commit-hooks --no-git-tag-version --force && SKIP_NPM_PREPUBLISHONLY=true npm publish",
-    "commit": "bash start.sh && task commit",
-    "fix": "bash start.sh && task fix",
-    "help": "bash start.sh && task --menu",
-    "lint": "bash start.sh && task list",
-    "preload": "bash start.sh && task preload",
-    "prepare": "bash start.sh && (test -f Taskfile.yml && task npm:prepare) || true",
-    "prepublishOnly": "test -z SKIP_NPM_PREPUBLISHONLY && bash start.sh && task npm:bundle:create || true",
-    "release": "bash start.sh && task publish:semantic-release",
-    "repair": "bash <(curl -sS https://install.doctor/repair)",
-    "start": "test -z SKIP_NPM_START && bash start.sh || true",
-    "test": "bash start.sh && task npm:test:none",
-    "unpack": "bash start.sh && task npm:bundle:unpack",
-    "update": "bash start.sh && task update"
-  },
-  "type": "commonjs",
-  "typings": "dist/main.d.ts",
-  "version": "1.0.53"
+  }
 }
