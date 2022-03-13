@@ -71,7 +71,7 @@ specifiers:
   prettier-config-sexy-mode: latest
   semantic-release-config: latest
   tslib: latest
-  typescript: latest
+  typescript: ^4.5.5
   yaml: ^1.10.2
 
 dependencies:
