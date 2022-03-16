@@ -54,6 +54,7 @@ module.exports = {
     '.pnpm-store/',
     '.venv/',
     'deprecated/',
+    'docs/slim*.json',
     'angular.json',
     'esbuild.js',
     'package-lock.json',
