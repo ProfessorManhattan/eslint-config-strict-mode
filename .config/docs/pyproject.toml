@@ -1,14 +1,14 @@
 [tool.poetry]
-name = "{{#if customPyPiPackageName}}{{customPyPiPackageName}}{{else}}{{#if customPackageName}}{{customPackageName}}{{else}}{{repository.prefix.github}}{{slug}}{{/if}}{{/if}}"
-version = "{{version}}"
-description = "{{description}}"
-authors = ["{{author.name}} <{{author.email}}>"]
-license = "{{license}}"
+name = "eslint-config-strict-mode"
+version = "1.0.53"
+description = "ESLint configuration for linting TS, JS, JSON, YAML, and TOML"
+authors = ["Brian Zalewski <brian@megabyte.space>"]
+license = "MIT"
 readme = "README.md"
-homepage = "{{link.home}}"
-documentation = "{{docs.link}}"
-repository = "{{repository.github}}"
-keywords = [{{{poetryKeywords}}}]
+homepage = "https://megabyte.space"
+documentation = "https://megabyte.space/docs/npm/config"
+repository = "https://github.com/ProfessorManhattan/eslint-config-strict-mode"
+keywords = ["config", "editorconfig", "eslint", "eslint-config", "formatter", "javascript", "lint", "linter", "mblabs", "megabytelabs", "prettier", "professormanhattan", "schema", "toml", "tsdoc", "typescript", "washingtondc", "yaml"]
 include = ["docs/CHANGELOG.md", "LICENSE"]
 classifiers = [
   "Development Status :: 4 - Beta",
@@ -73,12 +73,12 @@ semantic = [
 ]
 
 [tool.poetry.urls]
-"Bug Tracker" = "{{repository.gitlab}}{{repository.location.issues.gitlab}}"
-"GitHub" = "{{repository.github}}"
-"GitLab" = "{{repository.gitlab}}"
+"Bug Tracker" = "https://gitlab.com/megabyte-labs/npm/configs/eslint/-/issues"
+"GitHub" = "https://github.com/ProfessorManhattan/eslint-config-strict-mode"
+"GitLab" = "https://gitlab.com/megabyte-labs/npm/configs/eslint"
 "Give Directly" = "https://givedirectly.org"
-"Open Collective" = "{{profile_link.opencollective}}/{{profile.opencollective}}"
-"Patreon" = "{{profile_link.patreon}}/{{profile.patreon}}"
+"Open Collective" = "https://opencollective.com/megabytelabs"
+"Patreon" = "https://www.patreon.com/ProfessorManhattan"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
