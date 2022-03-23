@@ -82,7 +82,7 @@ export const templates = {
   html: ['plugin:compat/recommended', 'plugin:no-unsanitized/DOM'],
   javascript: ['plugin:jsdoc/recommended'],
   jest: ['plugin:jest/all', 'plugin:jest-dom/recommended', 'plugin:jest-formatting/recommended'],
-  json: ['plugin:jsonc/recommended-with-json', 'plugin:json-schema-validator/recommended', 'plugin:jsonc/prettier'],
+  json: ['plugin:jsonc/recommended-with-json', 'plugin:jsonc/prettier'],
   node: ['plugin:node/recommended'],
   prettier: ['prettier', 'plugin:prettier/recommended'],
   toml: ['plugin:toml/standard'],

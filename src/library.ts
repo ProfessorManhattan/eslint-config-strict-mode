@@ -116,45 +116,6 @@ export const getGlob = (pattern: string): readonly string[] => {
   return files.map((file: string) => path.basename(file))
 }
 
-// Automatically uses https://www.schemastore.org/api/json/catalog.json in addition to the below configurations
-export const schemaDefinitions = (): readonly { readonly fileMatch: readonly string[]; readonly schema: string }[] => {
-  return [
-    {
-      fileMatch: ['commitlint.config.cjs'],
-      schema: 'https://json.schemastore.org/commitlintrc.json'
-    },
-    {
-      fileMatch: ['.gitlab-ci.yml', ...getGlob('.gitlab/ci/**/*.yml')],
-      schema: 'https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json'
-    },
-    {
-      fileMatch: ['cspell.json'],
-      schema:
-        'https://raw.githubusercontent.com/streetsidesoftware/cspell/main/packages/cspell-types/cspell.schema.json'
-    },
-    {
-      fileMatch: ['package.json'],
-      schema: 'https://json.schemastore.org/package.json'
-    },
-    {
-      fileMatch: ['stylelintrc.cjs'],
-      schema: 'https://json.schemastore.org/stylelintrc.json'
-    },
-    {
-      fileMatch: ['Taskfile.yml', ...getGlob('.config/taskfiles/**/*.yml')],
-      schema: 'https://json.schemastore.org/taskfile.json'
-    },
-    {
-      fileMatch: ['tsconfig.json', 'tsconfig.module.json'],
-      schema: 'https://json.schemastore.org/tsconfig.json'
-    },
-    {
-      fileMatch: ['yamllint.yml'],
-      schema: 'https://json.schemastore.org/yamllint.json'
-    }
-  ]
-}
-
 export const vscodeTasksOrder = [
   'version',
   'label',

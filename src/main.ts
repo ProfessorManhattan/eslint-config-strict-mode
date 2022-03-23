@@ -5,7 +5,6 @@ import {
   getExtends,
   getGitignore,
   getPlugins,
-  schemaDefinitions,
   vscodeTasksOrder
 } from './library'
 import { ansibleMetaRules, ansibleRules } from './rules/ansible'
@@ -283,13 +282,6 @@ module.exports = {
   rules: {
     'fp/no-loops': 'off',
     'fp/no-throw': 'off',
-    'json-schema-validator/no-invalid': [
-      'error',
-      {
-        schemas: schemaDefinitions(),
-        useSchemastoreCatalog: true
-      }
-    ],
     'max-lines': ['warn', maxLines],
     'no-secrets/no-secrets': [
       'warn',
