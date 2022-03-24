@@ -1446,15 +1446,15 @@ prettier-plugin-toml-fixed@^0.3.3:
     prettier "^1.16.0"
 
 semantic-release-config@latest:
-  version "1.1.21"
-  resolved "1.1.21"
-  integrity sha512-22tm8SoZFzYhDEpvtAYT1nVgfABlEdqurjzJUK0xRNEUT1FwdvWpaqEzuGAGB3X71wnPjjdUPncm9o3S9Xddjg==
+  version "1.1.23"
+  resolved "1.1.23"
+  integrity sha512-bgDdtXtAjybaJyufh35fRgv/ZkG0OarTc8ayRm8tHtm5NDPbmNRfG1YGHkETlt2M5MS7ocv8DSzMtREOKSQ0dg==
   dependencies:
     "@semantic-release/changelog" "^6.0.1"
     "@semantic-release/commit-analyzer" "^9.0.2"
     "@semantic-release/exec" "^6.0.3"
     "@semantic-release/git" "^10.0.1"
-    "@semantic-release/gitlab" "^7.0.4"
+    "@semantic-release/gitlab" "^7.2.1"
     "@semantic-release/npm" "^9.0.1"
     "@semantic-release/release-notes-generator" "^10.0.3"
     conventional-changelog-emoji-config latest
