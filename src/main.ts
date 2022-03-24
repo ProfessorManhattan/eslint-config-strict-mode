@@ -1,12 +1,6 @@
 import * as fs from 'node:fs'
 import { maxLines } from './constants'
-import {
-  acquireProjectType,
-  getExtends,
-  getGitignore,
-  getPlugins,
-  vscodeTasksOrder
-} from './library'
+import { acquireProjectType, getExtends, getGitignore, getPlugins, vscodeTasksOrder } from './library'
 import { ansibleMetaRules, ansibleRules } from './rules/ansible'
 import { baseRules } from './rules/base'
 import { gitlabCIRules } from './rules/gitlab-ci'
