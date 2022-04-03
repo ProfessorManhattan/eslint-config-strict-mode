@@ -234,19 +234,6 @@ module.exports = {
       rules: gitlabCIRules
     },
     {
-      files: [
-        'angular.json',
-        '**/.github/ISSUE_TEMPLATE/*.yml',
-        '**/.config/taskfiles/**/*.yml',
-        'Taskfile.yml',
-        'local/Taskfile*.yml',
-        'nodemon.json'
-      ],
-      rules: {
-        'json-schema-validator/no-invalid': 'off'
-      }
-    },
-    {
       files: ['.github/**/*.yml'],
       rules: {
         'unicorn/filename-case': 'off'
