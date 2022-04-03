@@ -24,7 +24,7 @@ const getScriptsExtends = (type: string, subType: string, isTypeScript = true) =
   const baseScripts = isTypeScript
     ? [...templates.eslint, ...templates.common, ...templates.typescript, ...templates.prettier]
     : [...templates.eslint, ...templates.common, ...templates.javascript, ...templates.prettier]
-  const base = process.env.ESLINT_STAGED_ONLY ? baseScripts.concat(templates.diff) : baseScripts
+  const base = process.env.ESLINT_STAGED_ONLY ? [...baseScripts, ...templates.diff] : baseScripts
   switch (`${type}-${subType}`) {
     case 'angular-app':
       return [...templates.angular, ...templates.jest, ...base]
