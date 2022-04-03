@@ -7,7 +7,7 @@
 </div>
 <div align="center">
   <center><h1 align="center"><i></i>A Strict, Awesome ESLint Config<i></i></h1></center>
-  <center><h4 style="color: #18c3d1;">A config managed by <a href="https://megabyte.space" target="_blank">Megabyte Labs</a></h4><i></i></center>
+  <center><h4 style="color: #18c3d1;">A configuration managed by <a href="https://megabyte.space" target="_blank">Megabyte Labs</a></h4><i></i></center>
 </div>
 
 <div align="center">
@@ -64,8 +64,7 @@
 - [Overview](#overview)
 - [Requirements](#requirements)
   - [Developer Requirements](#developer-requirements)
-- [Usage](#usage)
-- [Plugins](#plugins)
+- [This Repository (Shared Common)](#this-repository-shared-common)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -96,108 +95,11 @@ npm run help
 
 `npm run help` will ensure Bodega is installed and then open an interactive dialog where you can explore and learn about various developer commands.
 
-<a href="#usage" style="width:100%"><img style="width:100%" src="https://gitlab.com/megabyte-labs/assets/-/raw/master/png/aqua-divider.png" /></a>
+<a href="#this-repository-shared-common" style="width:100%"><img style="width:100%" src="https://gitlab.com/megabyte-labs/assets/-/raw/master/png/aqua-divider.png" /></a>
 
-## Usage
+## This Repository (Shared Common)
 
-To make use of this configuration, you need to first install the configuration in your Node.js project:
-
-```shell
-npm install --save-dev eslint-config-strict-mode
-```
-
-After that, you need to include a reference to the package in your `package.json`:
-
-```json
-{
-  "name": "mynpmpackage",
-  "version": "0.0.1",
-  ...
-  "eslintConfig": {
-    "extends": "eslint-config-strict-mode"
-  }
-}
-```
-
-You can override the settings that are provided by the plugin by including additional rules in your `package.json`. For instance, if you wanted to turn off a rule named `max-len`, your `package.json` would look something like this:
-
-```json
-{
-  "name": "mynpmpackage",
-  "version": "0.0.1",
-  ...
-  "eslintConfig": {
-    "extends": "eslint-config-strict-mode",
-    "rules": {
-        "max-len": "off"
-    }
-  }
-}
-```
-
-<a href="#plugins" style="width:100%"><img style="width:100%" src="https://gitlab.com/megabyte-labs/assets/-/raw/master/png/aqua-divider.png" /></a>
-
-## Plugins
-
-The following ESLint plugins are included in this configuration:
-
-| ESLint Plugin                                                                                                  | Description                                                                                                                         |
-| -------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| [`@typescript-eslint/eslint-plugin`](https://npmjs.com/package/@typescript-eslint/eslint-plugin)               | An ESLint plugin which provides lint rules for TypeScript codebases                                                                 |
-| [`@typescript-eslint/eslint-plugin-tslint`](https://npmjs.com/package/@typescript-eslint/eslint-plugin-tslint) | ESLint plugin that wraps a TSLint configuration and lints the whole source using TSLint                                             |
-| [`@typescript-eslint/parser`](https://npmjs.com/package/@typescript-eslint/parser)                             | An ESLint parser which leverages TypeScript ESTree to allow for ESLint to lint TypeScript source code                               |
-| [`eslint-config-prettier`](https://npmjs.com/package/eslint-config-prettier)                                   | Turns off all rules that are unnecessary or might conflict with Prettier                                                            |
-| [`eslint-formatter-git-log`](https://npmjs.com/package/eslint-formatter-git-log)                               | Formatter that displays results that include the name of the developer who is responsible for the error                             |
-| [`eslint-formatter-gitlab`](https://npmjs.com/package/eslint-formatter-gitlab)                                 | Formatter for GitLab CI that integrates results into merge requests                                                                 |
-| [`eslint-formatter-pretty`](https://npmjs.com/package/eslint-formatter-pretty)                                 | Stylish formatter for terminal results that includes features such as clicking result to open code in editor                        |
-| [`eslint-formatter-summary`](https://npmjs.com/package/eslint-formatter-summary)                               | Alternate formatting style for the results that displays a table                                                                    |
-| [`eslint-plugin-angular`](https://npmjs.com/package/eslint-plugin-angular)                                     | Rules for Angular applications                                                                                                      |
-| [`eslint-plugin-array-func`](https://npmjs.com/package/eslint-plugin-array-func)                               | Rules for Array functions and methods                                                                                               |
-| [`eslint-plugin-editorconfig`](https://npmjs.com/package/eslint-plugin-editorconfig)                           | An ESLint plugin to enforce EditorConfig rules                                                                                      |
-| [`eslint-plugin-eslint-comments`](https://npmjs.com/package/eslint-plugin-eslint-comments)                     | Additional ESLint rules for ESLint directive comments                                                                               |
-| [`eslint-plugin-etc`](https://npmjs.com/package/eslint-plugin-etc)                                             | More generalcpurpose TypeScript-related ESLint rules                                                                                |
-| [`eslint-plugin-ext`](https://npmjs.com/package/eslint-plugin-ext)                                             | eslint extended rules                                                                                                               |
-| [`eslint-plugin-filenames`](https://npmjs.com/package/eslint-plugin-filenames)                                 | ESLint plugin to check filenames                                                                                                    |
-| [`eslint-plugin-fp`](https://npmjs.com/package/eslint-plugin-fp)                                               | ESLint rules for functional programming                                                                                             |
-| [`eslint-plugin-functional`](https://npmjs.com/package/eslint-plugin-functional)                               | ESLint plugin to disable mutation and promote functional programming in JavaScript and TypeScript                                   |
-| [`eslint-plugin-import`](https://npmjs.com/package/eslint-plugin-import)                                       | ESLint plugin with rules that help validate proper imports                                                                          |
-| [`eslint-plugin-jest`](https://npmjs.com/package/eslint-plugin-jest)                                           | ESLint plugin for Jest                                                                                                              |
-| [`eslint-plugin-jest-async`](https://npmjs.com/package/eslint-plugin-jest-async)                               | ESLint rules for Jest to detect improper test assertions for asynchronous actions                                                   |
-| [`eslint-plugin-jest-dom`](https://npmjs.com/package/eslint-plugin-dom)                                        | Lint DOM API performance                                                                                                            |
-| [`eslint-plugin-jest-formatting`](https://npmjs.com/package/eslint-plugin-formatting)                          | Linting rules for ESLint realted to code style formatting                                                                           |
-| [`eslint-plugin-jsdoc`](https://npmjs.com/package/eslint-plugin-jsdoc)                                         | Rules that enforce comments written in JSDoc syntax                                                                                 |
-| [`eslint-plugin-json-schema-validator`](https://npmjs.com/package/eslint-plugin-json-schema-validator)         | ESLint plugin that validates data using JSON Schema Validator                                                                       |
-| [`eslint-plugin-jsonc`](https://npmjs.com/package/eslint-plugin-jsonc)                                         | ESLint plugin for JSON, JSONC and JSON5 files                                                                                       |
-| [`eslint-plugin-no-constructor-bind`](https://npmjs.com/package/eslint-plugin-no-constructor-bind)             | Prefer class arrow functions to binding in the constructor                                                                          |
-| [`eslint-plugin-no-explicit-type-exports`](https://npmjs.com/package/eslint-plugin-no-explicit-type-exports)   | A plugin to guard against exporting imported types                                                                                  |
-| [`eslint-plugin-no-secrets`](https://npmjs.com/package/eslint-plugin-no-secrets)                               | An ESLint plugin to find strings that might be secrets or credentials                                                               |
-| [`eslint-plugin-no-unsanitized`](https://npmjs.com/package/eslint-plugin-no-unsanitized)                       | Custom ESLint rule to disallows unsafe innerHTML, outerHTML, insertAdjacentHTML and alike                                           |
-| [`eslint-plugin-no-use-extend-native`](https://npmjs.com/package/eslint-plugin-no-use-extend-native)           | ESLint plugin to prevent use of extended native objects                                                                             |
-| [`eslint-plugin-node`](https://npmjs.com/package/eslint-plugin-node)                                           | Additional ESLint's rules for Node.js                                                                                               |
-| [`eslint-plugin-optimize-regex`](https://npmjs.com/package/eslint-plugin-optimize-regex)                       | Optimize regex literals                                                                                                             |
-| [`eslint-plugin-prefer-arrow`](https://npmjs.com/package/eslint-plugin-prefer-arrow)                           | ESLint plugin to prefer arrow functions                                                                                             |
-| [`eslint-plugin-prettier`](https://npmjs.com/package/eslint-plugin-prettier)                                   | ESLint plugin to prefer arrow functions                                                                                             |
-| [`eslint-plugin-promise`](https://npmjs.com/package/eslint-plugin-promise)                                     | Enforce best practices for JavaScript promises                                                                                      |
-| [`eslint-plugin-regexp`](https://npmjs.com/package/eslint-plugin-regexp)                                       | ESLint plugin for finding RegExp mistakes and RegExp style guide violations                                                         |
-| [`eslint-plugin-rxjs`](https://npmjs.com/package/eslint-plugin-rxjs)                                           | ESLint rules for RxJS                                                                                                               |
-| [`eslint-plugin-security`](https://npmjs.com/package/eslint-plugin-security)                                   | ESLint rules for Node Security                                                                                                      |
-| [`eslint-plugin-sonarjs`](https://npmjs.com/package/eslint-plugin-sonarjs)                                     | SonarJS rules for ESLint                                                                                                            |
-| [`eslint-plugin-sort-class-members`](https://npmjs.com/package/eslint-plugin-sort-class-members)               | ESLint rule for enforcing consistent ES6 class member order                                                                         |
-| [`eslint-plugin-sort-keys-fix`](https://npmjs.com/package/eslint-plugin-sort-keys-fix)                         | Fork of eslint rule that sorts keys in objects with autofix enabled                                                                 |
-| [`eslint-plugin-switch-case`](https://npmjs.com/package/eslint-plugin-switch-case)                             | Switch-case-specific linting rules for ESLint                                                                                       |
-| [`eslint-plugin-toml`](https://npmjs.com/package/eslint-plugin-toml)                                           | ESLint plugin provides linting rules for TOML                                                                                       |
-| [`eslint-plugin-tsdoc`](https://npmjs.com/package/eslint-plugin-tsdoc)                                         | This ESLint plugin provides a rule for validating that TypeScript doc comments conform to the TSDoc specification                   |
-| [`eslint-plugin-typescript-sort-keys`](https://npmjs.com/package/eslint-plugin-typescript-sort-keys)           | A linter plugin to require sorting interface and string enum keys                                                                   |
-| [`eslint-plugin-unicorn`](https://npmjs.com/package/eslint-plugin-unicorn)                                     | Various awesome ESLint rules                                                                                                        |
-| [`eslint-plugin-unused-imports`](https://npmjs.com/package/eslint-plugin-unused-imports)                       | Package to seperate no-unused-vars and no-unused-imports for ESLint as well as providing an autofixer for the latter                |
-| [`eslint-plugin-woke`](https://npmjs.com/package/eslint-plugin-woke)                                           | ESLint plugin to promote diversity and inclusion in codebases by restricting the presence of certain potentially offensive keywords |
-| [`eslint-plugin-yml`](https://npmjs.com/package/eslint-plugin-yml)                                             | ESLint plugin provides linting rules for YAML                                                                                       |
-
-Most of the items in the chart above are plugins used for extending the core functionality of ESLint. These all start off with `eslint-plugin-`. However, there are a few items that begin with `eslint-formatter-`. These allow you to change the format that ESLint reports with. You can, for instance, run the following to change the format of the results:
-
-```shell
-eslint --format pretty --fix .
-```
+This repository houses files that propagate downstream to project-specific repositories.
 
 <a href="#contributing" style="width:100%"><img style="width:100%" src="https://gitlab.com/megabyte-labs/assets/-/raw/master/png/aqua-divider.png" /></a>
 
