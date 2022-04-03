@@ -7,7 +7,7 @@
 </div>
 <div align="center">
   <center><h1 align="center"><i></i>A Strict, Awesome ESLint Config<i></i></h1></center>
-  <center><h4 style="color: #18c3d1;">A configuration managed by <a href="https://megabyte.space" target="_blank">Megabyte Labs</a></h4><i></i></center>
+  <center><h4 style="color: #18c3d1;">A config managed by <a href="https://megabyte.space" target="_blank">Megabyte Labs</a></h4><i></i></center>
 </div>
 
 <div align="center">
