@@ -64,6 +64,7 @@ specifiers:
   eslint-plugin-woke: ^1.0.1
   eslint-plugin-yml: ^0.10.1
   git-cz-emoji: latest
+  glob: ^7.2.0
   handlebars-helpers: latest
   jest-preset-ts: latest
   parse-gitignore: ^1.0.1
@@ -124,6 +125,7 @@ dependencies:
   eslint-plugin-unused-imports: 1.1.5_8e87c07d54d9aab6e82c1fa70e6546f1
   eslint-plugin-woke: 1.0.1_eslint@8.12.0
   eslint-plugin-yml: 0.10.1_eslint@8.12.0
+  glob: 7.2.0
   parse-gitignore: 1.0.1
   tslib: 2.3.1
   yaml: 1.10.2
@@ -1629,7 +1631,7 @@ packages:
       '@types/node': 16.11.26
       chalk: 4.1.2
       cosmiconfig: 7.0.1
-      cosmiconfig-typescript-loader: 1.0.6_ddaac8e123aeb260f586984cee874848
+      cosmiconfig-typescript-loader: 1.0.7_ddaac8e123aeb260f586984cee874848
       lodash: 4.17.21
       resolve-from: 5.0.0
       typescript: 4.6.3
@@ -6433,8 +6435,8 @@ packages:
     resolution: {integrity: sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==}
     dev: true
 
-  /cosmiconfig-typescript-loader/1.0.6_ddaac8e123aeb260f586984cee874848:
-    resolution: {integrity: sha512-2nEotziYJWtNtoTjKbchj9QrdTT6DBxCvqjNKoDKARw+e2yZmTQCa07uRrykLIZuvSgp69YXLH89UHc0WhdMfQ==}
+  /cosmiconfig-typescript-loader/1.0.7_ddaac8e123aeb260f586984cee874848:
+    resolution: {integrity: sha512-PxBM//vKuwRmo7xqamKDL+q/FvGig+wKS5pOzaXO/DJbtNzbIYi1bDk251pftEdPRRetEN8RSIyF35n8zLtibA==}
     engines: {node: '>=12', npm: '>=6'}
     peerDependencies:
       '@types/node': '*'
