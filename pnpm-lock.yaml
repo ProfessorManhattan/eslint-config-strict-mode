@@ -2817,7 +2817,7 @@ packages:
       jest: 27.5.1
       jest-preset-angular: 10.1.0_1628c5f7034aa1611c82070322bc81ab
       jest-specific-snapshot: 4.0.0_jest@27.5.1
-      preact-render-to-string: 5.1.20
+      preact-render-to-string: 5.1.21
       pretty-format: 26.6.2
       react-test-renderer: 17.0.2
       read-pkg-up: 7.0.1
@@ -14535,8 +14535,8 @@ packages:
       source-map: 0.6.1
     dev: true
 
-  /preact-render-to-string/5.1.20:
-    resolution: {integrity: sha512-ivh2oOGzth0o7XqbatWUQ81WQGoJwSqDKP5z917SoqTWYCAr7dlBzMv3SAMTAu3Gr5g47BJwrvyO44H2Y10ubg==}
+  /preact-render-to-string/5.1.21:
+    resolution: {integrity: sha512-wbMtNU4JpfvbE04iCe7BZ1yLYN8i6NRrq+NhR0fUINjPXGu3ZIc4GM5ScOiwdIP1sPXv9SVETuud/tmQGMvdNQ==}
     peerDependencies:
       preact: '>=10'
     dependencies:
