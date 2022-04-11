@@ -17,8 +17,7 @@
   "type": "commonjs",
   "main": "dist/main.js",
   "files": [
-    "dist",
-    "lib"
+    "dist"
   ],
   "scripts": {
     "build": "bash start.sh && task npm:build:tsconfig",
