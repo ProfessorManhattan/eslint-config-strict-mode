@@ -11491,6 +11491,9 @@ packages:
     resolution: {integrity: sha512-mPNV3pKkGlwyq+7UyuDLjm8Ev4zJmkzH46jCwsOy+vsr0t+TvfPcwtVR4x+NIP2lPgYnjIlSPsnRjgkP9y95mQ==}
     peerDependencies:
       puppeteer: '>= 1.5.0'
+    peerDependenciesMeta:
+      puppeteer:
+        optional: true
     dependencies:
       expect-puppeteer: 6.1.0
       jest-environment-puppeteer: 6.0.3
