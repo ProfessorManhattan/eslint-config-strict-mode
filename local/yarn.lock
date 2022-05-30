@@ -3,9 +3,9 @@
 
 
 "@babel/eslint-parser@^7.12.16":
-  version "7.17.0"
-  resolved "7.17.0"
-  integrity sha512-PUEJ7ZBXbRkbq3qqM/jZ2nIuakUBqCYc7Qf52Lj7dlZ6zERnqisdHioL0l4wwQZnmskMeasqUNzLBFKs3nylXA==
+  version "7.18.2"
+  resolved "7.18.2"
+  integrity sha512-oFQYkE8SuH14+uR51JVAmdqwKYXGRjEXx7s+WiagVjqQ+HPE+nnwyF2qlVG8evUsUHmPcA+6YXMEDbIhEyQc5A==
   dependencies:
     eslint-scope "^5.1.1"
     eslint-visitor-keys "^2.1.0"
@@ -19,26 +19,26 @@
     "@babel/helper-plugin-utils" "^7.17.12"
 
 "@babel/plugin-transform-typescript@^7.17.12":
-  version "7.18.1"
-  resolved "7.18.1"
-  integrity sha512-F+RJmL479HJmC0KeqqwEGZMg1P7kWArLGbAKfEi9yPthJyMNjF+DjxFF/halfQvq1Q9GFM4TUbYDNV8xe4Ctqg==
+  version "7.18.4"
+  resolved "7.18.4"
+  integrity sha512-l4vHuSLUajptpHNEOUDEGsnpl9pfRLsN1XUoDQDD/YBuXTM+v37SHGS+c6n4jdcZy96QtuUuSvZYMLSSsjH8Mw==
   dependencies:
     "@babel/helper-create-class-features-plugin" "^7.18.0"
     "@babel/helper-plugin-utils" "^7.17.12"
     "@babel/plugin-syntax-typescript" "^7.17.12"
 
 "@babel/types@^7.0.0":
-  version "7.18.0"
-  resolved "7.18.0"
-  integrity sha512-vhAmLPAiC8j9K2GnsnLPCIH5wCrPpYIVBCWRBFDCB7Y/BXLqi/O+1RSTTM2bsmg6U/551+FCf9PNPxjABmxHTw==
+  version "7.18.4"
+  resolved "7.18.4"
+  integrity sha512-ThN1mBcMq5pG/Vm2IcBmPPfyPXbd8S02rS+OBIDENdufvqC7Z/jHPCv9IcP01277aKtDI8g/2XysBN4hA8niiw==
   dependencies:
     "@babel/helper-validator-identifier" "^7.16.7"
     to-fast-properties "^2.0.0"
 
 "@babel/types@^7.3.0":
-  version "7.18.0"
-  resolved "7.18.0"
-  integrity sha512-vhAmLPAiC8j9K2GnsnLPCIH5wCrPpYIVBCWRBFDCB7Y/BXLqi/O+1RSTTM2bsmg6U/551+FCf9PNPxjABmxHTw==
+  version "7.18.4"
+  resolved "7.18.4"
+  integrity sha512-ThN1mBcMq5pG/Vm2IcBmPPfyPXbd8S02rS+OBIDENdufvqC7Z/jHPCv9IcP01277aKtDI8g/2XysBN4hA8niiw==
   dependencies:
     "@babel/helper-validator-identifier" "^7.16.7"
     to-fast-properties "^2.0.0"
@@ -458,8 +458,8 @@
 
 create-eslint-index@^1.0.0:
   version "1.0.0"
-  resolved "1.0.0#d954372d86d5792fcd67e9f2b791b1ab162411bb"
-  integrity sha1-2VQ3LYbVeS/NZ+nyt5GxqxYkEbs=
+  resolved "1.0.0"
+  integrity sha512-nXvJjnfDytOOaPOonX0h0a1ggMoqrhdekGeZkD6hkcWYvlCWhU719tKFVh8eU04CnMwu3uwe1JjwuUF2C3k2qg==
   dependencies:
     lodash.get "^4.3.0"
 
@@ -651,8 +651,8 @@ eslint-plugin-filenames@^1.3.2:
 
 eslint-plugin-fp@^2.3.0:
   version "2.3.0"
-  resolved "2.3.0#376d2a108710e981980bdc3875e3b9920da0489c"
-  integrity sha1-N20qEIcQ6YGYC9w4deO5kg2gSJw=
+  resolved "2.3.0"
+  integrity sha512-3n2oHibwoIxAht9/+ZaTldhI6brXORgl8oNXqZd+d9xuAQt2SBJ2/aml0oQRMWvXrgsz2WG6wfC++NjzSG3prA==
   dependencies:
     create-eslint-index "^1.0.0"
     eslint-ast-utils "^1.0.0"
@@ -724,8 +724,8 @@ eslint-plugin-import@^2.26.0:
 
 eslint-plugin-jest-async@^1.0.3:
   version "1.0.3"
-  resolved "1.0.3#69196702d8af85655b21a789a6fd75ca0a37800f"
-  integrity sha1-aRlnAtivhWVbIaeJpv11ygo3gA8=
+  resolved "1.0.3"
+  integrity sha512-NgpO6L9IWWgxxqbqvN+mCbGs4MMBsALpvagOFnWJgsQSkyYVmMzYwVe2b4Wpak3sfl8sPK13vnpqsEBNlpyTlQ==
   dependencies:
     requireindex "~1.1.0"
 
@@ -953,8 +953,8 @@ eslint-plugin-sort-keys-fix@^1.1.2:
 
 eslint-plugin-switch-case@^1.1.2:
   version "1.1.2"
-  resolved "1.1.2#a622db0c4c440828526b6f26f000d71e74850032"
-  integrity sha1-piLbDExECChSa28m8ADXHnSFADI=
+  resolved "1.1.2"
+  integrity sha512-mhDdJ6WX5LKv0PccziefBGPhIryJamgd3vTNqhEZUBeTGUeGdsgttwU/68xOViyScwr8RqCwTGC2Pd1cPYGNRg==
   dependencies:
     lodash.last "^3.0.0"
     lodash.zipobject "^4.0.0"
@@ -1044,9 +1044,9 @@ eslint-rule-composer@^0.3.0:
   integrity sha512-bt+Sh8CtDmn2OajxvNO+BX7Wn4CIWMpTRm3MaiKPCQcnnlm0CS2mhui6QaoeQugs+3Kj2ESKEEGJUdVafwhiCg==
 
 eslint-rule-docs@^1.1.5:
-  version "1.1.231"
-  resolved "1.1.231"
-  integrity sha512-egHz9A1WG7b8CS0x1P6P/Rj5FqZOjray/VjpJa14tMZalfRKvpE2ONJ3plCM7+PcinmU4tcmbPLv0VtwzSdLVA==
+  version "1.1.235"
+  resolved "1.1.235"
+  integrity sha512-+TQ+x4JdTnDoFEXXb3fDvfGOwnyNV7duH8fXWTPD1ieaBmB8omj7Gw/pMBBu4uI2uJCCU8APDaQJzWuXnTsH4A==
 
 eslint-scope@^5.1.1:
   version "7.1.1"
@@ -1453,11 +1453,11 @@ prettier-plugin-ini@^0.3.1:
     prettier ">=2.0"
 
 prettier-plugin-java@^1.6.1:
-  version "1.6.1"
-  resolved "1.6.1"
-  integrity sha512-kSY17V/P88nILlILb5iMp16TVJy6Ls9Jy4zAzI4+GsEuRDZH5VqRuLd8aJS1ImWxVgRjNBmoFOjxYyxkRM0SRA==
+  version "1.6.2"
+  resolved "1.6.2"
+  integrity sha512-oVIUOkx50eb9skdRtEIU7MJUsizQ1ZocgXR1w1o8AnieNGpuPI/2pWnpjtbBm9wUG1dHtBGU8cVIr8h+xgzQIg==
   dependencies:
-    java-parser "2.0.1"
+    java-parser "2.0.2"
     lodash "4.17.21"
     prettier "2.3.1"
 
@@ -1574,9 +1574,9 @@ tslib@latest:
   integrity sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ==
 
 typescript@^4.5.5:
-  version "4.6.4"
-  resolved "4.6.4"
-  integrity sha512-9ia/jWHIEbo49HfjrLGfKbZSuWo9iTMwXO+Ca3pRsSpbsMbc7/IU8NKdCZVRRBafVPGnoJeFL76ZOAA84I9fEg==
+  version "4.7.2"
+  resolved "4.7.2"
+  integrity sha512-Mamb1iX2FDUpcTRzltPxgWMKy3fhg0TN378ylbktPGPK/99KbDtMQ4W1hwgsbPAsG3a0xKa1vmw4VKZQbkvz5A==
 
 yaml-eslint-parser@^0.4.0:
   version "0.4.1"
