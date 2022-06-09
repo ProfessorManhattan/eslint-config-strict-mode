@@ -16690,7 +16690,7 @@ packages:
     dev: true
 
   /success-symbol/0.1.0:
-    resolution: {integrity: sha1-JAIuSG878c3KCUKDt2nEctO3KJc=}
+    resolution: {integrity: sha512-7S6uOTxPklNGxOSbDIg4KlVLBQw1UiGVyfCUYgYxrZUKRblUkmGj7r8xlfQoFudvqLv6Ap5gd76/IIFfI9JG2A==}
     engines: {node: '>=0.10.0'}
     dev: true
 
