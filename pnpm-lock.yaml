@@ -143,7 +143,7 @@ devDependencies:
   handlebars-helpers: 0.10.0
   jest-preset-ts: 1.0.1_d10f1975e53e5f55d2063b6c340e13b8
   prettier: 2.7.1
-  prettier-config-sexy-mode: 1.1.4_typescript@4.7.4
+  prettier-config-sexy-mode: 1.1.4_eslint@8.22.0+typescript@4.7.4
   semantic-release-config: 2.3.12
   typescript: 4.7.4
 
@@ -14808,7 +14808,7 @@ packages:
     engines: {node: '>=4'}
     optional: true
 
-  /prettier-config-sexy-mode/1.1.4_typescript@4.7.4:
+  /prettier-config-sexy-mode/1.1.4_eslint@8.22.0+typescript@4.7.4:
     resolution: {integrity: sha512-nJyYCqfZxuz3Lxpm1WkZmAZypi+Avv42wvByCV+lLipkpDG2uTs6Pb2vD7XOXh4s/ZLWfLg6gwlD7Yj2+0ewBg==}
     engines: {node: '>=14.18.0'}
     dependencies:
@@ -14822,7 +14822,7 @@ packages:
       prettier-plugin-java: 1.6.2
       prettier-plugin-jsdoc: 0.3.38_prettier@2.7.1
       prettier-plugin-organize-imports: 2.3.4_prettier@2.7.1+typescript@4.7.4
-      prettier-plugin-package-perfection: 1.0.6
+      prettier-plugin-package-perfection: 1.0.9_eslint@8.22.0
       prettier-plugin-properties: 0.1.0_prettier@2.7.1
       prettier-plugin-sh: 0.7.1_prettier@2.7.1
       prettier-plugin-solidity: 1.0.0-beta.24_prettier@2.7.1
@@ -14830,6 +14830,7 @@ packages:
       prettier-plugin-toml-fixed: 0.3.3
       tslib: 2.4.0
     transitivePeerDependencies:
+      - eslint
       - supports-color
       - typescript
     dev: true
@@ -14911,10 +14912,19 @@ packages:
       typescript: 4.7.4
     dev: true
 
-  /prettier-plugin-package-perfection/1.0.6:
-    resolution: {integrity: sha512-7nxpRYdAdda6xiwrVDYDxcnxPfBu58JJPGtoJOwh2uohE6RfnUJOOjV76woXG8kO+mBptHAQtqoT6lsLRvatqA==}
+  /prettier-plugin-package-perfection/1.0.9_eslint@8.22.0:
+    resolution: {integrity: sha512-9lcAKtNJ6nVEhTe1PQ+76ntBdwAe1FPWUg/7IAN0TA1dcxlYxhNzxMsieqSOyP1OBf+UrF4WIuNhFVOJ1H0aVA==}
+    engines: {node: '>=14.18.0'}
+    peerDependencies:
+      eslint: '*'
+    peerDependenciesMeta:
+      eslint:
+        optional: true
     dependencies:
+      eslint: 8.22.0
+      prettier: 2.7.1
       prettier-package-json: 2.6.0
+      tslib: 2.4.0
     dev: true
 
   /prettier-plugin-properties/0.1.0_prettier@2.7.1:
