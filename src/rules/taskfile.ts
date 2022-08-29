@@ -1,5 +1,7 @@
 export const taskfileRules = {
+  'max-len': 'off',
   'max-lines': 'off',
+  'no-warning-comments': 'warn',
   'unicorn/filename-case': 'off',
   'unicorn/prevent-abbreviations': 'off',
   'yml/sort-keys': [
