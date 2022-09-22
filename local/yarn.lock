@@ -627,19 +627,19 @@ eslint-plugin-fp@^2.3.0:
     req-all "^0.1.0"
 
 eslint-plugin-functional@^4.2.2:
-  version "4.3.2"
-  resolved "4.3.2"
-  integrity sha512-GoR36d/P8/ZG984mGXMIrnCEBSoPC/WgBCh3zH7z7xsvIlvByO4fSexzsuo1ap3HVyKIY7L+gtRohscGBsZ5Fg==
+  version "4.4.0"
+  resolved "4.4.0"
+  integrity sha512-DY/Iax9knIgzvxhVeSe+KoF9e4imLvzCvUEN1a+bWciDiBi3s1CG/1fw7AQVXoAqoNw9eYuP7C2u3OtHzMFy+A==
   dependencies:
     "@typescript-eslint/utils" "^5.10.2"
     deepmerge-ts "^4.0.3"
     escape-string-regexp "^4.0.0"
     semver "^7.3.7"
 
-eslint-plugin-functional@^4.3.2:
-  version "4.3.2"
-  resolved "4.3.2"
-  integrity sha512-GoR36d/P8/ZG984mGXMIrnCEBSoPC/WgBCh3zH7z7xsvIlvByO4fSexzsuo1ap3HVyKIY7L+gtRohscGBsZ5Fg==
+eslint-plugin-functional@^4.4.0:
+  version "4.4.0"
+  resolved "4.4.0"
+  integrity sha512-DY/Iax9knIgzvxhVeSe+KoF9e4imLvzCvUEN1a+bWciDiBi3s1CG/1fw7AQVXoAqoNw9eYuP7C2u3OtHzMFy+A==
   dependencies:
     "@typescript-eslint/utils" "^5.10.2"
     deepmerge-ts "^4.0.3"
