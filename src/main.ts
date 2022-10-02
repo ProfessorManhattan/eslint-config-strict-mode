@@ -11,6 +11,8 @@ import { specRules } from './rules/ts-spec'
 import { tsRules } from './rules/typescript'
 import { yamlRules } from './rules/yaml'
 
+// Properties here assume the project is a project that follows Megabyte Labs boilerplates
+// See: https://gitlab.com/megabyte-labs
 const gitignore = getGitignore()
 const taskfile = acquireProjectType()
 const repoType = taskfile.vars.REPOSITORY_TYPE
@@ -261,12 +263,15 @@ module.exports = {
     {
       files: ['package.json', '**/.vscode/**/*', '**/.config/**/*'],
       rules: {
-        'no-secrets/no-secrets': 'off'
+        'eslint-comments/no-unused-enable': 'off',
+        'no-secrets/no-secrets': 'off',
+        'no-warning-comments': 'off'
       }
     }
   ],
   reportUnusedDisableDirectives: true,
   rules: {
+    'eslint-comments/no-unused-enable': 'warn',
     'fp/no-loops': 'off',
     'fp/no-throw': 'off',
     'max-lines': ['warn', maxLines],
