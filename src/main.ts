@@ -11,8 +11,10 @@ import { specRules } from './rules/ts-spec'
 import { tsRules } from './rules/typescript'
 import { yamlRules } from './rules/yaml'
 
-// Properties here assume the project is a project that follows Megabyte Labs boilerplates
-// See: https://gitlab.com/megabyte-labs
+/*
+ * Properties here assume the project is a project that follows Megabyte Labs boilerplates
+ * See: https://gitlab.com/megabyte-labs
+ */
 const gitignore = getGitignore()
 const taskfile = acquireProjectType()
 const repoType = taskfile.vars.REPOSITORY_TYPE
