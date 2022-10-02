@@ -257,6 +257,12 @@ module.exports = {
         'unicorn/filename-case': 'off',
         'yml/sort-keys': 'off'
       }
+    },
+    {
+      files: ['package.json', '**/.vscode/**/*', '**/.config/**/*'],
+      rules: {
+        'no-secrets/no-secrets': 'off'
+      }
     }
   ],
   reportUnusedDisableDirectives: true,
