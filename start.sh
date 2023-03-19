@@ -9,8 +9,7 @@
 #   ensure that the latest upstream changes are retrieved, that the project is
 #   properly generated with them, and that all the development dependencies are installed.
 #   Documentation on Taskfile.yml syntax can be found [here](https://taskfile.dev/).
-git config url."https://gitlab.com/".insteadOf git@gitlab.com:
-          git config url."https://github.com/".insteadOf git@github.com:
+
 set -eo pipefail
 
 # @description Initialize variables
